@@ -10,9 +10,8 @@ import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
 
 @Controller
-public class AuthController {
-
-
+public class AuthController
+{
     @Autowired
     private UserService userService;
 
@@ -22,8 +21,18 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String register(User user) {
+    public String register(@RequestBody User user) {
         return userService.register(user);
+    }
+
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "/login";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+        return userService.login(user);
     }
 
 }

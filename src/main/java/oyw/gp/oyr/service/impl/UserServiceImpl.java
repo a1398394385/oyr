@@ -1,11 +1,18 @@
 package oyw.gp.oyr.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.mapper.UserMapper;
 import oyw.gp.oyr.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.sql.Wrapper;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * <p>
  * 服务实现类
@@ -17,15 +24,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService
 {
+    @Autowired
+    UserMapper userMapper;
 
-    /**
-     *
-     * @param user
-     * @return
-     */
     @Override
     public String register(User user) {
 
-        return "登录成功";
+        return "success";
     }
+
+    @Override public String login(User user) {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("username", "admin").eq("password", "123456");
+        List<User> users = userMapper.selectList(queryWrapper);
+        if (users.size() == 1){
+            return "success";
+        } else {
+            return "field";
+        }
+    }
+
 }
