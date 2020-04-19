@@ -1,54 +1,82 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../layui/css/layui.css">
-    <title>注册</title>
+    <title>注册框</title>
+
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #34495e;
+        }
+        .form {
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: snow;
+            text-align: center;
+        }
+        .form h1 {
+            color: black;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .form input[type = "text"], .form input[type = "password"] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid#3498db;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: black;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        .form input[type = "text"]:focus, .form input[type = "password"]:focus {
+            width: 280px;
+            border-color: #2ecc71;
+        }
+        .form input[type = "submit"] {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 14px 40px;
+            outline: none;
+            color: black;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+        .form input[type = "submit"]:hover {
+            background: #2ecc71;
+        }
+    </style>
 </head>
 <body>
-<div class="text-aglin:center">
-<form class="layui-from">
-    <div class="layui-form-item" >
-        <label class="layui-form-label">呢称:</label>
-        <div class="layui-input-inline">
-            <input type="text" name="username" required lay-verify="required" placeholder="请输入账户" autocomplete="off"
-                   class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item" >
-        <label class="layui-form-label">手机号:</label>
-        <div class="layui-input-inline">
-            <input type="text" name="telphone" required lay-verify="required" placeholder="请输入手机号" autocomplete="off"
-                   class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item" >
-        <label class="layui-form-label">密码:</label>
-        <div class="layui-input-inline">
-            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
-                   class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item" >
-        <label class="layui-form-label">地址:</label>
-        <div class="layui-input-inline">
-            <input type="text" name="address" required lay-verify="required" placeholder="请输入地址" autocomplete="off"
-                   class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">注册</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-        </div>
-    </div>
-    <div></div>
+
+<form class="form" action="/register" method="post">
+    <h1> 注册</h1>
+    <input type="text" name="" placeholder="请输入呢称">
+    <input type="password" name="" placeholder="请输入密码">
+    <input type="text" name="" placeholder="请输入手机号">
+    <input type="text" name="" placeholder="请输入地址">
+    <input type="submit" name="" value="注册">
 </form>
-</div>
+
+
 </body>
-
-<script type="text/javascript" src="../static/layui/layui.all.js"></script>
-
 </html>
