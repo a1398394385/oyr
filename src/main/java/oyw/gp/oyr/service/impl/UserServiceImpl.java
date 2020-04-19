@@ -33,14 +33,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return "success";
     }
 
-    @Override public String login(User user) {
+    @Override public String login(String username, String password) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("username", "admin").eq("password", "123456");
+        queryWrapper.eq("username", username).eq("password", password);
         List<User> users = userMapper.selectList(queryWrapper);
+        System.out.println(users.size());
         if (users.size() == 1){
-            return "success";
+            return "/register";
         } else {
-            return "field";
+            return "/login";
         }
     }
 

@@ -15,7 +15,7 @@ public interface UserService extends IService<User>
 {
     public String register(User user);
 
-    public String login(User user);
+    public String login(String username, String password);
 }
 
 

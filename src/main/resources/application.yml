@@ -29,7 +29,7 @@ spring:
 
 logging:
   level:
-#    root: warn
+    root: warn
     oyw.gp.oyr.mapper: trace
   pattern:
     console: '%p%m%n'
