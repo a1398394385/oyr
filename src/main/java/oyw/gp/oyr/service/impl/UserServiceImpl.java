@@ -37,7 +37,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", username).eq("password", password);
         List<User> users = userMapper.selectList(queryWrapper);
-        System.out.println(users.size());
         if (users.size() == 1){
             return "/register";
         } else {

@@ -49,7 +49,7 @@ public class User extends Model<User> {
      * 手机号
      */
     @TableField("telphone")
-    private Integer telphone;
+    private Long telphone;
 
     /**
      * 地址

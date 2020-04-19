@@ -3,33 +3,10 @@ spring:
     url: jdbc:mysql://106.14.96.160:3306/oyr
     username: root
     password: xihadajiang
-    druid:
-      enable: true
-      initial-size: 10
-      maxActive: 20
-      maxWait: 60000
-      minIdle: 1
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
-      testOnBorrow: true
-      testOnReturn: false
-      testWhileIdle: true
-      poolPreparedStatements: false # PScache false in MySql
-      maxOpenPreparedStatements: 20
-      validationQuery: SELECT 1
-      validation-query-timeout: 500
-      filters: stat # monitor:stat / log:log4j / Sql-injection:wall
-      stat-view-servlet:
-        enabled: true
-        allow: 0.0.0.0/0
-        url-pattern: /druid/*
-        reset-enable: true
-        login-username: admin
-        login-password: admin
 
 logging:
   level:
-    root: warn
+#    root: warn
     oyw.gp.oyr.mapper: trace
   pattern:
     console: '%p%m%n'
