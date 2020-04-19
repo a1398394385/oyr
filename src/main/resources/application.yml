@@ -30,7 +30,7 @@ spring:
 logging:
   level:
     root: warn
-    com.mp.first.mapper: trace
+    oyw.gp.oyr.mapper: trace
   pattern:
     console: '%p%m%n'
     
