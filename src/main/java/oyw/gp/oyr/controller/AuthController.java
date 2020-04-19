@@ -10,8 +10,9 @@ import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
 
 @Controller
-public class AuthController
-{
+public class AuthController {
+
+
     @Autowired
     private UserService userService;
 
@@ -22,7 +23,7 @@ public class AuthController
 
     @PostMapping("/register")
     public String register(User user) {
-        return  userService.register(user);
+        return userService.register(user);
     }
 
 }

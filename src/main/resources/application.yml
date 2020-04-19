@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/oyr
+    url: jdbc:mysql://106.14.96.160:3306/oyr
     username: root
     password: xihadajiang
     druid:
@@ -29,7 +29,7 @@ spring:
 
 logging:
   level:
-    root: warn
+#    root: warn
     oyw.gp.oyr.mapper: trace
   pattern:
     console: '%p%m%n'

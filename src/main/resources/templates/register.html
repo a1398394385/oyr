@@ -7,25 +7,45 @@
     <link rel="stylesheet" href="../layui/css/layui.css">
     <title>注册</title>
 </head>
+<body>
+<div class="text-aglin:center">
 <form class="layui-from">
-    <div class="layui-form-item layui-col-md3">
-        <label class="layui-form-label">账号:</label>
-        <div class="layui-input-block">
-            <input type="text" name="title" required lay-verify="required" placeholder="请输入账户" autocomplete="off"
-                class="layui-input">
+    <div class="layui-form-item" >
+        <label class="layui-form-label">呢称:</label>
+        <div class="layui-input-inline">
+            <input type="text" name="username" required lay-verify="required" placeholder="请输入账户" autocomplete="off"
+                   class="layui-input">
         </div>
     </div>
-    <div class="layui-form-item layui-col-md3">
+    <div class="layui-form-item" >
+        <label class="layui-form-label">手机号:</label>
+        <div class="layui-input-inline">
+            <input type="text" name="telphone" required lay-verify="required" placeholder="请输入手机号" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item" >
         <label class="layui-form-label">密码:</label>
         <div class="layui-input-inline">
             <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
-                class="layui-input">
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item" >
+        <label class="layui-form-label">地址:</label>
+        <div class="layui-input-inline">
+            <input type="text" name="address" required lay-verify="required" placeholder="请输入地址" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">注册</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
 </form>
-
-<body>
-
+</div>
 </body>
 
 <script type="text/javascript" src="../static/layui/layui.all.js"></script>
