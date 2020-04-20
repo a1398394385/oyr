@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>注册框</title>
+    <title>注册</title>
 
-    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.serializejson.min.js"></script>
 
     <style type="text/css">
         body {
@@ -14,6 +16,7 @@
             font-family: sans-serif;
             background-color: #34495e;
         }
+
         .form {
             width: 300px;
             padding: 40px;
@@ -21,15 +24,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: snow;
+            background-color: #191919;
             text-align: center;
         }
+
         .form h1 {
-            color: black;
+            color: white;
             text-transform: uppercase;
             font-weight: 500;
         }
-        .form input[type = "text"], .form input[type = "password"] {
+
+        .form input[type="text"],
+        .form input[type="password"] {
             border: 0;
             background: none;
             display: block;
@@ -39,15 +45,18 @@
             padding: 14px 10px;
             width: 200px;
             outline: none;
-            color: black;
+            color: white;
             border-radius: 24px;
             transition: 0.25s;
         }
-        .form input[type = "text"]:focus, .form input[type = "password"]:focus {
+
+        .form input[type="text"]:focus,
+        .form input[type="password"]:focus {
             width: 280px;
             border-color: #2ecc71;
         }
-        .form input[type = "submit"] {
+
+        .form input[type="submit"] {
             border: 0;
             background: none;
             display: block;
@@ -56,27 +65,47 @@
             border: 2px solid #2ecc71;
             padding: 14px 40px;
             outline: none;
-            color: black;
+            color: white;
             border-radius: 24px;
             transition: 0.25s;
             cursor: pointer;
         }
-        .form input[type = "submit"]:hover {
+
+        .form input[type="submit"]:hover {
             background: #2ecc71;
         }
     </style>
 </head>
+
 <body>
 
-<form class="form" action="/register" method=post>
-    <h1> 注册</h1>
-    <input type="text" name="username" placeholder="请输入呢称" autocomplete="off">
-    <input type="password" name="password" placeholder="请输入密码">
-    <input type="text" name="telephone" placeholder="请输入手机号">
-    <input type="text" name="address" placeholder="请输入地址">
-    <input type="submit" value="注册">
-</form>
+    <form class="form">
+        <h1> 注册</h1>
+        <input type="text" name="username" placeholder="请输入呢称" autocomplete="off">
+        <input type="password" name="password" placeholder="请输入密码">
+        <input type="text" name="telephone" placeholder="请输入手机号">
+        <input type="text" name="address" placeholder="请输入地址">
+        <input type="submit" value="注册">
+    </form>
 
+    <script>
+        $(function () {
+            $(":submit").click((event) => {
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/user/",
+                    contentType: "application/json;charset=UTF-8",
+                    data: JSON.stringify($('form').serializeJSON()),
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+            })
+        });
+    </script>
 
 </body>
+
 </html>

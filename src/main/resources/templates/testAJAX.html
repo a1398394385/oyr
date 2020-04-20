@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>动态登录框</title>
+    <title>登录</title>
 
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
     <script src="/js/jquery.min.js"></script>
@@ -80,12 +80,10 @@
 <body>
 
     <form class="form">
-        <h1> Login</h1>
-        <input type="text" name="username" placeholder="username">
-        <input type="password" name="password" placeholder="password">
-        <input type="text" name="telephone" placeholder="telephone">
-        <input type="text" name="address" placeholder="address">
-        <input type="submit" id="submit" value="Login">
+        <h1> 登录 </h1>
+        <input type="text" name="username" placeholder="请输入用户名">
+        <input type="password" name="password" placeholder="请输入密码">
+        <input type="submit" name="" value="登录">
     </form>
 
     <script>
@@ -94,7 +92,7 @@
                 event.preventDefault();
                 $.ajax({
                     type: "POST",
-                    url: "/user/",
+                    url: "/login",
                     contentType: "application/json;charset=UTF-8",
                     data: JSON.stringify($('form').serializeJSON()),
                     dataType: "json",
