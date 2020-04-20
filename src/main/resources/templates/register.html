@@ -98,8 +98,11 @@
                     contentType: "application/json;charset=UTF-8",
                     data: JSON.stringify($('form').serializeJSON()),
                     dataType: "json",
-                    success: function (response) {
-                        console.log(response);
+                    success: (response) => {
+                        if (response.status == "success")
+                            window.location.href = '/login';
+                        if (response.status == "filed")
+                            alert(response.message);
                     }
                 });
             })
