@@ -6,7 +6,6 @@ import java.time.ZoneId;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,14 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
 
 /**
- * <p>
- * 前端控制器
- * </p>
- *
  * @author OuYangWei
  * @since 2020-04-19
  */
@@ -40,9 +36,8 @@ public class UserController
      * @return
      */
     @GetMapping("/")
-    public List<User> index() {
-        // 还可以通过@RequestParam从页面中传递参数来进行查询条件或者翻页信息的传递
-        return userService.list();
+    public Response index() {
+        return new Response<>().result(200, userService.list());
     }
 
     /**
@@ -52,9 +47,15 @@ public class UserController
      * @return
      */
     @PostMapping("/")
-    public Boolean create(@RequestBody User user) {
+    public Response create(@RequestBody User user) {
         user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
-        return userService.save(user);
+
+        try {
+            userService.save(user);
+            return new Response<>().result(200);
+        } catch (Exception e) {
+            return new Response<>().error(500, "用户已存在");
+        }
     }
 
     /**
@@ -64,8 +65,14 @@ public class UserController
      * @return
      */
     @GetMapping("/{id}")
-    public User show(@PathVariable Long id) {
-        return userService.getById(id);
+    public Response show(@PathVariable Long id) {
+
+        try {
+            User user = userService.getById(id);
+            return new Response<>().result(200, user);
+        } catch (Exception e) {
+            return new Response<>().error(404, "用户不存在");
+        }
     }
 
     /**

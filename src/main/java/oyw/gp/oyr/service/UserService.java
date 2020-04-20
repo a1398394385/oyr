@@ -1,6 +1,5 @@
 package oyw.gp.oyr.service;
 
-import oyw.gp.oyr.entity.Result;
 import oyw.gp.oyr.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -14,9 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserService extends IService<User>
 {
-    public Result register(User user);
+    // public Result register(User user);
 
     public String login(String username, String password);
 }
-
-

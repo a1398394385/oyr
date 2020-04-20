@@ -1,6 +1,5 @@
 package oyw.gp.oyr.mapper;
 
-import org.apache.ibatis.annotations.*;
 import oyw.gp.oyr.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
