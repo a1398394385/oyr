@@ -25,7 +25,7 @@ CREATE TABLE `user` (
     `id` BIGINT(20) UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主键',
     `username` VARCHAR(30) NOT NULL COMMENT '昵称',
     `password` VARCHAR(60) NOT NULL COMMENT '密码',
-	`telphone` INT(11) UNSIGNED NOT NULL COMMENT '手机号',
+	`telephone` INT(11) UNSIGNED NOT NULL COMMENT '手机号',
     `address` VARCHAR(100) NULL COMMENT '地址',
     `create_time` DATETIME NOT NULL COMMENT '创建时间',
 	PRIMARY KEY (`id`)

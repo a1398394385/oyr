@@ -40,8 +40,9 @@ public class AuthController
     }
 
     @GetMapping("/login")
-    public String showLoginPage() {
-        return "/login";
+    public ModelAndView showLoginPage() {
+        ModelAndView modelAndView = new ModelAndView("/login");
+        return modelAndView;
     }
 
     @PostMapping("/login")

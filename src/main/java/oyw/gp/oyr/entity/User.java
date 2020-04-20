@@ -23,9 +23,10 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("user")
-public class User extends Model<User> {
+public class User extends Model<User>
+{
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键
@@ -48,8 +49,8 @@ public class User extends Model<User> {
     /**
      * 手机号
      */
-    @TableField("telphone")
-    private Long telphone;
+    @TableField("telephone")
+    private String telephone;
 
     /**
      * 地址
@@ -63,16 +64,15 @@ public class User extends Model<User> {
     @TableField("create_time")
     private LocalDateTime createTime;
 
-
     @Override
     protected Serializable pkVal() {
         return this.id;
     }
 
-    public User(String username, String password, Long telphone, String address) {
-        this.username = username;
-        this.password = password;
-        this.telphone = telphone;
-        this.address = address;
+    public User(String username, String password, String telephone, String address) {
+        this.username  = username;
+        this.password  = password;
+        this.telephone = telephone;
+        this.address   = address;
     }
 }

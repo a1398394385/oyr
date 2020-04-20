@@ -8,6 +8,6 @@ public class TestController
 {
     @RequestMapping("/test")
     public String htm() {
-        return "historyHtml";
+        return "/testAJAX";
     }
 }
