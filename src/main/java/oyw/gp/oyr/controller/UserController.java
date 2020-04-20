@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,14 +50,19 @@ public class UserController
      */
     @PostMapping("/")
     public Response create(@RequestBody User user) {
-        user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("telephone", user.getTelephone());
 
-        try {
-            userService.save(user);
-            return new Response<>().result(200);
-        } catch (Exception e) {
-            return new Response<>().error(500, "用户已存在");
+        if (userService.getOne(queryWrapper, false) == null) {
+            user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
+
+            try {
+                userService.save(user);
+                return new Response<>().result(200);
+            } catch (Exception e) {}
         }
+
+        return new Response<>().error(500, "用户已存在");
     }
 
     /**
@@ -83,9 +90,15 @@ public class UserController
      * @return
      */
     @PutMapping("/{id}")
-    public Boolean update(@PathVariable Long id, User user) {
+    public Response update(@PathVariable Long id, User user) {
         user.setId(id);
-        return userService.updateById(user);
+
+        try {
+            userService.updateById(user);
+            return new Response<>().result(200, user);
+        } catch (Exception e) {
+            return new Response<>().error(404, "用户不存在");
+        }
     }
 
     /**

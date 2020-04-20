@@ -8,8 +8,8 @@ logging:
   level:
 #    root: warn
     oyw.gp.oyr.mapper: trace
-  pattern:
-    console: '%p%m%n'
+  # pattern:
+  #   console: '%p%m%n'
     
 server:
   port: 1617
