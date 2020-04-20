@@ -5,25 +5,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+import oyw.gp.oyr.entity.Result;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
-@Controller
+@RestController
 public class AuthController
 {
     @Autowired
     private UserService userService;
 
     @GetMapping("/register")
-    public String showRegisterPage() {
-        return "/register";
+    public ModelAndView showRegisterPage() {
+        ModelAndView modelAndView= new ModelAndView("/register");
+        return modelAndView;
     }
 
+
+    /**
+     *
+     * @param user
+     * @return
+     */
     @PostMapping("/register")
-    public String register(HttpServletRequest request) {
-        User user = new User();
+    public Result register(User user) {
+        user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
         return userService.register(user);
     }
 

@@ -69,4 +69,10 @@ public class User extends Model<User> {
         return this.id;
     }
 
+    public User(String username, String password, Long telphone, String address) {
+        this.username = username;
+        this.password = password;
+        this.telphone = telphone;
+        this.address = address;
+    }
 }
