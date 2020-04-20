@@ -41,13 +41,13 @@ public class AuthController {
     @PostMapping("/login")
     public Response login(@RequestBody User user) {
         HttpSession httpSession = httpServletRequest.getSession();
-        if (userService.login(user)){
+        if (userService.login(user)) {
             httpSession.setAttribute("id", user.getId());
             httpSession.setAttribute("telephone", user.getTelephone());
             httpSession.setAttribute("username", user.getUsername());
-            //System.out.println(httpSession.getId());
+            // System.out.println(httpSession.getId());
             return new Response().result(200);
-        }else {
+        } else {
             return new Response().error(300, "手机号或密码错误!");
         }
     }
