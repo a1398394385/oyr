@@ -81,7 +81,7 @@
 
     <form class="form">
         <h1> 登录 </h1>
-        <input type="text" name="username" placeholder="请输入用户名">
+        <input type="text" name="telephone" placeholder="请输入手机号" autocomplete="off">
         <input type="password" name="password" placeholder="请输入密码">
         <input type="submit" name="" value="登录">
     </form>
@@ -91,7 +91,7 @@
             $(":submit").click((event) => {
                 event.preventDefault();
                 $.ajax({
-                    type: "POST",
+                    type: "post",
                     url: "/login",
                     contentType: "application/json;charset=UTF-8",
                     data: JSON.stringify($('form').serializeJSON()),

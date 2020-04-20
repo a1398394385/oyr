@@ -48,14 +48,14 @@ public class UserController
      */
     @PostMapping("/")
     public Response create(@RequestBody User user) {
-        user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
+            user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
 
-        try {
-            userService.save(user);
-            return new Response<>().result(200);
-        } catch (Exception e) {
-            return new Response<>().error(500, "用户已存在");
-        }
+            try {
+                userService.save(user);
+                return new Response<>().result(200);
+            } catch (Exception e) {
+                return new Response<>().error(500, "用户已存在");
+            }
     }
 
     /**

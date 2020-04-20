@@ -8,6 +8,8 @@ import oyw.gp.oyr.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -23,6 +25,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 {
     @Autowired
     UserMapper userMapper;
+
+
 
     // @Override
     // public Result register(User user) {
@@ -50,15 +54,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     // }
 
     @Override
-    public String login(String username, String password) {
+    public boolean login(User user) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("username", username).eq("password", password);
+        queryWrapper.eq("telephone", user.getTelephone()).eq("password", user.getPassword());
         List<User> users = userMapper.selectList(queryWrapper);
 
         if (users.size() == 1) {
-            return "/register";
+            return true;
         } else {
-            return "/login";
+            return false;
         }
     }
 
