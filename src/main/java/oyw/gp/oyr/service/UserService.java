@@ -15,5 +15,5 @@ public interface UserService extends IService<User>
 {
     // public Result register(User user);
 
-    public String login(String username, String password);
+    public boolean login(User user);
 }
