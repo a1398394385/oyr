@@ -3,16 +3,15 @@ package oyw.gp.oyr.service;
 import oyw.gp.oyr.entity.Phone;
 import com.baomidou.mybatisplus.extension.service.IService;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author OuYangWei
  * @since 2020-04-19
  */
-public interface PhoneService extends IService<Phone> {
+public interface PhoneService extends IService<Phone>
+{
 
 }

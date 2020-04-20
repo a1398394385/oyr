@@ -13,42 +13,24 @@ import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
 
 @RestController
-public class AuthController {
+public class AuthController
+{
     @Autowired
     private UserService userService;
 
     @Autowired
     HttpServletRequest httpServletRequest;
 
-    // @GetMapping("/register")
-    // public ModelAndView showRegisterPage() {
-    // ModelAndView modelAndView = new ModelAndView("/register");
-    // return modelAndView;
-    // }
-
-    // @PostMapping("/register")
-    // public Result register(User user) {
-    // user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
-    // return userService.register(user);
-    // }
-
-    // @GetMapping("/login")
-    // public ModelAndView showLoginPage() {
-    // ModelAndView modelAndView = new ModelAndView("/login");
-    // return modelAndView;
-    // }
-
     @PostMapping("/login")
     public Response login(@RequestBody User user) {
         HttpSession httpSession = httpServletRequest.getSession();
-        if (userService.login(user)){
-            httpSession.setAttribute("id", user.getId());
-            httpSession.setAttribute("telephone", user.getTelephone());
-            httpSession.setAttribute("username", user.getUsername());
-            //System.out.println(httpSession.getId());
-            return new Response().result(200);
-        }else {
+        user = userService.login(user);
+        if (user == null)
             return new Response().error(300, "手机号或密码错误!");
-        }
+
+        httpSession.setAttribute("id", user.getId());
+        httpSession.setAttribute("telephone", user.getTelephone());
+        httpSession.setAttribute("username", user.getUsername());
+        return new Response().result(200);
     }
 }
