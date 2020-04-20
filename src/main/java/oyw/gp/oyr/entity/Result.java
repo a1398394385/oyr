@@ -5,7 +5,8 @@ package oyw.gp.oyr.entity;
  *
  * @param <T> 可变类型
  */
-public class Result<T> {
+public class Result<T>
+{
     /**
      * 返回信息
      */
@@ -45,4 +46,3 @@ public class Result<T> {
         this.detail = detail;
     }
 }
-

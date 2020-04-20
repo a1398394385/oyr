@@ -24,10 +24,9 @@ public class AuthController
 
     @GetMapping("/register")
     public ModelAndView showRegisterPage() {
-        ModelAndView modelAndView= new ModelAndView("/register");
+        ModelAndView modelAndView = new ModelAndView("/register");
         return modelAndView;
     }
-
 
     /**
      *
@@ -47,6 +46,7 @@ public class AuthController
 
     @PostMapping("/login")
     public String login(HttpServletRequest request) {
-        return userService.login(request.getParameter("username"), request.getParameter("password"));
+        return userService.login(request.getParameter("username"),
+                request.getParameter("password"));
     }
 }

@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.mapper.UserMapper;
@@ -28,12 +29,14 @@ public class UserMapperTests
     }
 
     @Test
-    public void testFindUserByName(){
-        //User user = userMapper.findUserByName("admin");
-        LocalDateTime localDateTime = LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai")));
-        /*User user = new User("test", "123456", 12341131L, "sss",localDateTime);
-        userMapper.insertUser(user);
-        System.out.println(user);*/
+    public void testFindUserByName() {
+        // User user = userMapper.findUserByName("admin");
+        LocalDateTime localDateTime = LocalDateTime
+                .now(Clock.system(ZoneId.of("Asia/Shanghai")));
+        /*
+         * User user = new User("test", "123456", 12341131L, "sss",localDateTime);
+         * userMapper.insertUser(user); System.out.println(user);
+         */
     }
 
 }
