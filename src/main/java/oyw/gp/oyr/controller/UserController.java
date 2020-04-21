@@ -91,9 +91,9 @@ public class UserController
      */
     @PutMapping("/{id}")
     public Response update(@PathVariable Long id, User user) {
-        user.setId(id);
 
         try {
+            user.setId(id);
             userService.updateById(user);
             return new Response<>().result(200, user);
         } catch (Exception e) {
@@ -108,7 +108,13 @@ public class UserController
      * @return
      */
     @DeleteMapping("/{id}")
-    public Boolean delete(@PathVariable Long id) {
-        return userService.removeById(id);
+    public Response delete(@PathVariable Long id) {
+
+        try {
+            userService.removeById(id);
+            return new Response<>().result(204);
+        } catch (Exception e) {
+            return new Response<>().error(404, "用户不存在");
+        }
     }
 }
