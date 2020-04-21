@@ -21,14 +21,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
-CREATE TABLE `user` (
-    `id` BIGINT(20) UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主键',
-    `username` VARCHAR(30) NOT NULL COMMENT '昵称',
-    `password` VARCHAR(60) NOT NULL COMMENT '密码',
-	`telephone` INT(11) UNSIGNED NOT NULL COMMENT '手机号',
-    `address` VARCHAR(100) NULL COMMENT '地址',
-    `create_time` DATETIME NOT NULL COMMENT '创建时间',
-	PRIMARY KEY (`id`)
-)  ENGINE=INNODB CHARSET=UTF8 COLLATE = utf8_general_ci;
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `username` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '昵称',
+  `password` varchar(60) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
+  `telephone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号',
+  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
+  `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `telphone`(`telephone`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
