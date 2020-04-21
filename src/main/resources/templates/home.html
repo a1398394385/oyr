@@ -12,41 +12,44 @@
 
 <body>
   <div id="app" class="app Welcome">
-    <div class="header" style="" data-auth="">
+    <!-- LOGIN -->
+    <div class="header" data-auth="">
       <div class="container" data-auth="">
         <ul class="header__nav" data-auth="">
           <li class="nav-item" data-auth="">
-            <span style="display:none;" data-auth="">
-              <div role="tooltip" id="el-popover-6663" aria-hidden="true" class="el-popover el-popper"
-                style="width:90px;display:none;" tabindex="0">
+            <span data-auth="" @click="auth = !auth">
+              <p th:text="${username}"></p>
+              <div role="tooltip" id="el-popover-6663" class="el-popover el-popper" tabindex="0" style="width:90px;"
+                v-if="auth">
                 <div data-auth="">
-                  <a href="/Account/OrderList" class="link" data-auth="">个人中心</a>
-                  <p class="link" data-auth="">退出登录</p>
+                  <a href="#" class="link" data-auth="">个人中心</a>
+                  <p class="link" data-auth="" @click="logout">退出登录</p>
                 </div>
               </div>
               <span data-auth="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
               </span>
             </span>
-            <a href="/login" data-auth="" class="">登录</a>
+            <a href="/login" data-auth="" class="" th:if="${login}">登录</a>
           </li>
-          <li class="nav-item" data-auth="">
-            <span style="display:none;" data-auth=""></span>
+          <li class="nav-item" data-auth="" th:if="${login}">
             <a href="/register" data-auth="" class="">注册</a>
           </li>
         </ul>
       </div>
     </div>
+    <!---->
     <!-- LOGO -->
     <div data-logo="" class="floor-search">
       <div data-logo="" class="container clearfix">
         <div data-logo="" class="logo-wrap">
-          <a data-logo="" href="/" class="router-link-exact-active router-link-active">
+          <a data-logo="" href="/home" class="router-link-exact-active router-link-active">
             <img data-logo="" src="/image/logo.png" class="icon-logo">
           </a>
         </div>
       </div>
     </div>
     <!---->
+    <!-- CONTENT -->
     <div data-container="">
       <div data-home-header="" data-container="" class="floor-process">
         <div data-home-header="" class="container">
@@ -105,135 +108,91 @@
           </div>
           <div data-home-li="" class="floor-body clearfix">
             <ul data-home-li="" class="brand-list">
-              <li data-home-li="" data-branid="-1" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/火热型号图标.png" src="/image/home/机型图标/火热型号图标.png"
-                  lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('1')"
+                :class="['brand-item', {'brand-item--active': brandId == 1}]">
+                <img data-home-li="" src="/image/home/机型图标/华为图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="1" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/华为图标.png" src="/image/home/机型图标/华为图标.png" lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('2')"
+                :class="['brand-item', {'brand-item--active': brandId == 2}]">
+                <img data-home-li="" src="/image/home/机型图标/荣耀图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="8" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/荣耀图标.png" src="/image/home/机型图标/荣耀图标.png" lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('3')"
+                :class="['brand-item', {'brand-item--active': brandId == 3}]">
+                <img data-home-li="" src="/image/home/机型图标/苹果图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="2" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/苹果图标.png" src="/image/home/机型图标/苹果图标.png" lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('4')"
+                :class="['brand-item', {'brand-item--active': brandId == 4}]">
+                <img data-home-li="" src="/image/home/机型图标/小米图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="7" class="brand-item brand-item--active">
-                <img data-home-li="" data-src="/image/home/机型图标/小米图标.png" src="/image/home/机型图标/小米图标.png" lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('5')"
+                :class="['brand-item', {'brand-item--active': brandId == 5}]">
+                <img data-home-li="" src="/image/home/机型图标/OPPO图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="5" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/OPPO图标.png" src="/image/home/机型图标/OPPO图标.png"
-                  lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('6')"
+                :class="['brand-item', {'brand-item--active': brandId == 6}]">
+                <img data-home-li="" src="/image/home/机型图标/三星图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="3" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/三星图标.png" src="/image/home/机型图标/三星图标.png" lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('7')"
+                :class="['brand-item', {'brand-item--active': brandId == 7}]">
+                <img data-home-li="" src="/image/home/机型图标/VIVO图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="9" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/VIVO图标.png" src="/image/home/机型图标/VIVO图标.png"
-                  lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('8')"
+                :class="['brand-item', {'brand-item--active': brandId == 8}]">
+                <img data-home-li="" src="/image/home/机型图标/魅族图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="10" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/魅族图标.png" src="/image/home/机型图标/魅族图标.png" lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('9')"
+                :class="['brand-item', {'brand-item--active': brandId == 9}]">
+                <img data-home-li="" src="/image/home/机型图标/酷派图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="11" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/酷派图标.png" src="/image/home/机型图标/酷派图标.png" lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('10')"
+                :class="['brand-item', {'brand-item--active': brandId == 10}]">
+                <img data-home-li="" src="/image/home/机型图标/金立图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" data-branid="13" class="brand-item">
-                <img data-home-li="" data-src="/image/home/机型图标/金立图标.png" src="/image/home/机型图标/金立图标.png" lazy="loaded">
+              <li data-home-li="" @click="getPhonesData('11')"
+                :class="['brand-item', {'brand-item--active': brandId == 11}]">
+                <img data-home-li="" src="/image/home/机型图标/锤子图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" class="brand-item">
-                <a data-home-li="" href="/1" class="">
-                  <img data-home-li="" data-src="/image/home/机型图标/更多图标.png" src="/image/home/机型图标/更多图标.png"
-                    lazy="loaded">
-                </a>
+              <li data-home-li="" @click="getPhonesData('12')"
+                :class="['brand-item', {'brand-item--active': brandId == 12}]">
+                <img data-home-li="" src="/image/home/机型图标/一加图标.png" lazy="loaded">
               </li>
             </ul>
             <ul data-home-li="" class="product-list">
-              <li data-home-li="" class="product-item"><a data-home-li="" href="/phone/${id}" class="product-link">
-                  <img data-home-li="" alt="小米 10 Pro（5G）" class="product-logo"
-                    data-src="https://s1.home.com/img/phone/901074_1582274761300.jpg"
-                    src="./home/901074_1582274761300.jpg" lazy="loaded">
-                  <h3 data-home-li="" class="product-name">小米 10 Pro（5G）</h3>
+              <li data-home-li="" class="product-item" v-for="phone in phones">
+                <a data-home-li="" :href="'/recycle/' + phone.id" class="product-link">
+                  <img data-home-li="" :alt=phone.model class="product-logo" :src=phone.image lazy="loaded">
+                  <h3 data-home-li="" class="product-name">{{ phone.model }}</h3>
                   <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥3549</p>
-                </a></li>
-              <li data-home-li="" class="product-item"><a data-home-li=""
-                  href="https://www.home.com/evaluate/63900.html" class="product-link">
-                  <img data-home-li="" alt="小米 10（5G）" class="product-logo"
-                    data-src="https://s1.home.com/img/phone/492069_1582275676164.jpg"
-                    src="./home/492069_1582275676164.jpg" lazy="loaded">
-                  <h3 data-home-li="" class="product-name">小米 10（5G）</h3>
-                  <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥3217</p>
-                </a></li>
-              <li data-home-li="" class="product-item"><a data-home-li=""
-                  href="https://www.home.com/evaluate/63997.html" class="product-link">
-                  <img data-home-li="" alt="红米 K30 Pro变焦版（5G）" class="product-logo"
-                    data-src="https://s1.home.com/img/phone/63997_1585385378197.jpg"
-                    src="./home/63997_1585385378197.jpg" lazy="loaded">
-                  <h3 data-home-li="" class="product-name">红米 K30 Pro变焦版（5G）</h3>
-                  <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥2478</p>
-                </a></li>
-              <li data-home-li="" class="product-item"><a data-home-li=""
-                  href="https://www.home.com/evaluate/63395.html" class="product-link">
-                  <img data-home-li="" alt="小米9 Pro （5G）" class="product-logo"
-                    data-src="https://s1.home.com/img/phone/63395_20191106160755_532.jpg"
-                    src="./home/63395_20191106160755_532.jpg" lazy="loaded">
-                  <h3 data-home-li="" class="product-name">小米9 Pro （5G）</h3>
-                  <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥2475</p>
-                </a></li>
-              <li data-home-li="" class="product-item"><a data-home-li=""
-                  href="https://www.home.com/evaluate/63998.html" class="product-link">
-                  <img data-home-li="" alt="红米 K30 Pro（5G）" class="product-logo"
-                    data-src="https://s1.home.com/img/phone/63998_1585385392908.jpg"
-                    src="./home/63998_1585385392908.jpg" lazy="loaded">
-                  <h3 data-home-li="" class="product-name">红米 K30 Pro（5G）</h3>
-                  <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥1982</p>
-                </a></li>
-              <li data-home-li="" class="product-item"><a data-home-li=""
-                  href="https://www.home.com/evaluate/59939.html" class="product-link">
-                  <img data-home-li="" alt="小米 9" class="product-logo"
-                    data-src="https://s1.home.com/img/phone/_20190226161308_421.png"
-                    src="./home/_20190226161308_421.png" lazy="loaded">
-                  <h3 data-home-li="" class="product-name">小米 9</h3>
-                  <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥1435</p>
-                </a></li>
-              <li data-home-li="" class="product-item"><a data-home-li=""
-                  href="https://www.home.com/evaluate/59941.html" class="product-link">
-                  <img data-home-li="" alt="小米 9 透明版" class="product-logo"
-                    data-src="https://s1.home.com/img/phone/59941_20190309142954_799.jpg"
-                    src="./home/59941_20190309142954_799.jpg" lazy="loaded">
-                  <h3 data-home-li="" class="product-name">小米 9 透明版</h3>
-                  <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥1846</p>
-                </a></li>
-              <li data-home-li="" class="product-item"><a data-home-li=""
-                  href="https://www.home.com/evaluate/63724.html" class="product-link">
-                  <img data-home-li="" alt="小米CC9 Pro" class="product-logo"
-                    data-src="https://s1.home.com/img/phone/_20191111161950_643.jpg"
-                    src="./home/_20191111161950_643.jpg" lazy="loaded">
-                  <h3 data-home-li="" class="product-name">小米CC9 Pro</h3>
-                  <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥1948</p>
-                </a></li>
+                  <p data-home-li="" class="product-price">￥{{ phone.price }}</p>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="footer" style="" data-footer="">
+    <!---->
+    <!-- FOOTER -->
+    <div class=" footer" data-footer="">
       <div class="copyright" data-footer="">
         <span data-footer="">
           Copyright © 2019-2020, OuYangWei Tech , All Rights Reserved
         </span>
       </div>
     </div>
+    <!---->
   </div>
+  <script src="/js/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("#login").load("/layout/login");
+      // $("#page2").load("/page/Page_2.html");
+    });
+  </script>
+  <script src="/js/vue.min.js"></script>
+  <script src="/js/axios.js"></script>
+  <script src="/js/home.js"></script>
+
 </body>
 
 </html>
