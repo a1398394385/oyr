@@ -5,13 +5,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- * 服务类
+ *  服务类
  * </p>
  *
  * @author OuYangWei
- * @since 2020-04-19
+ * @since 2020-04-21
  */
-public interface PhoneService extends IService<Phone>
-{
+public interface PhoneService extends IService<Phone> {
 
 }

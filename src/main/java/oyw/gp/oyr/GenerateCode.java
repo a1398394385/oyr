@@ -69,7 +69,7 @@ public class GenerateCode
         /* 数据源配置 */
         DataSourceConfig dsConfig = new DataSourceConfig();
         dsConfig.setDbType(DbType.MYSQL)
-                .setUrl("jdbc:mysql://localhost:3306/oyr?serverTimezone=UTC")
+                .setUrl("jdbc:mysql://106.14.96.160:3306/oyr?serverTimezone=UTC")
                 .setDriverName("com.mysql.cj.jdbc.Driver")
                 .setUsername("root")
                 .setPassword("xihadajiang");

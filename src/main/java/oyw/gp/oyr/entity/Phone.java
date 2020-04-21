@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author OuYangWei
- * @since 2020-04-19
+ * @since 2020-04-21
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -32,6 +32,12 @@ public class Phone extends Model<Phone> {
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+
+    /**
+     * 品牌
+     */
+    @TableField("brand")
+    private String brand;
 
     /**
      * 型号

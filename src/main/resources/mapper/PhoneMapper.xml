@@ -5,6 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="oyw.gp.oyr.entity.Phone">
         <id column="id" property="id" />
+        <result column="brand" property="brand" />
         <result column="model" property="model" />
         <result column="color" property="color" />
         <result column="storage" property="storage" />
@@ -14,7 +15,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, model, color, storage, price, image
+        id, brand, model, color, storage, price, image
     </sql>
 
 </mapper>
