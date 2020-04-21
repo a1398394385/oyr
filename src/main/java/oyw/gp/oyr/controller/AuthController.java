@@ -23,14 +23,21 @@ public class AuthController
 
     @PostMapping("/login")
     public Response login(@RequestBody User user) {
-        HttpSession httpSession = httpServletRequest.getSession();
         user = userService.login(user);
         if (user == null)
             return new Response().error(300, "手机号或密码错误!");
-
+        HttpSession httpSession = httpServletRequest.getSession(true);
         httpSession.setAttribute("id", user.getId());
         httpSession.setAttribute("telephone", user.getTelephone());
         httpSession.setAttribute("username", user.getUsername());
         return new Response().result(200);
     }
+
+    @PostMapping(value = "/logout")
+    public Response logout() {
+        HttpSession httpSession = httpServletRequest.getSession(false);
+        httpSession.invalidate();
+        return new Response<>().result(200, "登出成功");
+    }
+
 }
