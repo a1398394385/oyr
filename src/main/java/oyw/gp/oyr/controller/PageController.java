@@ -3,11 +3,13 @@ package oyw.gp.oyr.controller;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import oyw.gp.oyr.entity.Auth;
 
 @Controller
 public class PageController
@@ -15,13 +17,17 @@ public class PageController
     @Autowired
     HttpServletRequest httpServletRequest;
 
-    @GetMapping("/home")
+    @GetMapping(value = { "/", "/home" })
     public String home(HashMap<String, Object> map) {
-        HttpSession session = httpServletRequest.getSession();
-        map.put("id", session.getAttribute("id"));
-        map.put("telephone", session.getAttribute("telephone"));
-        map.put("username", session.getAttribute("username"));
+        map.putAll(new Auth(httpServletRequest).getSession());
+        System.out.println(map);
         return "/home";
+    }
+
+    @GetMapping("/recycle/{id}")
+    public String recycle(HashMap<String, Object> map, @PathVariable Long id) {
+        map.putAll(new Auth(httpServletRequest).getSession());
+        return "/recycle";
     }
 
     @GetMapping("/register")
@@ -33,5 +39,4 @@ public class PageController
     public String login() {
         return "/login";
     }
-
 }
