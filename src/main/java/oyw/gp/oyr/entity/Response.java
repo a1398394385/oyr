@@ -3,8 +3,7 @@ package oyw.gp.oyr.entity;
 import lombok.Data;
 
 @Data
-public class Response<T>
-{
+public class Response<T> {
     /**
      * success / filed
      */
