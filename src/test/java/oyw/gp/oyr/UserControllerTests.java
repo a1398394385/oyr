@@ -21,7 +21,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import oyw.gp.oyr.controller.UserController;
-import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
 
