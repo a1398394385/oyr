@@ -23,9 +23,10 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("phone")
-public class Phone extends Model<Phone> {
+public class Phone extends Model<Phone>
+{
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键
@@ -37,7 +38,7 @@ public class Phone extends Model<Phone> {
      * 品牌
      */
     @TableField("brand")
-    private String brand;
+    private int brand;
 
     /**
      * 型号
@@ -68,7 +69,6 @@ public class Phone extends Model<Phone> {
      */
     @TableField("image")
     private String image;
-
 
     @Override
     protected Serializable pkVal() {
