@@ -13,8 +13,7 @@ import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
 
 @RestController
-public class AuthController
-{
+public class AuthController {
     @Autowired
     private UserService userService;
 
