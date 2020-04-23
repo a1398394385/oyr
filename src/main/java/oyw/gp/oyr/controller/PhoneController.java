@@ -31,8 +31,8 @@ public class PhoneController
     public Response getPhonesByBrand(@PathVariable int brand) {
         List<Phone> phones = phoneService.getPhonesByBrand(brand);
         if (phones == null)
-            return new Response<>().error(400, "手机品牌不存在");
-        return new Response<>().result(200, phones);
+            return Response.error(400, "手机品牌不存在");
+        return Response.result(200, phones);
     }
 
     @GetMapping("/{id}")
@@ -40,9 +40,9 @@ public class PhoneController
 
         try {
             Phone phone = phoneService.getById(id);
-            return new Response<>().result(200, phone);
+            return Response.result(200, phone);
         } catch (Exception e) {
-            return new Response<>().error(404, "手机型号不存在");
+            return Response.error(404, "手机型号不存在");
         }
     }
 }

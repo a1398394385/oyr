@@ -38,7 +38,7 @@ public class UserController
      */
     @GetMapping("/")
     public Response index() {
-        return new Response<>().result(200, userService.list());
+        return Response.result(200, userService.list());
     }
 
     /**
@@ -57,11 +57,11 @@ public class UserController
 
             try {
                 userService.save(user);
-                return new Response<>().result(200);
+                return Response.result(200);
             } catch (Exception e) {}
         }
 
-        return new Response<>().error(500, "用户已存在");
+        return Response.error(500, "用户已存在");
     }
 
     /**
@@ -75,9 +75,9 @@ public class UserController
 
         try {
             User user = userService.getById(id);
-            return new Response<>().result(200, user);
+            return Response.result(200, user);
         } catch (Exception e) {
-            return new Response<>().error(404, "用户不存在");
+            return Response.error(404, "用户不存在");
         }
     }
 
@@ -94,9 +94,9 @@ public class UserController
         try {
             user.setId(id);
             userService.updateById(user);
-            return new Response<>().result(200, user);
+            return Response.result(200, user);
         } catch (Exception e) {
-            return new Response<>().error(404, "用户不存在");
+            return Response.error(404, "用户不存在");
         }
     }
 
@@ -111,9 +111,9 @@ public class UserController
 
         try {
             userService.removeById(id);
-            return new Response<>().result(204);
+            return Response.result(204);
         } catch (Exception e) {
-            return new Response<>().error(404, "用户不存在");
+            return Response.error(404, "用户不存在");
         }
     }
 }
