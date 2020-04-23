@@ -20,7 +20,6 @@ public class PageController
     @GetMapping(value = { "/", "/home" })
     public String home(HashMap<String, Object> map) {
         map.putAll(new Auth(httpServletRequest).getSession());
-        System.out.println(map);
         return "/home";
     }
 
