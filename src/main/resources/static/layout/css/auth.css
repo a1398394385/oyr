@@ -1,64 +1,72 @@
- body {
+body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #34495e;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-image: url("/image/banner-login.png");
 }
 
 .form {
-    width: 300px;
+    width: 500px;
     padding: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #191919;
+    background-color: #fff;
     text-align: center;
 }
 
 .form h1 {
-    color: white;
+    color: black;
     text-transform: uppercase;
     font-weight: 500;
 }
 
 .form input[type="text"],
+.form input[type="tel"],
 .form input[type="password"] {
-    border: 0;
-    background: none;
     display: block;
+    text-align: left;
+    width: 300px;
     margin: 20px auto;
-    text-align: center;
-    border: 2px solid#3498db;
     padding: 14px 10px;
-    width: 200px;
+    border: 1px solid #C0C9DC;
+    background: none;
+    color: #C0C9DC;
+    border-radius: 5px;
     outline: none;
-    color: white;
-    border-radius: 24px;
     transition: 0.25s;
 }
 
+
 .form input[type="text"]:focus,
+.form input[type="tel"]:focus,
 .form input[type="password"]:focus {
-    width: 280px;
-    border-color: #2ecc71;
+    color: black;
+    border: 1px solid #0080FF;
+}
+
+.form .isBad {
+    border: 1px solid red;
 }
 
 .form input[type="submit"] {
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    width: 300px;
+    margin: 20px auto;
+    padding: 14px 40px;
     border: 0;
     background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
+    background-color: #FABE00;
     color: white;
-    border-radius: 24px;
-    transition: 0.25s;
+    border-radius: 5px;
+    outline: none;
     cursor: pointer;
-}
-
-.form input[type="submit"]:hover {
-    background: #2ecc71;
 }

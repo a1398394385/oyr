@@ -11,33 +11,17 @@
 
     <form class="form">
         <h1> 登录 </h1>
-        <input type="text" name="telephone" placeholder="请输入手机号" autocomplete="off">
-        <input type="password" name="password" placeholder="请输入密码">
-        <input type="submit" name="" value="登录">
+        <input type="tel" name="telephone" v-model="telephone" :style="telephoneStyle" autocomplete="off"
+            placeholder="请输入手机号">
+        <input type="password" name="password" v-model="password" :style="passwordStyle" placeholder="请输入密码">
+        <input type="submit" value="登录" :style="disabledStyle" :disabled="disabled">
     </form>
 
+    <script src="/public/js/vue.js"></script>
+    <!-- <script src="/public/js/vue.min.js"></script> -->
     <script src="/public/js/jquery.min.js"></script>
     <script src="/public/js/jquery.serializejson.min.js"></script>
-    <script>
-        $(function () {
-            $(":submit").click((event) => {
-                event.preventDefault();
-                $.ajax({
-                    type: "post",
-                    url: "/login",
-                    contentType: "application/json;charset=UTF-8",
-                    data: JSON.stringify($('form').serializeJSON()),
-                    dataType: "json",
-                    success: (response) => {
-                        if (response.status == "success")
-                            window.location.href = '/home';
-                        if (response.status == "filed")
-                            alert(response.message);
-                    }
-                });
-            })
-        });
-    </script>
+    <script src="/layout/js/login.js"></script>
 
 </body>
 

@@ -11,35 +11,20 @@
 
     <form class="form">
         <h1> 注册</h1>
-        <input type="text" name="username" placeholder="请输入呢称" autocomplete="off">
-        <input type="password" name="password" placeholder="请输入密码">
-        <input type="text" name="telephone" placeholder="请输入手机号">
-        <input type="text" name="address" placeholder="请输入地址">
-        <input type="submit" value="注册">
+        <input type="text" name="username" v-model="username" :style="usernameStyle" autocomplete="off"
+            placeholder="请输入呢称">
+        <input type="tel" name="telephone" v-model="telephone" :style="telephoneStyle" placeholder="请输入手机号">
+        <input type="password" name="password" v-model="password" :style="passwordStyle" placeholder="请输入密码">
+        <input type="text" name="address" v-model="address" :style="addressStyle" placeholder="请输入地址">
+        <input type="submit" value="注册" :style="disabledStyle" :disabled="disabled">
     </form>
 
+    <script src="/public/js/vue.js"></script>
+    <!-- <script src="/public/js/vue.min.js"></script> -->
     <script src="/public/js/jquery.min.js"></script>
     <script src="/public/js/jquery.serializejson.min.js"></script>
-    <script>
-        $(function () {
-            $(":submit").click((event) => {
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "/user/",
-                    contentType: "application/json;charset=UTF-8",
-                    data: JSON.stringify($('form').serializeJSON()),
-                    dataType: "json",
-                    success: (response) => {
-                        if (response.status == "success")
-                            window.location.href = '/login';
-                        if (response.status == "filed")
-                            alert(response.message);
-                    }
-                });
-            })
-        });
-    </script>
+    <script src="/layout/js/register.js"></script>
+
 
 </body>
 
