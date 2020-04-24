@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>账户管理</title>
+  <link rel="stylesheet" href="/public/css/app.css">
+  <style>
+    .isNone {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="app AccountManage">
+    <!-- LOGIN -->
+    <div class="header" data-v-d38c587a="">
+      <div class="container" data-v-d38c587a="">
+        <ul class="header__nav" data-v-d38c587a="">
+          <li class="nav-item" data-v-d38c587a="">
+            <span data-v-d38c587a="" @click="auth = !auth">
+              <p th:text="${username}"></p>
+              <div role="tooltip" id="el-popover-6663" class="el-popover el-popper" tabindex="0" style="width:90px;"
+                v-if="auth">
+                <div data-v-d38c587a="">
+                  <a href="#" class="link" data-v-d38c587a="">个人中心</a>
+                  <p class="link" data-v-d38c587a="" @click="logout">退出登录</p>
+                </div>
+              </div>
+              <span data-v-d38c587a="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
+              </span>
+            </span>
+            <a href="/login" data-v-d38c587a="" class="" th:if="${login}">登录</a>
+          </li>
+          <li class="nav-item" data-v-d38c587a="" th:if="${login}">
+            <a href="/register" data-v-d38c587a="" class="">注册</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!---->
+    <!-- LOGO -->
+    <div data-v-1c2885a2="" class="floor-search">
+      <div data-v-1c2885a2="" class="container clearfix">
+        <div data-v-1c2885a2="" class="logo-wrap">
+          <a data-v-1c2885a2="" href="/home" class="router-link-exact-active router-link-active">
+            <img data-v-1c2885a2="" src="/image/logo.png" class="icon-logo">
+          </a>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <div data-v-440a37e6="" class="page-account">
+      <!-- Header -->
+      <div data-v-440a37e6="" class="container">
+        <div data-v-440a37e6="" aria-label="Breadcrumb" role="navigation" class="el-breadcrumb hsb-breadcrumb">
+          <span data-v-440a37e6="" class="el-breadcrumb__item">
+            <span role="link" class="el-breadcrumb__inner is-link">
+              <a href="/home">首页</a>
+            </span>
+            <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
+          </span>
+          <!---->
+          <span data-v-440a37e6="" class="el-breadcrumb__item" aria-current="page">
+            <span role="link" class="el-breadcrumb__inner">账户管理</span>
+            <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
+          </span>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      <div data-v-440a37e6="" class="container">
+        <div data-v-440a37e6="" class="side">
+          <!-- Sidebar -->
+          <div data-v-440a37e6="" class="panel">
+            <h3 data-v-440a37e6="" class="panel-hd">我的账户</h3>
+            <div data-v-440a37e6="" class="panel-bd">
+              <a data-v-440a37e6="" href="#" class="link" :class="{'is-active': account}">
+                <span data-v-440a37e6="" @click="account = true">账户管理</span>
+              </a>
+              <a data-v-440a37e6="" href="#" class="link" :class="{'is-active': !account}">
+                <span data-v-440a37e6="" @click="account = false">我的订单</span>
+              </a>
+            </div>
+          </div>
+          <!---->
+          <!-- Address -->
+          <div data-v-440a37e6="" class="panel">
+            <h3 data-v-440a37e6="" class="panel-hd">手机回收邮寄地址</h3>
+            <div data-v-440a37e6="" class="panel-bd">
+              <p data-v-440a37e6="">江西省 吉安市 万安县（XXX收）</p>
+              <p data-v-440a37e6="">Tel: 182XXXXXXXX</p>
+            </div>
+          </div>
+          <!------->
+        </div>
+        <!-- 账户管理 -->
+        <div data-v-440a37e6="" class="main" :class="{'isNone': !account}">
+          <div data-v-440a37e6="" class="main-inner">
+            <h3 data-v-440a37e6="" class="title">账户管理</h3>
+            <div data-v-7876d6a6="" data-v-440a37e6="" class="manage">
+              <ul data-v-7876d6a6="" class="list">
+                <li data-v-7876d6a6="" class="item">
+                  <span data-v-7876d6a6="" class="item__hd">手机号码</span>
+                  <span data-v-7876d6a6="" class="item__bd">153****8355</span>
+                  <span data-v-7876d6a6="" class="item__ft">修改</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!------>
+        <!-- 我的订单 -->
+        <div data-v-440a37e6="" class="main" :class="{'isNone': account}">
+          <div data-v-440a37e6="" class="main-inner">
+            <h3 data-v-440a37e6="" class="title">我的订单</h3>
+            <div data-v-6da94472="" data-v-440a37e6="" class="order-list-wrap">
+              <div data-v-6da94472="" class="no-order">您还未下过订单!</div>
+              <div data-v-6da94472="" class="backdrop" style="z-index: 999; display: none;"></div>
+            </div>
+          </div>
+        </div>
+        <!---->
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer" data-v-36c58fd8="">
+      <div class="copyright" data-v-36c58fd8="">
+        <span data-v-36c58fd8="">
+          Copyright © 2019-2020, OuYangWei Tech , All Rights Reserved
+        </span>
+      </div>
+    </div>
+    <!---->
+  </div>
+
+
+
+  <script src="/public/js/vue.min.js"></script>
+  <script src="/public/js/axios.js"></script>
+  <script src="/layout/js/account.js"></script>
+</body>
+
+</html>
