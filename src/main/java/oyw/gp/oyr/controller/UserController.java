@@ -26,8 +26,7 @@ import oyw.gp.oyr.service.UserService;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController
-{
+public class UserController {
     @Autowired
     UserService userService;
 
@@ -58,7 +57,8 @@ public class UserController
             try {
                 userService.save(user);
                 return Response.result(200);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
         }
 
         return Response.error(500, "用户已存在");
