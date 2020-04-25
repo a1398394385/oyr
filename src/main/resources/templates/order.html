@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>提交订单</title>
+  <link rel="stylesheet" href="/public/css/app.css">
+</head>
+
+<body>
+  <div id="app" class="app InitOrder">
+    <!-- LOGO -->
+    <div data-v-00b281d0="" class="recyle-process">
+      <div data-v-00b281d0="" class="container clearfix">
+        <div data-v-00b281d0="" class="logo-wrap">
+          <a data-v-00b281d0="" href="/home" class="router-link-active">
+            <img data-v-00b281d0="" src="/image/logo.png" class="icon-logo">
+          </a>
+        </div>
+
+        <ul data-v-00b281d0="" class="grid-list fr">
+          <li data-v-00b281d0="" class="grid-item">
+            <span data-v-00b281d0="" class="grid-item__label">1</span>
+            <span data-v-00b281d0="" class="grid-item__text">机况评估</span>
+            <div data-v-f237f00c="" data-v-00b281d0="" class="process-dots clearfix process-dots">
+              <span data-v-f237f00c="" class="process-dot"></span>
+              <span data-v-f237f00c="" class="process-dot"></span>
+              <span data-v-f237f00c="" class="process-dot"></span>
+            </div>
+          </li>
+          <li data-v-00b281d0="" class="grid-item">
+            <span data-v-00b281d0="" class="grid-item__label">2</span>
+            <span data-v-00b281d0="" class="grid-item__text">获得报价</span>
+            <div data-v-f237f00c="" data-v-00b281d0="" class="process-dots clearfix process-dots">
+              <span data-v-f237f00c="" class="process-dot"></span>
+              <span data-v-f237f00c="" class="process-dot"></span>
+              <span data-v-f237f00c="" class="process-dot"></span>
+            </div>
+          </li>
+          <li data-v-00b281d0="" class="grid-item">
+            <span data-v-00b281d0="" class="grid-item__label">3</span>
+            <span data-v-00b281d0="" class="grid-item__text">提交订单</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!---->
+
+    <section data-v-1da5da4b="" class="container">
+      <!-- 面包屑导航 -->
+      <div data-v-1da5da4b="" class="floor-breadcrumb">
+        <div data-v-1da5da4b="" aria-label="Breadcrumb" role="navigation" class="el-breadcrumb hsb-breadcrumb">
+          <span data-v-1da5da4b="" class="el-breadcrumb__item">
+            <span role="link" class="el-breadcrumb__inner is-link">首页</span>
+            <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
+          </span>
+          <span data-v-1da5da4b="" class="el-breadcrumb__item">
+            <span role="link" class="el-breadcrumb__inner">
+              <span data-v-1da5da4b="" class="custom-link">机况评估</span>
+            </span>
+            <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
+          </span>
+          <span data-v-1da5da4b="" class="el-breadcrumb__item">
+            <span role="link" class="el-breadcrumb__inner">
+              <span data-v-1da5da4b="" class="custom-link">获得报价</span>
+            </span>
+            <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
+          </span>
+          <span data-v-1da5da4b="" class="el-breadcrumb__item" aria-current="page">
+            <span role="link" class="el-breadcrumb__inner">填写下单信息</span>
+            <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+      <!---->
+
+      <!-- 左侧表单 -->
+      <form data-v-1da5da4b="" class="el-form order-form el-form--label-top">
+        <!-- 回收方式 -->
+        <div data-v-1da5da4b="" class="el-form-item card-form-item recycle-types">
+          <label class="el-form-item__label">回收方式</label>
+          <div class="el-form-item__content">
+            <label data-v-1da5da4b="" class="hsb-radio text-center vivo-radio pc-type-radio recycle-type is-checked"
+              data-type="1">
+              <span class="hsb-radio__input is-checked">
+                <span class="hsb-radio__inner"></span>
+                <input type="radio" tabindex="-1" class="hsb-radio__original" value="1">
+              </span>
+              <span class="hsb-radio__label">
+                <img data-v-1da5da4b="" src="/image/order/shunfeng.png" class="icon-bg">
+                <div data-v-1da5da4b="" class="content">
+                  <p data-v-1da5da4b="">顺丰上门</p>
+                  <p data-v-1da5da4b="" class="text-muted text-sz-descript">免费</p>
+                </div>
+                <i data-v-1da5da4b="" class="icon hidden-xs"></i>
+              </span>
+            </label>
+            <label data-v-1da5da4b="" class="hsb-radio text-center vivo-radio pc-type-radio recycle-type" data-type="2">
+              <span class="hsb-radio__input">
+                <span class="hsb-radio__inner"></span>
+                <input type="radio" tabindex="-1" class="hsb-radio__original" value="2">
+              </span>
+              <span class="hsb-radio__label">
+                <img data-v-1da5da4b="" src="/image/order/shangmen.png" class="icon-bg">
+                <div data-v-1da5da4b="" class="content">
+                  <p data-v-1da5da4b="">上门质检回收</p>
+                  <p data-v-1da5da4b="" class="text-muted text-sz-descript">当面收款</p>
+                </div>
+                <i data-v-1da5da4b="" class="icon hidden-xs"></i>
+              </span>
+            </label>
+          </div>
+        </div>
+        <!---->
+
+        <!-- 个人信息 -->
+        <div data-v-59460bfa="" data-v-1da5da4b="">
+          <div data-v-59460bfa="" class="el-form-item bg-white form-item-card card-form-item--contact">
+            <label class="el-form-item__label">个人信息</label>
+            <div class="el-form-item__content">
+              <div data-v-59460bfa="" class="clearfix field-item">
+                <p data-v-59460bfa="" class="vivo-form-item-lable text-muted">联系姓名</p>
+                <div data-v-59460bfa="" class="el-form-item is-required">
+                  <div class="el-form-item__content">
+                    <div data-v-59460bfa="" class="el-input">
+                      <input autocomplete="off" placeholder="输入您的姓名" type="text" rows="2" validateevent="true"
+                        pretabindex="0" class="el-input__inner">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-v-59460bfa="" class="clearfix field-item">
+                <span data-v-59460bfa="" class="vivo-form-item-lable text-muted">联系电话</span>
+                <div data-v-59460bfa="" class="el-form-item">
+                  <div class="el-form-item__content">
+                    <div data-v-59460bfa="" class="el-input">
+                      <input autocomplete="off" placeholder="手机号码" type="text" rows="2" validateevent="true"
+                        pretabindex="0" class="el-input__inner">
+                    </div>
+                    <button data-v-59460bfa="" class="right-button hsb-button--default hsb-button--normal hsb-button"
+                      type="button">
+                      <label class="hsb-button-text">获取验证码</label>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div data-v-59460bfa="" class="clearfix field-item">
+                <span data-v-59460bfa="" class="vivo-form-item-lable text-muted">验证码</span>
+                <div data-v-59460bfa="" class="el-form-item">
+                  <div class="el-form-item__content">
+                    <div data-v-59460bfa="" class="el-input">
+                      <input autocomplete="off" placeholder="请输入短信验证码" type="text" rows="2" validateevent="true"
+                        pretabindex="0" class="el-input__inner">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 图形验证码弹出层 -->
+          <div data-v-a0be9a20="" data-v-59460bfa="" class="mask" style="display: none;">
+            <div data-v-a0be9a20="" class="content">
+              <div data-v-a0be9a20="" class="hd">
+                <span data-v-a0be9a20="">请输入验证码</span>
+                <img data-v-a0be9a20="" src="/image/order/close.png">
+              </div>
+              <div data-v-a0be9a20="" class="bd">
+                <input data-v-a0be9a20="" placeholder="输入验证码" class="input">
+                <!-- 图形验证码 -->
+                <img data-v-a0be9a20="" src="" class="code-img" style="display: none;">
+              </div>
+              <div data-v-a0be9a20="" class="ft">
+                <button data-v-a0be9a20="" class="button hsb-button--primary hsb-button--large hsb-button"
+                  type="button">
+                  <label class="hsb-button-text">提交</label>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+
+        <!-- 地址信息 -->
+        <div data-v-1da5da4b="" class="el-form-item bg-white form-item-card"><label
+            class="el-form-item__label">地址信息</label>
+          <div class="el-form-item__content"><span data-v-1da5da4b=""
+              class="vivo-form-item-lable fl text-muted">取件地址</span>
+            <!---->
+            <div data-v-1da5da4b="" class="el-form-item fl is-success is-required">
+              <!---->
+              <div class="el-form-item__content">
+                <div data-v-1da5da4b="" class="cascader-wrapper is-title-mode">
+                  <div class="cascader-input el-input el-input--suffix">
+                    <!----> <input autocomplete="off" placeholder="取件地址（省/市/区）" name="selectedSFCity"
+                      readonly="readonly" type="text" rows="2" validateevent="true" suffixicon="el-icon-arrow-down"
+                      pretabindex="0" class="el-input__inner">
+                    <!----> <span class="el-input__suffix"><span class="el-input__suffix-inner"> <i
+                          class="el-input__icon el-icon-arrow-down"></i></span> <i
+                        class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
+                    <!---->
+                  </div>
+                  <!---->
+                  <div><span>
+                      <div role="tooltip" id="el-popover-9300" aria-hidden="true" class="el-popover el-popper"
+                        style="transform-origin: center top; z-index: 2003; display: none;">
+                        <!---->
+                        <!---->
+                        <header class="cascader-menu">
+                          <ul class="cascader-wapper clearfix">
+                            <li class="menu-item">省</li>
+                            <li class="menu-item">市</li>
+                            <li class="menu-item is-active">区</li>
+                          </ul>
+                        </header>
+                        <ul class="cascader-list">
+                          <!---->
+                          <li class="cascader-list-item is-active">
+                            东城区
+                          </li>
+                          <li class="cascader-list-item">
+                            西城区
+                          </li>
+                          <li class="cascader-list-item">
+                            朝阳区
+                          </li>
+                          <li class="cascader-list-item">
+                            丰台区
+                          </li>
+                          <li class="cascader-list-item">
+                            石景山区
+                          </li>
+                          <li class="cascader-list-item">
+                            海淀区
+                          </li>
+                          <li class="cascader-list-item">
+                            门头沟区
+                          </li>
+                          <li class="cascader-list-item">
+                            房山区
+                          </li>
+                          <li class="cascader-list-item">
+                            通州区
+                          </li>
+                          <li class="cascader-list-item">
+                            顺义区
+                          </li>
+                          <li class="cascader-list-item">
+                            昌平区
+                          </li>
+                          <li class="cascader-list-item">
+                            大兴区
+                          </li>
+                          <li class="cascader-list-item">
+                            怀柔区
+                          </li>
+                          <li class="cascader-list-item">
+                            平谷区
+                          </li>
+                          <li class="cascader-list-item">
+                            密云区
+                          </li>
+                          <li class="cascader-list-item">
+                            延庆区
+                          </li>
+                        </ul>
+                      </div>
+                    </span></div>
+                </div>
+                <!---->
+              </div>
+            </div>
+            <div data-v-1da5da4b="" class="el-form-item fl is-success is-required">
+              <!---->
+              <div class="el-form-item__content">
+                <div data-v-1da5da4b="" class="el-input">
+                  <!----> <input autocomplete="off" placeholder="填写您的详细地址，详细到门牌号" type="text" rows="2"
+                    validateevent="true" pretabindex="0" class="el-input__inner">
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <div data-v-1da5da4b="" class="fl clearfix mt-base"><span data-v-1da5da4b=""
+                class="vivo-form-item-lable fl text-muted"> 交易时间</span>
+              <div data-v-1da5da4b="" class="el-form-item fl is-success is-required">
+                <!---->
+                <div class="el-form-item__content">
+                  <div data-v-1da5da4b="" class="cascader-wrapper is-title-mode">
+                    <div class="cascader-input el-input el-input--suffix">
+                      <!----> <input autocomplete="off" placeholder="选择上门时间" name="sftime" readonly="readonly"
+                        type="text" rows="2" validateevent="true" suffixicon="el-icon-arrow-down" pretabindex="0"
+                        class="el-input__inner">
+                      <!----> <span class="el-input__suffix"><span class="el-input__suffix-inner"> <i
+                            class="el-input__icon el-icon-arrow-down"></i></span> <i
+                          class="el-input__icon el-input__validateIcon el-icon-circle-check"></i></span>
+                      <!---->
+                    </div>
+                    <!---->
+                    <div><span>
+                        <div role="tooltip" id="el-popover-7008" aria-hidden="true" class="el-popover el-popper"
+                          style="transform-origin: center top; z-index: 2001; display: none;">
+                          <!---->
+                          <!---->
+                          <header class="cascader-menu">
+                            <ul class="cascader-wapper clearfix">
+                              <li class="menu-item">日期</li>
+                              <li class="menu-item is-active">时间</li>
+                            </ul>
+                          </header>
+                          <ul class="cascader-list">
+                            <!---->
+                            <li class="cascader-list-item is-active">
+                              09:00-10:00
+                            </li>
+                            <li class="cascader-list-item">
+                              10:00-11:00
+                            </li>
+                            <li class="cascader-list-item">
+                              11:00-12:00
+                            </li>
+                            <li class="cascader-list-item">
+                              12:00-13:00
+                            </li>
+                            <li class="cascader-list-item">
+                              13:00-14:00
+                            </li>
+                            <li class="cascader-list-item">
+                              14:00-15:00
+                            </li>
+                            <li class="cascader-list-item">
+                              15:00-16:00
+                            </li>
+                            <li class="cascader-list-item">
+                              16:00-17:00
+                            </li>
+                            <li class="cascader-list-item">
+                              17:00-18:00
+                            </li>
+                          </ul>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+
+        <!-- 解锁 -->
+        <div data-v-1da5da4b="" class="el-form-item bg-white form-item-card unlock hidden-xs">
+          <label class="el-form-item__label">解锁</label>
+          <div class="el-form-item__content">
+            <p data-v-1da5da4b="" class="text-muted mb-base">
+              请解除开机密码并且手动注销系统账户，以确保您的隐私安全和顺利质检；对于未解锁手机，回收宝将拒签退回。
+            </p>
+            <div data-v-1da5da4b=""><span>
+                <div role="tooltip" id="el-popover-3383" aria-hidden="true" class="el-popover el-popper" tabindex="0"
+                  style="display: none;">
+                  <div data-v-1da5da4b="">
+                    <p data-v-1da5da4b="">
+                      Q: iPhone如何取消开机密码<br data-v-1da5da4b="">
+                      A: 设置——Touch ID和密码——点击关闭密码<br data-v-1da5da4b="">
+                      Q: iPhone如何关闭iCloud<br data-v-1da5da4b="">
+                      A: 设置——进入iCloud——注销——从我的iPhone删除——输入密码——删除<br data-v-1da5da4b="">
+                    </p>
+                  </div>
+                </div><a data-v-1da5da4b="" href="javascript:;" class="el-popover__reference"
+                  aria-describedby="el-popover-3383" tabindex="0">如何解锁 <i data-v-1da5da4b=""
+                    class="el-icon-question"></i></a>
+              </span></div>
+            <!---->
+          </div>
+        </div>
+        <!---->
+
+        <!-- 备注 -->
+        <p data-v-1da5da4b="" class="use-wallet-tip">
+          备注：完成订单后，会打款到您的回收宝钱包，可随时提现
+        </p>
+        <!---->
+
+        <!-- 服务条款 -->
+        <div data-v-1da5da4b="" class="el-form-item submit-action">
+          <div class="el-form-item__content">
+            <div data-v-1da5da4b="" class="fr">
+              <div data-v-1da5da4b="" class="bottom-price fr">
+                <button data-v-1da5da4b=""
+                  class="vivo-submit fr hsb-button--danger hsb-button--normal is-disabled is-round hsb-button"
+                  type="button" disabled="">
+                  <label class="hsb-button-text">
+                    <span data-v-1da5da4b="">提交订单</span>
+                  </label>
+                </button>
+              </div>
+              <label data-v-1da5da4b="" class="hsb-checkbox fr is-checked" style="margin-top: 5px; margin-right: 8px;">
+                <span aria-checked="mixed" class="hsb-checkbox__input">
+                  <span class="hsb-checkbox__inner"></span>
+                  <input type="checkbox" class="hsb-checkbox__original" value="">
+                </span>
+                <span class="hsb-checkbox__label">
+                  <span data-v-1da5da4b="" class="text-muted">我已经阅读并同意</span>
+                  <a data-v-1da5da4b="" href="https://mobile.huishoubao.com/mobile/m/www_term_of_service.html"
+                    class="protocol-link">《服务条款》</a>
+                  <span data-v-1da5da4b="" class="text-muted">和</span>
+                  <a data-v-1da5da4b="" href="https://mobile.huishoubao.com/mobile/m/privacy_protocol.html"
+                    class="protocol-link">《隐私协议》</a>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!---->
+      </form>
+      <!---->
+
+      <!-- 右侧手机信息 -->
+      <div data-v-501e1393="" data-v-1da5da4b="" class="side-list side-info">
+        <h3 data-v-501e1393="" class="title">回收清单</h3>
+        <div data-v-501e1393="" class="clearfix">
+          <div data-v-501e1393="" class="product-logo-wrap fl">
+            <img data-v-501e1393="" src="./提交订单_files/41567_20191106154719_960.jpg" class="product-logo">
+          </div>
+          <div data-v-501e1393="" class="fl product-name-wrapper">
+            <div data-v-501e1393="">
+              <span data-v-501e1393="">商品型号：</span>
+              <span data-v-501e1393="" class="product-name">iPhone X</span>
+            </div>
+          </div>
+        </div>
+        <div data-v-501e1393="" class="price-column clearfix">
+          <div data-v-501e1393="" class="label fl">预估金额</div>
+          <div data-v-501e1393="" class="value fr">￥3,219.00</div>
+        </div>
+        <!---->
+        <div data-v-501e1393="" class="price-column text-right"><span data-v-501e1393="" class="text-muted">小计（元）</span>
+          <span data-v-501e1393="" class="text-danger">￥3,219.00</span></div>
+        <p data-v-501e1393="" class="price-tip">*此价格为预估价，最终以检测结果为准*</p>
+      </div>
+      <!---->
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer" data-v-36c58fd8="">
+      <div class="copyright" data-v-36c58fd8="">
+        <span data-v-36c58fd8="">
+          Copyright © 2019-2020, OuYangWei Tech , All Rights Reserved
+        </span>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <script src="/public/js/vue.min.js"></script>
+  <script src="/public/js/axios.js"></script>
+  <script src="/layout/js/order.js"></script>
+</body>
+
+</html>

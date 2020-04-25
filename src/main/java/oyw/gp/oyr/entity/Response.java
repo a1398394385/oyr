@@ -32,8 +32,8 @@ public class Response<T>
      * @param data
      * @return
      */
-    public static Response result(int code) {
-        Response response = new Response<>();
+    public static Response<Object> result(int code) {
+        Response<Object> response = new Response<>();
         response.setStatus("success");
         response.setCode(code);
         return response;
@@ -61,8 +61,8 @@ public class Response<T>
      * @param message
      * @return
      */
-    public static Response error(int code, String message) {
-        Response response = new Response<>();
+    public static Response<Object> error(int code, String message) {
+        Response<Object> response = new Response<>();
         response.setStatus("filed");
         response.setCode(code);
         response.setMessage(message);

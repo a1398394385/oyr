@@ -28,7 +28,7 @@ public class PhoneController
     PhoneService phoneService;
 
     @GetMapping("/brand/{brand}")
-    public Response getPhonesByBrand(@PathVariable int brand) {
+    public Response<Object> getPhonesByBrand(@PathVariable int brand) {
         List<Phone> phones = phoneService.getPhonesByBrand(brand);
         if (phones == null)
             return Response.error(400, "手机品牌不存在");
@@ -36,7 +36,7 @@ public class PhoneController
     }
 
     @GetMapping("/{id}")
-    public Response show(@PathVariable Long id) {
+    public Response<Object> show(@PathVariable Long id) {
 
         try {
             Phone phone = phoneService.getById(id);

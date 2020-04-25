@@ -51,8 +51,7 @@ let app = new Vue({
                 })
         },
     },
-    watch: {
-    },
+    watch: {},
     computed: {
         canValuation: function () {
             return this.colorOption != null &&
@@ -71,7 +70,7 @@ let app = new Vue({
                 this.displayOption +
                 this.serviceOption +
                 this.featureOption.length +
-                (this.IDOption * 2);
+                (this.IDOption * 100);
         },
         finalPrice: function () {
             if (this.discount >= 20)
