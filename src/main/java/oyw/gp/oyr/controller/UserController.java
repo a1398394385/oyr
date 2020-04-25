@@ -48,20 +48,9 @@ public class UserController {
      */
     @PostMapping("/")
     public Response create(@RequestBody User user) {
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("telephone", user.getTelephone());
 
-        if (userService.getOne(queryWrapper, false) == null) {
-            user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
+        return userService.register(user);
 
-            try {
-                userService.save(user);
-                return Response.result(200);
-            } catch (Exception e) {
-            }
-        }
-
-        return Response.error(500, "用户已存在");
     }
 
     /**

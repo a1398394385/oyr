@@ -1,11 +1,16 @@
 package oyw.gp.oyr.service.impl;
 
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.mapper.UserMapper;
 import oyw.gp.oyr.service.UserService;
@@ -33,4 +38,21 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return loginUser;
     }
 
+    @Override
+    public Response register(User user) {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("telephone", user.getTelephone());
+
+        if (userMapper.selectOne(queryWrapper) == null) {
+            user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
+
+            try {
+                userMapper.insert(user);
+                return Response.result(200);
+            } catch (Exception e) {
+            }
+        }
+
+        return Response.error(500, "用户已存在");
+    }
 }
