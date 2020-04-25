@@ -54,5 +54,5 @@ let app = new Vue({
                     console.error(err);
                 })
         }
-    },
+    }
 });

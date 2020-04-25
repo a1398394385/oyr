@@ -1,214 +1,212 @@
 <!DOCTYPE html>
-<!-- saved from url=(0054)http://www.huishoubao.com/evaluate/49239.html?pid=1367 -->
-<html lang="zh-cn" class=" fullscreen flexbox is-win">
+<html lang="zh-cn">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>手机估价</title>
-  <link rel="stylesheet" href="/css/app.css">
-  <link rel="stylesheet" href="/css/rec.css">
+  <link rel="stylesheet" href="/public/css/app.css">
 </head>
 
 <body>
   <div id="app" class="app ProductInfo">
     <!-- LOGIN -->
-    <div class="header" data-auth="">
-      <div class="container" data-auth="">
-        <ul class="header__nav" data-auth="">
-          <li class="nav-item" data-auth="">
-            <span data-auth="" @click="auth = !auth">
+    <div class="header" data-v-d38c587a="">
+      <div class="container" data-v-d38c587a="">
+        <ul class="header__nav" data-v-d38c587a="">
+          <li class="nav-item" data-v-d38c587a="">
+            <span data-v-d38c587a="" @click="auth = !auth">
               <p th:text="${username}"></p>
               <div role="tooltip" id="el-popover-6663" class="el-popover el-popper" tabindex="0" style="width:90px;"
                 v-if="auth">
-                <div data-auth="">
-                  <a href="#" class="link" data-auth="">个人中心</a>
-                  <p class="link" data-auth="" @click="logout">退出登录</p>
+                <div data-v-d38c587a="">
+                  <a href="#" class="link" data-v-d38c587a="">个人中心</a>
+                  <p class="link" data-v-d38c587a="" @click="logout">退出登录</p>
                 </div>
               </div>
-              <span data-auth="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
+              <span data-v-d38c587a="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
               </span>
             </span>
-            <a href="/login" data-auth="" class="" th:if="${login}">登录</a>
+            <a href="/login" data-v-d38c587a="" class="" th:if="${login}">登录</a>
           </li>
-          <li class="nav-item" data-auth="" th:if="${login}">
-            <a href="/register" data-auth="" class="">注册</a>
+          <li class="nav-item" data-v-d38c587a="" th:if="${login}">
+            <a href="/register" data-v-d38c587a="" class="">注册</a>
           </li>
         </ul>
       </div>
     </div>
     <!---->
     <!-- LOGO -->
-    <div data-recycle-heafer="" class="recyle-process">
-      <div data-recycle-heafer="" class="container clearfix">
-        <div data-recycle-heafer="" class="logo-wrap">
-          <a data-recycle-heafer="" href="/home" class="router-link-active">
-            <img data-recycle-heafer="" src="/image/logo.png" class="icon-logo">
+    <div data-v-00b281d0="" class="recyle-process">
+      <div data-v-00b281d0="" class="container clearfix">
+        <div data-v-00b281d0="" class="logo-wrap">
+          <a data-v-00b281d0="" href="/home" class="router-link-active">
+            <img data-v-00b281d0="" src="/image/logo.png" class="icon-logo">
           </a>
         </div>
 
-        <ul data-recycle-heafer="" class="grid-list fr">
-          <li data-recycle-heafer="" class="grid-item">
-            <span data-recycle-heafer="" class="grid-item__label">1</span>
-            <span data-recycle-heafer="" class="grid-item__text">机况评估</span>
-            <div data-interval="" data-recycle-heafer="" class="process-dots clearfix process-dots">
-              <span data-interval="" class="process-dot"></span>
-              <span data-interval="" class="process-dot"></span>
-              <span data-interval="" class="process-dot"></span>
+        <ul data-v-00b281d0="" class="grid-list fr">
+          <li data-v-00b281d0="" class="grid-item">
+            <span data-v-00b281d0="" class="grid-item__label">1</span>
+            <span data-v-00b281d0="" class="grid-item__text">机况评估</span>
+            <div data-v-f237f00c="" data-v-00b281d0="" class="process-dots clearfix process-dots">
+              <span data-v-f237f00c="" class="process-dot"></span>
+              <span data-v-f237f00c="" class="process-dot"></span>
+              <span data-v-f237f00c="" class="process-dot"></span>
             </div>
           </li>
-          <li data-recycle-heafer="" class="grid-item">
-            <span data-recycle-heafer="" class="grid-item__label">2</span>
-            <span data-recycle-heafer="" class="grid-item__text">获得报价</span>
-            <div data-interval="" data-recycle-heafer="" class="process-dots clearfix process-dots">
-              <span data-interval="" class="process-dot"></span>
-              <span data-interval="" class="process-dot"></span>
-              <span data-interval="" class="process-dot"></span>
+          <li data-v-00b281d0="" class="grid-item">
+            <span data-v-00b281d0="" class="grid-item__label">2</span>
+            <span data-v-00b281d0="" class="grid-item__text">获得报价</span>
+            <div data-v-f237f00c="" data-v-00b281d0="" class="process-dots clearfix process-dots">
+              <span data-v-f237f00c="" class="process-dot"></span>
+              <span data-v-f237f00c="" class="process-dot"></span>
+              <span data-v-f237f00c="" class="process-dot"></span>
             </div>
           </li>
-          <li data-recycle-heafer="" class="grid-item">
-            <span data-recycle-heafer="" class="grid-item__label">3</span>
-            <span data-recycle-heafer="" class="grid-item__text">提交订单</span>
+          <li data-v-00b281d0="" class="grid-item">
+            <span data-v-00b281d0="" class="grid-item__label">3</span>
+            <span data-v-00b281d0="" class="grid-item__text">提交订单</span>
           </li>
         </ul>
       </div>
     </div>
     <!---->
     <!-- CONTENT -->
-    <div data-recycle-info-1="" productid="49239">
-      <div data-recycle-info-1="" class="container">
-        <div data-recycle-info-1="" aria-label="Breadcrumb" role="navigation" class="el-breadcrumb hsb-breadcrumb">
-          <span data-recycle-info-1="" class="el-breadcrumb__item">
+    <div data-v-a3126684="" productid="49239">
+      <div data-v-a3126684="" class="container">
+        <div data-v-a3126684="" aria-label="Breadcrumb" role="navigation" class="el-breadcrumb hsb-breadcrumb">
+          <span data-v-a3126684="" class="el-breadcrumb__item">
             <span role="link" class="el-breadcrumb__inner is-link">
               <a href="/home">首页</a>
             </span>
             <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
           </span>
-          <span data-recycle-info-1="" class="el-breadcrumb__item" aria-current="page">
+          <span data-v-a3126684="" class="el-breadcrumb__item" aria-current="page">
             <span role="link" class="el-breadcrumb__inner">机况评估</span>
             <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
           </span>
         </div>
-        <div data-recycle-info-1="">
-          <div data-recycle-info-1="" class="fr hidden-xs product-info-wrapper">
-            <div data-recycle-info-2="" data-recycle-info-1="" class="product-info clearfix bg-white">
-              <div data-recycle-info-2="" class="product-image sr">
-                <img data-recycle-info-2 class="img-responsive center-block" :src="image">
+        <div data-v-a3126684="">
+          <div data-v-a3126684="" class="fr hidden-xs product-info-wrapper">
+            <div data-v-09cad8c1="" data-v-a3126684="" class="product-info clearfix bg-white">
+              <div data-v-09cad8c1="" class="product-image sr">
+                <img data-v-09cad8c1 class="img-responsive center-block" :src="image">
               </div>
-              <div data-recycle-info-2="" class="sr">
-                <div data-recycle-info-2="" class="product-name text-bold">{{model}}</div>
-                <div data-recycle-info-1="" data-recycle-info-2="" class="pi clearfix center-block mb-lg">
-                  <div data-recycle-info-1="" data-recycle-info-2="" class="fl">
-                    <span data-recycle-info-1="" data-recycle-info-2="">￥ {{price}}</span>
-                    <p data-recycle-info-1="" data-recycle-info-2="" class="text-muted mt-xs">最高回收价</p>
+              <div data-v-09cad8c1="" class="sr">
+                <div data-v-09cad8c1="" class="product-name text-bold">{{model}}</div>
+                <div data-v-a3126684="" data-v-09cad8c1="" class="pi clearfix center-block mb-lg">
+                  <div data-v-a3126684="" data-v-09cad8c1="" class="fl">
+                    <span data-v-a3126684="" data-v-09cad8c1="">￥ {{price}}</span>
+                    <p data-v-a3126684="" data-v-09cad8c1="" class="text-muted mt-xs">最高回收价</p>
                   </div>
-                  <div data-recycle-info-1="" data-recycle-info-2="" class="split"></div>
-                  <div data-recycle-info-1="" data-recycle-info-2="" class="fr">
-                    <span data-recycle-info-1="" data-recycle-info-2="">￥ {{price * 100}}</span>
-                    <p data-recycle-info-1="" data-recycle-info-2="" class="text-muted mt-xs">
+                  <div data-v-a3126684="" data-v-09cad8c1="" class="split"></div>
+                  <div data-v-a3126684="" data-v-09cad8c1="" class="fr">
+                    <span data-v-a3126684="" data-v-09cad8c1="">￥ {{price * 100}}</span>
+                    <p data-v-a3126684="" data-v-09cad8c1="" class="text-muted mt-xs">
                       已成功收钱
                     </p>
                   </div>
                 </div>
-                <button data-recycle-info-1=""
+                <button data-v-a3126684=""
                   class="center-block text-sz-sec-title mb-lg hsb-button--primary hsb-button--large hsb-button"
-                  type="button" data-recycle-info-2="" style="width: 197px;" v-if="!canValuation">
+                  type="button" data-v-09cad8c1="" style="width: 197px;" v-if="!canValuation">
                   <label class="hsb-button-text">
                     完成左边选项后即可估价
                   </label>
                 </button>
-                <button data-recycle-info-1=""
+                <button data-v-a3126684=""
                   class="center-block text-sz-sec-title mb-lg hsb-button--primary hsb-button--large hsb-button"
-                  type="button" data-recycle-info-2="" style="width: 197px;" @click="valuation" v-if="canValuation">
+                  type="button" data-v-09cad8c1="" style="width: 197px;" @click="valuation" v-if="canValuation">
                   <label class="hsb-button-text">
                     立即估价
                   </label>
                 </button>
                 <a href="/home">
-                  <button data-recycle-info-1="" class="text-primary hsb-button--text hsb-button--normal hsb-button"
-                    type="button" data-recycle-info-2="">
+                  <button data-v-a3126684="" class="text-primary hsb-button--text hsb-button--normal hsb-button"
+                    type="button" data-v-09cad8c1="">
                     <label class="hsb-button-text">重新选择机型</label>
                   </button>
                 </a>
               </div>
             </div>
-            <div data-recycle-info-1="" class="recyle-tip bg-white">
-              <h3 data-recycle-info-1="">回收须知</h3>
-              <div data-recycle-info-1="" class="hsb-hr"></div>
-              <p data-recycle-info-1="">1.山寨机，高仿机不回收。</p>
-              <p data-recycle-info-1="">2.屏幕锁未解，iCloud账户未注销不回收。</p>
-              <p data-recycle-info-1="" class="tip">拒收并退回以上两种手机，您需承担双向运费。</p>
+            <div data-v-a3126684="" class="recyle-tip bg-white">
+              <h3 data-v-a3126684="">回收须知</h3>
+              <div data-v-a3126684="" class="hsb-hr"></div>
+              <p data-v-a3126684="">1.山寨机，高仿机不回收。</p>
+              <p data-v-a3126684="">2.屏幕锁未解，iCloud账户未注销不回收。</p>
+              <p data-v-a3126684="" class="tip">拒收并退回以上两种手机，您需承担双向运费。</p>
             </div>
           </div>
-          <div data-recycle-info-1="" class="left">
-            <hr data-recycle-info-1="" class="hr visible-xs-block">
-            <div data-v-600cfedb="" data-recycle-info-1="" class="scroll-wrap is-auto-fold is-show-selected">
+          <div data-v-a3126684="" class="left">
+            <hr data-v-a3126684="" class="hr visible-xs-block">
+            <div data-v-600cfedb="" data-v-a3126684="" class="scroll-wrap is-auto-fold is-show-selected">
               <!-- 基本选项 -->
               <div data-v-600cfedb="" class="base-items">
                 <h3 data-v-600cfedb="">基本选项</h3>
                 <!-- 颜色 -->
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item is-opening">
-                  <div data-recycle-li="" class="base-item-hd">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">颜色</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item is-opening">
+                  <div data-v-45f0c292="" class="base-item-hd">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">颜色</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl" v-for="(color, i) in colors"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl" v-for="(color, i) in colors"
                         :class="{'is-active': colorOption==i}" @click="colorOption=i">
-                        <div data-recycle-li="" class="answer-txt">{{color}}</div>
-                        <span data-recycle-li=""></span>
+                        <div data-v-45f0c292="" class="answer-txt">{{color}}</div>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
                 <!---->
                 <!-- 存储容量 -->
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item">
-                  <div data-recycle-li="" class="base-item-hd">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">存储容量</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item">
+                  <div data-v-45f0c292="" class="base-item-hd">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">存储容量</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl" v-for="(storage, i) in storages"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl" v-for="(storage, i) in storages"
                         @click="option1=i, storageOption=i" :class="{'is-active': storageOption==i}">
-                        <div data-recycle-li="" class="answer-txt">{{ storage}} GB</div>
-                        <span data-recycle-li=""></span>
+                        <div data-v-45f0c292="" class="answer-txt">{{ storage}} GB</div>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
                 <!---->
                 <!-- 购买渠道 -->
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item">
-                  <div data-recycle-li="" class="base-item-hd">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">购买渠道</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item">
+                  <div data-v-45f0c292="" class="base-item-hd">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">购买渠道</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl has-pic" @click="buyingOption=1"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl has-pic" @click="buyingOption=1"
                         :class="{'is-active': buyingOption==1}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           大陆国行
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl has-pic" @click="buyingOption=2"
+                      <li data-v-45f0c292="" class="answer-item fl has-pic" @click="buyingOption=2"
                         :class="{'is-active': buyingOption==2}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           非国行
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
                 <!---->
               </div>
@@ -217,275 +215,275 @@
               <div data-v-600cfedb="" class="base-items">
                 <h3 data-v-600cfedb="">外观选项</h3>
                 <!-- 机身外观 -->
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item">
-                  <div data-recycle-li="" class="base-item-hd">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">机身外观</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item">
+                  <div data-v-45f0c292="" class="base-item-hd">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">机身外观</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl" @click="bodyOption=0"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl" @click="bodyOption=0"
                         :class="{'is-active': bodyOption==0}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           外观完好，无任何使用痕迹
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl has-pic" @click="bodyOption=1"
+                      <li data-v-45f0c292="" class="answer-item fl has-pic" @click="bodyOption=1"
                         :class="{'is-active': bodyOption==1}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           外观轻微划痕或轻微磕碰
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl has-pic" @click="bodyOption=2"
+                      <li data-v-45f0c292="" class="answer-item fl has-pic" @click="bodyOption=2"
                         :class="{'is-active': bodyOption==2}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           外观有磕碰或掉漆
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl has-pic" @click="bodyOption=3"
+                      <li data-v-45f0c292="" class="answer-item fl has-pic" @click="bodyOption=3"
                         :class="{'is-active': bodyOption==3}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           外壳有变形/裂缝/缺失
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl has-pic" @click="bodyOption=4"
+                      <li data-v-45f0c292="" class="answer-item fl has-pic" @click="bodyOption=4"
                         :class="{'is-active': bodyOption==4}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           主板部位的弯曲或断裂
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
                 <!---->
                 <!-- 屏幕外观 -->
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item">
-                  <div data-recycle-li="" class="base-item-hd">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">屏幕外观</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item">
+                  <div data-v-45f0c292="" class="base-item-hd">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">屏幕外观</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl" @click="screenOption=0"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl" @click="screenOption=0"
                         :class="{'is-active': screenOption==0}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           屏幕完好，无任何划痕
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="screenOption=1"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="screenOption=1"
                         :class="{'is-active': screenOption==1}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           屏幕有划痕
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="screenOption=2"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="screenOption=2"
                         :class="{'is-active': screenOption==2}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           屏幕有缺角/碎裂/脱胶/气泡
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
                 <!---->
                 <!-- 屏幕显示 -->
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item">
-                  <div data-recycle-li="" class="base-item-hd">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">屏幕显示</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item">
+                  <div data-v-45f0c292="" class="base-item-hd">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">屏幕显示</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl" @click="displayOption=0"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl" @click="displayOption=0"
                         :class="{'is-active': displayOption==0}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           显示正常
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="displayOption=1"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="displayOption=1"
                         :class="{'is-active': displayOption==1}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           亮点/色差/轻微发黄
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="displayOption=2"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="displayOption=2"
                         :class="{'is-active': displayOption==2}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           严重老化/色斑
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="displayOption=3"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="displayOption=3"
                         :class="{'is-active': displayOption==3}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           显示异常（断线/漏液/闪屏等）
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="displayOption=4"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="displayOption=4"
                         :class="{'is-active': displayOption==4}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           不显示
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
                 <!---->
                 <!-- 维修 -->
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item">
-                  <div data-recycle-li="" class="base-item-hd">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">维修</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item">
+                  <div data-v-45f0c292="" class="base-item-hd">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">维修</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl" @click="serviceOption=0"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl" @click="serviceOption=0"
                         :class="{'is-active': serviceOption==0}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           无拆机无维修
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="serviceOption=1"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="serviceOption=1"
                         :class="{'is-active': serviceOption==1}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           小维修/小故障
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="serviceOption=2"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="serviceOption=2"
                         :class="{'is-active': serviceOption==2}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           修主板/多次维修
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
                 <!---->
                 <!-- ID锁 -->
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item">
-                  <div data-recycle-li="" class="base-item-hd">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">ID锁</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item">
+                  <div data-v-45f0c292="" class="base-item-hd">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">ID锁</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl" @click="IDOption=0"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl" @click="IDOption=0"
                         :class="{'is-active': IDOption==0}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           ID/账户锁已解除
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="IDOption=1"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="IDOption=1"
                         :class="{'is-active': IDOption==1}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           ID/账户锁无法解除
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
                 <!---->
               </div>
               <!-- 功能性问题 -->
               <div data-v-600cfedb="" class="base-items">
                 <h3 data-v-600cfedb="">功能性问题</h3>
-                <div data-recycle-li="" data-v-600cfedb="" class="base-item">
-                  <div data-recycle-li="" class="base-item-hd is-multi">
-                    <div data-recycle-li="" class="base-item-name">
-                      <span data-recycle-li="">功能选项(可多选或不选)</span>
+                <div data-v-45f0c292="" data-v-600cfedb="" class="base-item">
+                  <div data-v-45f0c292="" class="base-item-hd is-multi">
+                    <div data-v-45f0c292="" class="base-item-name">
+                      <span data-v-45f0c292="">功能选项(可多选或不选)</span>
                     </div>
                     <div data-v-45f0c292="" class="ev-edit fr pointer" @click="featureOption=[]">
                       <span data-v-45f0c292="">重置</span>
                     </div>
                   </div>
-                  <div data-recycle-li="" class="base-item-bd">
-                    <ul data-recycle-li="" class="answer-list clearfix">
-                      <li data-recycle-li="" class="answer-item fl" @click="featureOption.push(0)"
+                  <div data-v-45f0c292="" class="base-item-bd">
+                    <ul data-v-45f0c292="" class="answer-list clearfix">
+                      <li data-v-45f0c292="" class="answer-item fl" @click="featureOption.push(0)"
                         :class="{'is-active': featureOption.includes(0)}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           屏幕更换/维修
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="featureOption.push(1)"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="featureOption.push(1)"
                         :class="{'is-active': featureOption.includes(1)}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           触摸屏失灵
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="featureOption.push(2)"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="featureOption.push(2)"
                         :class="{'is-active': featureOption.includes(2)}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           拍照摄像不正常
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="featureOption.push(3)"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="featureOption.push(3)"
                         :class="{'is-active': featureOption.includes(3)}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           通话不正常
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="featureOption.push(4)"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="featureOption.push(4)"
                         :class="{'is-active': featureOption.includes(4)}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           机身进水/受潮
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="featureOption.push(5)"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="featureOption.push(5)"
                         :class="{'is-active': featureOption.includes(5)}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           WIFI不正常
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="featureOption.push(6)"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="featureOption.push(6)"
                         :class="{'is-active': featureOption.includes(6)}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           指纹功能不正常
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
-                      <li data-recycle-li="" class="answer-item fl" @click="featureOption.push(7)"
+                      <li data-v-45f0c292="" class="answer-item fl" @click="featureOption.push(7)"
                         :class="{'is-active': featureOption.includes(7)}">
-                        <div data-recycle-li="" class="answer-txt">
+                        <div data-v-45f0c292="" class="answer-txt">
                           不能正常开机
                         </div>
-                        <span data-recycle-li=""></span>
+                        <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
                   </div>
-                  <hr data-recycle-li="" class="hr">
+                  <hr data-v-45f0c292="" class="hr">
                 </div>
               </div>
               <!---->
@@ -496,18 +494,18 @@
     </div>
     <!---->
     <!-- FOOTER -->
-    <div class="footer" data-footer="">
-      <div class="copyright" data-footer="">
-        <span data-footer="">
+    <div class="footer" data-v-36c58fd8="">
+      <div class="copyright" data-v-36c58fd8="">
+        <span data-v-36c58fd8="">
           Copyright © 2019-2020, OuYangWei Tech , All Rights Reserved
         </span>
       </div>
     </div>
     <!---->
   </div>
-  <script src="/js/vue.min.js"></script>
-  <script src="/js/axios.js"></script>
-  <script src="/js/recycle.js"></script>
+  <script src="/public/js/vue.min.js"></script>
+  <script src="/public/js/axios.js"></script>
+  <script src="/layout/js/recycle.js"></script>
 </body>
 
 </html>

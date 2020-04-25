@@ -29,6 +29,12 @@ public class PageController
         return "/recycle";
     }
 
+    @GetMapping("/account")
+    public String account(HashMap<String, Object> map) {
+        map.putAll(new Auth(httpServletRequest).getSession());
+        return "/account";
+    }
+
     @GetMapping("/register")
     public String register() {
         return "/register";

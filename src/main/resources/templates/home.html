@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html lang="zh-cn" class=" fullscreen flexbox is-win">
+<html lang="zh-cn">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>OYR手机数码回收专家</title>
-  <noscript>
-  </noscript>
-  <link rel="stylesheet" href="/css/app.css">
-  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/public/css/app.css">
 </head>
 
 <body>
   <div id="app" class="app Welcome">
     <!-- LOGIN -->
-    <div class="header" data-auth="">
-      <div class="container" data-auth="">
-        <ul class="header__nav" data-auth="">
-          <li class="nav-item" data-auth="">
-            <span data-auth="" @click="auth = !auth">
+    <div class="header" data-v-d38c587a="">
+      <div class="container" data-v-d38c587a="">
+        <ul class="header__nav" data-v-d38c587a="">
+          <li class="nav-item" data-v-d38c587a="">
+            <span data-v-d38c587a="" @click="auth = !auth">
               <p th:text="${username}"></p>
               <div role="tooltip" id="el-popover-6663" class="el-popover el-popper" tabindex="0" style="width:90px;"
                 v-if="auth">
-                <div data-auth="">
-                  <a href="#" class="link" data-auth="">个人中心</a>
-                  <p class="link" data-auth="" @click="logout">退出登录</p>
+                <div data-v-d38c587a="">
+                  <a href="#" class="link" data-v-d38c587a="">个人中心</a>
+                  <p class="link" data-v-d38c587a="" @click="logout">退出登录</p>
                 </div>
               </div>
-              <span data-auth="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
+              <span data-v-d38c587a="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
               </span>
             </span>
-            <a href="/login" data-auth="" class="" th:if="${login}">登录</a>
+            <a href="/login" data-v-d38c587a="" class="" th:if="${login}">登录</a>
           </li>
-          <li class="nav-item" data-auth="" th:if="${login}">
-            <a href="/register" data-auth="" class="">注册</a>
+          <li class="nav-item" data-v-d38c587a="" th:if="${login}">
+            <a href="/register" data-v-d38c587a="" class="">注册</a>
           </li>
         </ul>
       </div>
     </div>
-    <!---->
     <!-- LOGO -->
-    <div data-logo="" class="floor-search">
-      <div data-logo="" class="container clearfix">
-        <div data-logo="" class="logo-wrap">
-          <a data-logo="" href="/home" class="router-link-exact-active router-link-active">
-            <img data-logo="" src="/image/logo.png" class="icon-logo">
+    <div data-v-1c2885a2="" class="floor-search">
+      <div data-v-1c2885a2="" class="container clearfix">
+        <div data-v-1c2885a2="" class="logo-wrap">
+          <a data-v-1c2885a2="" href="/home" class="router-link-exact-active router-link-active">
+            <img data-v-1c2885a2="" src="/image/logo.png" class="icon-logo">
           </a>
         </div>
       </div>
@@ -51,119 +47,119 @@
     <!---->
     <!-- CONTENT -->
     <div data-container="">
-      <div data-home-header="" data-container="" class="floor-process">
-        <div data-home-header="" class="container">
-          <div data-home-header="" class="grids clearfix">
-            <div data-home-header="" class="grid">
-              <img data-home-header="" class="grid-icon" data-src="/image/home/header/顺丰车.png"
+      <div data-v-07bc1c15="" data-container="" class="floor-process">
+        <div data-v-07bc1c15="" class="container">
+          <div data-v-07bc1c15="" class="grids clearfix">
+            <div data-v-07bc1c15="" class="grid">
+              <img data-v-07bc1c15="" class="grid-icon" data-src="/image/home/header/顺丰车.png"
                 src="/image/home/header/顺丰车.png" lazy="loaded">
-              <p data-home-header="" class="grid-text">1、往返包邮</p>
-              <div data-interval="" data-home-header="" class="process-dots clearfix process-dots">
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
+              <p data-v-07bc1c15="" class="grid-text">1、往返包邮</p>
+              <div data-v-f237f00c="" data-v-07bc1c15="" class="process-dots clearfix process-dots">
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
               </div>
             </div>
-            <div data-home-header="" class="grid">
-              <img data-home-header="" class="grid-icon" data-src="/image/home/header/当日验机.png"
+            <div data-v-07bc1c15="" class="grid">
+              <img data-v-07bc1c15="" class="grid-icon" data-src="/image/home/header/当日验机.png"
                 src="/image/home/header/当日验机.png" lazy="loaded">
-              <p data-home-header="" class="grid-text">2、当日验机，行业前列</p>
-              <div data-interval="" data-home-header="" class="process-dots clearfix process-dots">
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
+              <p data-v-07bc1c15="" class="grid-text">2、当日验机，行业前列</p>
+              <div data-v-f237f00c="" data-v-07bc1c15="" class="process-dots clearfix process-dots">
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
               </div>
             </div>
-            <div data-home-header="" class="grid">
-              <img data-home-header="" class="grid-icon" data-src="/image/home/header/极速收款.png"
+            <div data-v-07bc1c15="" class="grid">
+              <img data-v-07bc1c15="" class="grid-icon" data-src="/image/home/header/极速收款.png"
                 src="/image/home/header/极速收款.png" lazy="loaded">
-              <p data-home-header="" class="grid-text">3、极速收款，即刻回血</p>
-              <div data-interval="" data-home-header="" class="process-dots clearfix process-dots">
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
-                <span data-interval="" class="process-dot"></span>
+              <p data-v-07bc1c15="" class="grid-text">3、极速收款，即刻回血</p>
+              <div data-v-f237f00c="" data-v-07bc1c15="" class="process-dots clearfix process-dots">
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
+                <span data-v-f237f00c="" class="process-dot"></span>
               </div>
             </div>
-            <div data-home-header="" class="grid">
-              <img data-home-header="" class="grid-icon" data-src="/image/home/header/隐私安全.png"
+            <div data-v-07bc1c15="" class="grid">
+              <img data-v-07bc1c15="" class="grid-icon" data-src="/image/home/header/隐私安全.png"
                 src="/image/home/header/隐私安全.png" lazy="loaded">
-              <p data-home-header="" class="grid-text">4、数据清除，隐私安全</p>
+              <p data-v-07bc1c15="" class="grid-text">4、数据清除，隐私安全</p>
             </div>
           </div>
         </div>
       </div>
-      <div data-home-li="" data-container="" class="floor-hotsale">
-        <div data-home-li="" class="container">
-          <div data-home-li="" class="floor-head clearfix">
-            <h3 data-home-li="" class="floor-head__title fl">设备回收</h3>
+      <div data-v-53538ea4="" data-container="" class="floor-hotsale">
+        <div data-v-53538ea4="" class="container">
+          <div data-v-53538ea4="" class="floor-head clearfix">
+            <h3 data-v-53538ea4="" class="floor-head__title fl">设备回收</h3>
           </div>
-          <div data-home-li="" class="floor-body clearfix">
-            <ul data-home-li="" class="brand-list">
-              <li data-home-li="" @click="getPhonesData('1')"
+          <div data-v-53538ea4="" class="floor-body clearfix">
+            <ul data-v-53538ea4="" class="brand-list">
+              <li data-v-53538ea4="" @click="getPhonesData('1')"
                 :class="['brand-item', {'brand-item--active': brandId == 1}]">
-                <img data-home-li="" src="/image/home/机型图标/华为图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/华为图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('2')"
+              <li data-v-53538ea4="" @click="getPhonesData('2')"
                 :class="['brand-item', {'brand-item--active': brandId == 2}]">
-                <img data-home-li="" src="/image/home/机型图标/荣耀图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/荣耀图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('3')"
+              <li data-v-53538ea4="" @click="getPhonesData('3')"
                 :class="['brand-item', {'brand-item--active': brandId == 3}]">
-                <img data-home-li="" src="/image/home/机型图标/苹果图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/苹果图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('4')"
+              <li data-v-53538ea4="" @click="getPhonesData('4')"
                 :class="['brand-item', {'brand-item--active': brandId == 4}]">
-                <img data-home-li="" src="/image/home/机型图标/小米图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/小米图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('5')"
+              <li data-v-53538ea4="" @click="getPhonesData('5')"
                 :class="['brand-item', {'brand-item--active': brandId == 5}]">
-                <img data-home-li="" src="/image/home/机型图标/OPPO图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/OPPO图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('6')"
+              <li data-v-53538ea4="" @click="getPhonesData('6')"
                 :class="['brand-item', {'brand-item--active': brandId == 6}]">
-                <img data-home-li="" src="/image/home/机型图标/三星图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/三星图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('7')"
+              <li data-v-53538ea4="" @click="getPhonesData('7')"
                 :class="['brand-item', {'brand-item--active': brandId == 7}]">
-                <img data-home-li="" src="/image/home/机型图标/VIVO图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/VIVO图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('8')"
+              <li data-v-53538ea4="" @click="getPhonesData('8')"
                 :class="['brand-item', {'brand-item--active': brandId == 8}]">
-                <img data-home-li="" src="/image/home/机型图标/魅族图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/魅族图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('9')"
+              <li data-v-53538ea4="" @click="getPhonesData('9')"
                 :class="['brand-item', {'brand-item--active': brandId == 9}]">
-                <img data-home-li="" src="/image/home/机型图标/酷派图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/酷派图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('10')"
+              <li data-v-53538ea4="" @click="getPhonesData('10')"
                 :class="['brand-item', {'brand-item--active': brandId == 10}]">
-                <img data-home-li="" src="/image/home/机型图标/金立图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/金立图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('11')"
+              <li data-v-53538ea4="" @click="getPhonesData('11')"
                 :class="['brand-item', {'brand-item--active': brandId == 11}]">
-                <img data-home-li="" src="/image/home/机型图标/锤子图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/锤子图标.png" lazy="loaded">
               </li>
-              <li data-home-li="" @click="getPhonesData('12')"
+              <li data-v-53538ea4="" @click="getPhonesData('12')"
                 :class="['brand-item', {'brand-item--active': brandId == 12}]">
-                <img data-home-li="" src="/image/home/机型图标/一加图标.png" lazy="loaded">
+                <img data-v-53538ea4="" src="/image/home/机型图标/一加图标.png" lazy="loaded">
               </li>
             </ul>
-            <ul data-home-li="" class="product-list">
-              <li data-home-li="" class="product-item" v-for="phone in phones">
-                <a data-home-li="" :href="'/recycle/' + phone.id" class="product-link">
-                  <img data-home-li="" :alt=phone.model class="product-logo" :src=phone.image lazy="loaded">
-                  <h3 data-home-li="" class="product-name">{{ phone.model }}</h3>
-                  <p data-home-li="" class="product-desc">最高回收价</p>
-                  <p data-home-li="" class="product-price">￥{{ phone.price }}</p>
+            <ul data-v-53538ea4="" class="product-list">
+              <li data-v-53538ea4="" class="product-item" v-for="phone in phones">
+                <a data-v-53538ea4="" :href="'/recycle/' + phone.id" class="product-link">
+                  <img data-v-53538ea4="" :alt=phone.model class="product-logo" :src=phone.image lazy="loaded">
+                  <h3 data-v-53538ea4="" class="product-name">{{ phone.model }}</h3>
+                  <p data-v-53538ea4="" class="product-desc">最高回收价</p>
+                  <p data-v-53538ea4="" class="product-price">￥{{ phone.price }}</p>
                 </a>
               </li>
             </ul>
@@ -173,25 +169,18 @@
     </div>
     <!---->
     <!-- FOOTER -->
-    <div class=" footer" data-footer="">
-      <div class="copyright" data-footer="">
-        <span data-footer="">
+    <div class=" footer" data-v-36c58fd8="">
+      <div class="copyright" data-v-36c58fd8="">
+        <span data-v-36c58fd8="">
           Copyright © 2019-2020, OuYangWei Tech , All Rights Reserved
         </span>
       </div>
     </div>
     <!---->
   </div>
-  <script src="/js/jquery.min.js"></script>
-  <script>
-    $(function () {
-      $("#login").load("/layout/login");
-      // $("#page2").load("/page/Page_2.html");
-    });
-  </script>
-  <script src="/js/vue.min.js"></script>
-  <script src="/js/axios.js"></script>
-  <script src="/js/home.js"></script>
+  <script src="/public/js/vue.min.js"></script>
+  <script src="/public/js/axios.js"></script>
+  <script src="/layout/js/home.js"></script>
 
 </body>
 
