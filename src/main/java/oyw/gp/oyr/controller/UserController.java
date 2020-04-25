@@ -26,7 +26,8 @@ import oyw.gp.oyr.service.UserService;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController
+{
     @Autowired
     UserService userService;
 
@@ -36,7 +37,7 @@ public class UserController {
      * @return
      */
     @GetMapping("/")
-    public Response index() {
+    public Response<Object> index() {
         return Response.result(200, userService.list());
     }
 
@@ -47,7 +48,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/")
-    public Response create(@RequestBody User user) {
+    public Response<Object> create(@RequestBody User user) {
 
         return userService.register(user);
 
@@ -60,7 +61,7 @@ public class UserController {
      * @return
      */
     @GetMapping("/{id}")
-    public Response show(@PathVariable Long id) {
+    public Response<Object> show(@PathVariable Long id) {
 
         try {
             User user = userService.getById(id);
@@ -78,7 +79,7 @@ public class UserController {
      * @return
      */
     @PutMapping("/{id}")
-    public Response update(@PathVariable Long id, User user) {
+    public Response<Object> update(@PathVariable Long id, User user) {
 
         try {
             user.setId(id);
@@ -96,7 +97,7 @@ public class UserController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public Response delete(@PathVariable Long id) {
+    public Response<Object> delete(@PathVariable Long id) {
 
         try {
             userService.removeById(id);

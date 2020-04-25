@@ -24,7 +24,8 @@ import oyw.gp.oyr.service.UserService;
  * @since 2020-04-19
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService
+{
     @Autowired
     UserMapper userMapper;
 
@@ -39,7 +40,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public Response register(User user) {
+    public Response<Object> register(User user) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("telephone", user.getTelephone());
 
@@ -49,8 +50,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             try {
                 userMapper.insert(user);
                 return Response.result(200);
-            } catch (Exception e) {
-            }
+            } catch (Exception e) {}
         }
 
         return Response.error(500, "用户已存在");

@@ -21,7 +21,7 @@ public class AuthController {
     HttpServletRequest httpServletRequest;
 
     @PostMapping("/login")
-    public Response login(@RequestBody User user) {
+    public Response<Object> login(@RequestBody User user) {
         user = userService.login(user);
         if (user == null)
             return Response.error(300, "手机号或密码错误!");
@@ -33,7 +33,7 @@ public class AuthController {
     }
 
     @PostMapping(value = "/logout")
-    public Response logout() {
+    public Response<Object> logout() {
         HttpSession httpSession = httpServletRequest.getSession(false);
         httpSession.invalidate();
         return Response.result(200, "登出成功");
