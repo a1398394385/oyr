@@ -7,7 +7,8 @@ let app = new Vue({
         user: {
             name: "",
             phone: "",
-        }
+        },
+        recStyle: null
     },
     beforeMount: function () {
         // axios.get("/phone/brand/1")
@@ -37,6 +38,10 @@ let app = new Vue({
                     location.href = "/home";
                     console.error(err);
                 })
+        },
+
+        active: function (index) {
+            this.actives = index;
         }
     }
 });

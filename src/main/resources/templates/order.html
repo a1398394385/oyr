@@ -80,8 +80,8 @@
         <div data-v-1da5da4b="" class="el-form-item card-form-item recycle-types">
           <label class="el-form-item__label">回收方式</label>
           <div class="el-form-item__content">
-            <label data-v-1da5da4b="" class="hsb-radio text-center vivo-radio pc-type-radio recycle-type is-checked"
-              data-type="1">
+            <label data-v-1da5da4b="" class="hsb-radio text-center vivo-radio pc-type-radio recycle-type " data-type="1"
+              @click="recStyle=1" :class="{'is-checked': recStyle==1}">
               <span class="hsb-radio__input is-checked">
                 <span class="hsb-radio__inner"></span>
                 <input type="radio" tabindex="-1" class="hsb-radio__original" value="1">
@@ -95,7 +95,8 @@
                 <i data-v-1da5da4b="" class="icon hidden-xs"></i>
               </span>
             </label>
-            <label data-v-1da5da4b="" class="hsb-radio text-center vivo-radio pc-type-radio recycle-type" data-type="2">
+            <label data-v-1da5da4b="" class="hsb-radio text-center vivo-radio pc-type-radio recycle-type" data-type="2"
+              @click="recStyle=0" :class="{'is-checked': recStyle==0}">
               <span class="hsb-radio__input">
                 <span class="hsb-radio__inner"></span>
                 <input type="radio" tabindex="-1" class="hsb-radio__original" value="2">
