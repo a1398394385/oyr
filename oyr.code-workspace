@@ -1,7 +1,9 @@
 {
-	"folders": [{
-		"path": "."
-	}],
+	"folders": [
+		{
+			"path": "."
+		}
+	],
 	"settings": {
 		"editor.lineHeight": 38,
 		"editor.wordWrap": "bounded",
@@ -40,6 +42,5 @@
 		"maven.pomfile.autoUpdateEffectivePOM": true,
 		"xml.format.joinCommentLines": true,
 		"xml.format.preserveEmptyContent": true,
-		"java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"C:\\Users\\xys\\.vscode\\extensions\\gabrielbb.vscode-lombok-1.0.1\\server\\lombok.jar\"",
 	}
 }
