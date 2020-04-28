@@ -8,28 +8,20 @@ let app = new Vue({
             name: "",
             phone: "",
         },
-        recStyle: null
+        recStyle: null,
+        session: {
+            username: null
+        },
     },
     beforeMount: function () {
-        // axios.get("/phone/brand/1")
-        //     .then(res => {
-        //         if (res.data.status == "success") {
-        //             this.phones = res.data.data
-        //         } else {
-        //             alert("数据错误，请稍后重试")
-        //             location.href = "/home";
-        //         }
-        //     })
-        //     .catch(err => {
-        //         alert("您的网络异常，请刷新后重试")
-        //         location.href = "/home";
-        //         console.error(err);
-        //     })
+        let session = JSON.parse(localStorage.getItem("session"))
+        if (session != null) this.session = session
     },
     methods: {
         logout: function () {
             axios.post("/logout")
                 .then(res => {
+                    localStorage.removeItem("session")
                     alert(res.data.data)
                     location.reload()
                 })

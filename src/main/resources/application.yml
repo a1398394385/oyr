@@ -36,7 +36,6 @@ spring:
     
 logging:
   level:
-    # root: warn
     oyw.gp.oyr.mapper: trace
     
 server:

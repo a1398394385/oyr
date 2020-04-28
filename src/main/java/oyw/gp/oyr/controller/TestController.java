@@ -2,6 +2,9 @@ package oyw.gp.oyr.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -17,5 +20,4 @@ public class TestController
     public String test(@PathVariable String name) {
         return new String("/" + name);
     }
-
 }

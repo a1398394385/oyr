@@ -15,20 +15,20 @@
         <ul class="header__nav" data-v-d38c587a="">
           <li class="nav-item" data-v-d38c587a="">
             <span data-v-d38c587a="" @click="auth = !auth">
-              <p th:text="${username}"></p>
+              <p>{{ session.username }}</p>
               <div role="tooltip" id="el-popover-6663" class="el-popover el-popper" tabindex="0" style="width:90px;"
                 v-if="auth">
                 <div data-v-d38c587a="">
-                  <a href="#" class="link" data-v-d38c587a="">个人中心</a>
+                  <a href="/account" class="link" data-v-d38c587a="">个人中心</a>
                   <p class="link" data-v-d38c587a="" @click="logout">退出登录</p>
                 </div>
               </div>
               <span data-v-d38c587a="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
               </span>
             </span>
-            <a href="/login" data-v-d38c587a="" class="" th:if="${login}">登录</a>
+            <a href="/login" data-v-d38c587a="" class="" v-if="session.username == null">登录</a>
           </li>
-          <li class="nav-item" data-v-d38c587a="" th:if="${login}">
+          <li class="nav-item" data-v-d38c587a="" v-if="session.username == null">
             <a href="/register" data-v-d38c587a="" class="">注册</a>
           </li>
         </ul>

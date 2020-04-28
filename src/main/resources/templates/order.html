@@ -9,6 +9,32 @@
 
 <body>
   <div id="app" class="app InitOrder">
+    <!-- LOGIN -->
+    <div class="header" data-v-d38c587a="">
+      <div class="container" data-v-d38c587a="">
+        <ul class="header__nav" data-v-d38c587a="">
+          <li class="nav-item" data-v-d38c587a="">
+            <span data-v-d38c587a="" @click="auth = !auth">
+              <p>{{ session.username }}</p>
+              <div role="tooltip" id="el-popover-6663" class="el-popover el-popper" tabindex="0" style="width:90px;"
+                v-if="auth">
+                <div data-v-d38c587a="">
+                  <a href="/account" class="link" data-v-d38c587a="">个人中心</a>
+                  <p class="link" data-v-d38c587a="" @click="logout">退出登录</p>
+                </div>
+              </div>
+              <span data-v-d38c587a="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
+              </span>
+            </span>
+            <a href="/login" data-v-d38c587a="" class="" v-if="session.username == null">登录</a>
+          </li>
+          <li class="nav-item" data-v-d38c587a="" v-if="session.username == null">
+            <a href="/register" data-v-d38c587a="" class="">注册</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!---->
     <!-- LOGO -->
     <div data-v-00b281d0="" class="recyle-process">
       <div data-v-00b281d0="" class="container clearfix">

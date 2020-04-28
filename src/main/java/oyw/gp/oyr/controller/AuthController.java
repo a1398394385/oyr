@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import oyw.gp.oyr.entity.Auth;
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @RestController
-public class AuthController {
+public class AuthController
+{
     @Autowired
     private UserService userService;
 
@@ -29,14 +33,21 @@ public class AuthController {
         httpSession.setAttribute("id", user.getId());
         httpSession.setAttribute("telephone", user.getTelephone());
         httpSession.setAttribute("username", user.getUsername());
-        return Response.result(200);
+        httpSession.setAttribute("address", user.getAddress());
+        return Response.result(200, new Auth(httpServletRequest).getSession());
     }
 
     @PostMapping(value = "/logout")
     public Response<Object> logout() {
         HttpSession httpSession = httpServletRequest.getSession(false);
-        httpSession.invalidate();
+        if (httpSession != null) httpSession.invalidate();
         return Response.result(200, "登出成功");
     }
+
+    @GetMapping(value = "/session")
+    public Response<Object> getSession() {
+        return new Response<Object>();
+    }
+
 
 }

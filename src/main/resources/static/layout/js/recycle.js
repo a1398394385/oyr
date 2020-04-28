@@ -15,9 +15,15 @@ let app = new Vue({
         storages: null,
         price: null,
         image: null,
-        auth: false
+        auth: false,
+        session: {
+            username: null
+        },
     },
     beforeMount: function () {
+        let session = JSON.parse(localStorage.getItem("session"))
+        if (session != null) this.session = session
+
         let phoneId = window.location.href.split("/").pop()
         axios.get("/phone/" + phoneId)
             .then(res => {
@@ -41,6 +47,7 @@ let app = new Vue({
         logout: function () {
             axios.post("/logout")
                 .then(res => {
+                    localStorage.removeItem("session")
                     alert(res.data.data)
                     location.reload()
                 })
@@ -49,7 +56,7 @@ let app = new Vue({
                     location.href = "/home";
                     console.error(err);
                 })
-        },
+        }
     },
     watch: {},
     computed: {

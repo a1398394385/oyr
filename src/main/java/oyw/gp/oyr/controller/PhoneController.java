@@ -22,7 +22,8 @@ import oyw.gp.oyr.service.PhoneService;
  */
 @RestController
 @RequestMapping("/phone")
-public class PhoneController {
+public class PhoneController
+{
     @Autowired
     PhoneService phoneService;
 

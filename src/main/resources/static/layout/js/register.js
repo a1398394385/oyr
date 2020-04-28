@@ -6,6 +6,20 @@ let app = new Vue({
         password: "",
         address: "",
     },
+    watch: {
+        password(newName, oldName) {
+            this.password = newName.trim() == "" ? null : newName.trim();
+        },
+        telephone(newName, oldName) {
+            this.telephone = newName.trim() == "" ? null : newName.trim();
+        },
+        username(newName, oldName) {
+            this.username = newName.trim() == "" ? null : newName.trim();
+        },
+        address(newName, oldName) {
+            this.address = newName.trim() == "" ? null : newName.trim();
+        },
+    },
     computed: {
         disabled: function () {
             return !this.isCorrectName ||

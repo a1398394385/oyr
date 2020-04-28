@@ -41,10 +41,11 @@ $(function () {
             data: JSON.stringify($('form').serializeJSON()),
             dataType: "json",
             success: (response) => {
-                console.log(response);
+                if (response.status == "success") {
+                    localStorage.setItem("session", JSON.stringify(response.data))
+                    window.location.href = '/home'
+                }
 
-                if (response.status == "success")
-                    window.location.href = '/home';
                 if (response.status == "filed")
                     alert(response.message);
             }

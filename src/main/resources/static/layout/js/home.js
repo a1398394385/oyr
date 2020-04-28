@@ -4,8 +4,15 @@ let app = new Vue({
         brandId: 1,
         phones: null,
         auth: false,
+        session: {
+            username: null
+        },
     },
     beforeMount: function () {
+        let session = JSON.parse(localStorage.getItem("session"))
+        if (session != null) this.session = session;
+
+
         axios.get("/phone/brand/1")
             .then(res => {
                 if (res.data.status == "success") {
@@ -20,7 +27,7 @@ let app = new Vue({
                 alert("您的网络异常，请刷新后重试")
                 location.href = "/home";
                 console.error(err);
-            })
+            });
     },
     methods: {
         getPhonesData: function (brandId) {
@@ -45,6 +52,7 @@ let app = new Vue({
         logout: function () {
             axios.post("/logout")
                 .then(res => {
+                    localStorage.removeItem("session")
                     alert(res.data.data)
                     location.reload()
                 })

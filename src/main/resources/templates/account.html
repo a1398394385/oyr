@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>账户管理</title>
   <link rel="stylesheet" href="/public/css/app.css">
+  <link rel="stylesheet" href="/public/layui/css/layui.css">
   <style>
     .isNone {
       display: none;
@@ -20,20 +21,20 @@
         <ul class="header__nav" data-v-d38c587a="">
           <li class="nav-item" data-v-d38c587a="">
             <span data-v-d38c587a="" @click="auth = !auth">
-              <p th:text="${username}"></p>
+              <p>{{ session.username }}</p>
               <div role="tooltip" id="el-popover-6663" class="el-popover el-popper" tabindex="0" style="width:90px;"
                 v-if="auth">
                 <div data-v-d38c587a="">
-                  <a href="#" class="link" data-v-d38c587a="">个人中心</a>
+                  <a href="/account" class="link" data-v-d38c587a="">个人中心</a>
                   <p class="link" data-v-d38c587a="" @click="logout">退出登录</p>
                 </div>
               </div>
               <span data-v-d38c587a="" class="el-popover__reference" aria-describedby="el-popover-6663" tabindex="0">
               </span>
             </span>
-            <a href="/login" data-v-d38c587a="" class="" th:if="${login}">登录</a>
+            <a href="/login" data-v-d38c587a="" class="" v-if="session.username == null">登录</a>
           </li>
-          <li class="nav-item" data-v-d38c587a="" th:if="${login}">
+          <li class="nav-item" data-v-d38c587a="" v-if="session.username == null">
             <a href="/register" data-v-d38c587a="" class="">注册</a>
           </li>
         </ul>
@@ -76,11 +77,11 @@
           <div data-v-440a37e6="" class="panel">
             <h3 data-v-440a37e6="" class="panel-hd">我的账户</h3>
             <div data-v-440a37e6="" class="panel-bd">
-              <a data-v-440a37e6="" href="#" class="link" :class="{'is-active': account}">
-                <span data-v-440a37e6="" @click="account = true">账户管理</span>
+              <a data-v-440a37e6="" href="#" class="link" :class="{'is-active': page == '0' }">
+                <span data-v-440a37e6="" @click="page = '0'">账户管理</span>
               </a>
-              <a data-v-440a37e6="" href="#" class="link" :class="{'is-active': !account}">
-                <span data-v-440a37e6="" @click="account = false">我的订单</span>
+              <a data-v-440a37e6="" href="#" class="link" :class="{'is-active': page == '1'}">
+                <span data-v-440a37e6="" @click="page = '1'">我的订单</span>
               </a>
             </div>
           </div>
@@ -96,29 +97,26 @@
           <!------->
         </div>
         <!-- 账户管理 -->
-        <div data-v-440a37e6="" class="main" :class="{'isNone': !account}">
+        <div data-v-440a37e6="" class="main" :class="{'isNone': page != '0'}">
           <div data-v-440a37e6="" class="main-inner">
             <h3 data-v-440a37e6="" class="title">账户管理</h3>
             <div data-v-7876d6a6="" data-v-440a37e6="" class="manage">
+              <span data-v-7876d6a6="" class="item__ft" @click="page = '2'">修改</span>
               <ul data-v-7876d6a6="" class="list">
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">手机号码</span>
-                  <span data-v-7876d6a6="" class="item__bd">153****8355</span>
-                  <span data-v-7876d6a6="" class="item__ft">修改</span>
+                  <span data-v-7876d6a6="" class="item__bd">{{ session.telephone }}</span>
                 </li>
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">呢称</span>
-                  <span data-v-7876d6a6="" class="item__bd">xiha</span>
-                  <span data-v-7876d6a6="" class="item__ft">修改</span>
+                  <span data-v-7876d6a6="" class="item__bd">{{ session.username }}</span>
                 </li>
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">地址</span>
-                  <span data-v-7876d6a6="" class="item__bd">123456</span>
-                  <span data-v-7876d6a6="" class="item__ft">修改</span>
+                  <span data-v-7876d6a6="" class="item__bd">{{ session.address }}</span>
                 </li>
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">密码</span>
-                  <span data-v-7876d6a6="" class="item__ft">修改</span>
                 </li>
               </ul>
             </div>
@@ -126,7 +124,7 @@
         </div>
         <!------>
         <!-- 我的订单 -->
-        <div data-v-440a37e6="" class="main" :class="{'isNone': account}">
+        <div data-v-440a37e6="" class="main" :class="{'isNone': page != '1'}">
           <div data-v-440a37e6="" class="main-inner">
             <h3 data-v-440a37e6="" class="title">我的订单</h3>
             <div data-v-6da94472="" data-v-440a37e6="" class="order-list-wrap">
@@ -136,6 +134,39 @@
           </div>
         </div>
         <!---->
+        <!-- 修改信息 -->
+        <div data-v-440a37e6="" class="main" :class="{'isNone': page != '2'}">
+          <div data-v-440a37e6="" class="main-inner">
+            <h3 data-v-440a37e6="" class="title">账户管理</h3>
+            <div data-v-7876d6a6="" data-v-440a37e6="" class="manage">
+              <ul data-v-7876d6a6="" class="list">
+                <li data-v-7876d6a6="" class="item">
+                  <span data-v-7876d6a6="" class="item__hd">手机号码</span>
+                  <input data-v-7876d6a6="" class="item__bd layui-input" style="width: 200px; border-radius: 5px;"
+                    placeholder="如需修改请输入" v-model="telephone" :style="telephoneStyle" />
+                </li>
+                <li data-v-7876d6a6="" class="item">
+                  <span data-v-7876d6a6="" class="item__hd">呢称</span>
+                  <input data-v-7876d6a6="" class="item__bd layui-input" style="width: 200px; border-radius: 5px;"
+                    placeholder="如需修改请输入" v-model="username" :style="usernameStyle" />
+                </li>
+                <li data-v-7876d6a6="" class="item">
+                  <span data-v-7876d6a6="" class="item__hd">地址</span>
+                  <input data-v-7876d6a6="" class="item__bd layui-input" style="width: 200px; border-radius: 5px;"
+                    placeholder="如需修改请输入" v-model="address" :style="addressStyle" />
+                </li>
+                <li data-v-7876d6a6="" class="item">
+                  <span data-v-7876d6a6="" class="item__hd">密码</span>
+                  <input data-v-7876d6a6="" class="item__bd layui-input" style="width: 200px; border-radius: 5px;"
+                    placeholder="如需修改请输入" v-model="password" :style="passwordStyle" />
+                </li>
+              </ul>
+              <span data-v-7876d6a6="" class="item__ft" style="font-size: 20px;color:green;" @click="update"
+                :disabled="disabled" :style="disabledStyle">提交</span>
+            </div>
+          </div>
+        </div>
+        <!------>
       </div>
     </div>
 
@@ -152,9 +183,11 @@
 
 
 
-  <script src="/public/js/vue.min.js"></script>
+  <!-- <script src="/public/js/vue.min.js"></script> -->
+  <script src="/public/js/vue.js"></script>
   <script src="/public/js/axios.js"></script>
   <script src="/layout/js/account.js"></script>
+  <script src="/public/layui/layui.all.js"></script>
 </body>
 
 </html>
