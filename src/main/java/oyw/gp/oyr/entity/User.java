@@ -72,9 +72,9 @@ public class User extends Model<User>
     }
 
     public User(String username, String password, String telephone, String address) {
-        this.username  = username;
-        this.password  = password;
+        this.username = username;
+        this.password = password;
         this.telephone = telephone;
-        this.address   = address;
+        this.address = address;
     }
 }
