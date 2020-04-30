@@ -61,3 +61,20 @@ CREATE TABLE `user`  (
 INSERT INTO `user` VALUES (1, '123', '123', '123', '123', '2020-04-21 04:17:06');
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+
+-- ----------------------------
+-- Table structure for order
+-- ----------------------------
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `price` decimal(10, 2)  NOT NULL COMMENT '回收价格',
+  `user_id` bigint(20) UNSIGNED NOT NULL COMMENT '用户id',
+  `telephone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号',
+  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
+  `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+  `state` tinyint(1) NOT NULL COMMENT '订单状态',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `telphone`(`telephone`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
