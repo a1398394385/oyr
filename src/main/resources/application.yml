@@ -33,6 +33,7 @@ spring:
   cache:
     cache-names:
     - phones
+    - area
     
 logging:
   level:
