@@ -43,9 +43,7 @@ public class UserController
      */
     @PostMapping("/")
     public Response<Object> create(@RequestBody User user) {
-
         return userService.register(user);
-
     }
 
     /**
@@ -56,7 +54,6 @@ public class UserController
      */
     @GetMapping("/{id}")
     public Response<Object> show(@PathVariable Long id) {
-
         try {
             User user = userService.getById(id);
             return Response.result(200, user);
@@ -73,8 +70,7 @@ public class UserController
      * @return
      */
     @PutMapping("/{id}")
-    public Response<Object> update(@PathVariable Long id, User user) {
-
+    public Response<Object> update(@PathVariable Long id, @RequestBody User user) {
         try {
             user.setId(id);
             userService.updateById(user);

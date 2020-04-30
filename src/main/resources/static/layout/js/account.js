@@ -23,8 +23,7 @@ let app = new Vue({
     },
     methods: {
         update: function () {
-            axios.put("/info/test", {
-                id: this.session.id,
+            axios.put("/user/" + this.session.id, {
                 telephone: this.telephone,
                 username: this.username,
                 address: this.address,
