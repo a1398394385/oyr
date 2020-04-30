@@ -90,18 +90,18 @@
           <div data-v-a3126684="" class="fr hidden-xs product-info-wrapper">
             <div data-v-09cad8c1="" data-v-a3126684="" class="product-info clearfix bg-white">
               <div data-v-09cad8c1="" class="product-image sr">
-                <img data-v-09cad8c1 class="img-responsive center-block" :src="image">
+                <img data-v-09cad8c1 class="img-responsive center-block" :src="phone.image">
               </div>
               <div data-v-09cad8c1="" class="sr">
-                <div data-v-09cad8c1="" class="product-name text-bold">{{model}}</div>
+                <div data-v-09cad8c1="" class="product-name text-bold">{{ phone.model }}</div>
                 <div data-v-a3126684="" data-v-09cad8c1="" class="pi clearfix center-block mb-lg">
                   <div data-v-a3126684="" data-v-09cad8c1="" class="fl">
-                    <span data-v-a3126684="" data-v-09cad8c1="">￥ {{price}}</span>
+                    <span data-v-a3126684="" data-v-09cad8c1="">￥ {{ phone.price }}</span>
                     <p data-v-a3126684="" data-v-09cad8c1="" class="text-muted mt-xs">最高回收价</p>
                   </div>
                   <div data-v-a3126684="" data-v-09cad8c1="" class="split"></div>
                   <div data-v-a3126684="" data-v-09cad8c1="" class="fr">
-                    <span data-v-a3126684="" data-v-09cad8c1="">￥ {{price * 100}}</span>
+                    <span data-v-a3126684="" data-v-09cad8c1="">￥ {{ phone.price * 100 }}</span>
                     <p data-v-a3126684="" data-v-09cad8c1="" class="text-muted mt-xs">
                       已成功收钱
                     </p>
@@ -152,7 +152,7 @@
                   </div>
                   <div data-v-45f0c292="" class="base-item-bd">
                     <ul data-v-45f0c292="" class="answer-list clearfix">
-                      <li data-v-45f0c292="" class="answer-item fl" v-for="(color, i) in colors"
+                      <li data-v-45f0c292="" class="answer-item fl" v-for="(color, i) in phone.colors"
                         :class="{'is-active': colorOption==i}" @click="colorOption=i">
                         <div data-v-45f0c292="" class="answer-txt">{{color}}</div>
                         <span data-v-45f0c292=""></span>
@@ -171,9 +171,9 @@
                   </div>
                   <div data-v-45f0c292="" class="base-item-bd">
                     <ul data-v-45f0c292="" class="answer-list clearfix">
-                      <li data-v-45f0c292="" class="answer-item fl" v-for="(storage, i) in storages"
+                      <li data-v-45f0c292="" class="answer-item fl" v-for="(storage, i) in phone.storages"
                         @click="option1=i, storageOption=i" :class="{'is-active': storageOption==i}">
-                        <div data-v-45f0c292="" class="answer-txt">{{ storage}} GB</div>
+                        <div data-v-45f0c292="" class="answer-txt">{{ storage }} GB</div>
                         <span data-v-45f0c292=""></span>
                       </li>
                     </ul>
@@ -503,7 +503,8 @@
     </div>
     <!---->
   </div>
-  <script src="/public/js/vue.min.js"></script>
+  <script src="/public/js/vue.js"></script>
+  <!-- <script src="/public/js/vue.min.js"></script> -->
   <script src="/public/js/axios.js"></script>
   <script src="/layout/js/recycle.js"></script>
 </body>

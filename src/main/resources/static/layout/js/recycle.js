@@ -10,11 +10,14 @@ let app = new Vue({
         serviceOption: null,
         IDOption: null,
         featureOption: [],
-        model: null,
-        colors: null,
-        storages: null,
-        price: null,
-        image: null,
+        phone: {
+            model: null,
+            colors: null,
+            storages: null,
+            price: null,
+            image: null,
+        },
+        // 通用数据
         auth: false,
         session: {
             username: null
@@ -27,11 +30,11 @@ let app = new Vue({
         let phoneId = window.location.href.split("/").pop()
         axios.get("/phone/" + phoneId)
             .then(res => {
-                this.model = res.data.data.model
-                this.colors = res.data.data.color.split("-")
-                this.storages = res.data.data.storage.split("-")
-                this.price = res.data.data.price
-                this.image = res.data.data.image
+                this.phone.model = res.data.data.model
+                this.phone.colors = res.data.data.color.split("-")
+                this.phone.storages = res.data.data.storage.split("-")
+                this.phone.price = res.data.data.price
+                this.phone.image = res.data.data.image
             })
             .catch(err => {
                 alert("您的网络异常，请刷新后重试")
@@ -42,7 +45,9 @@ let app = new Vue({
     methods: {
         valuation: function () {
             alert("您的最终估价为 " + this.finalPrice + " 元")
-
+            this.phone.price = this.finalPrice
+            localStorage.setItem("phone", JSON.stringify(this.phone))
+            location.href = "/test/order"
         },
         logout: function () {
             axios.post("/logout")
@@ -83,7 +88,7 @@ let app = new Vue({
             if (this.discount >= 20)
                 return 0
             else
-                return Math.floor(this.price * (20 - this.discount) * 0.05)
+                return Math.floor(this.phone.price * (20 - this.discount) * 0.05)
         }
     }
 });
