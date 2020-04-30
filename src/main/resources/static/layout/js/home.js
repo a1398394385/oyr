@@ -3,6 +3,7 @@ let app = new Vue({
     data: {
         brandId: 1,
         phones: null,
+        // 通用数据
         auth: false,
         session: {
             username: null

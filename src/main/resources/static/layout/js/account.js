@@ -1,15 +1,16 @@
 let app = new Vue({
     el: '#app',
     data: {
-        auth: false,
-        page: 2,
-        session: {
-            username: null
-        },
+        page: 0,
         username: null,
         telephone: null,
         address: null,
         password: null,
+        // 通用数据
+        auth: false,
+        session: {
+            username: null
+        },
     },
     beforeMount: function () {
         let session = JSON.parse(localStorage.getItem("session"))
