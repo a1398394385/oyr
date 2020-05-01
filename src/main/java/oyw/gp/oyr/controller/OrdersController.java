@@ -1,6 +1,8 @@
 package oyw.gp.oyr.controller;
 
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,21 +29,20 @@ import oyw.gp.oyr.service.OrdersService;
 public class OrdersController
 {
     @Autowired
-    OrdersService orderService;
+    OrdersService ordersService;
 
     @GetMapping(value = "/")
     public Response<Object> index() {
-        return Response.result(200, orderService.list());
+        return Response.result(200, ordersService.list());
     }
 
     @PostMapping(value = "/")
     public Response<Object> create(@RequestBody Orders order) {
-        log.error(order.toString(), "");
-        return Response.result(200);
-        // if (orderService.save(order))
-        // return Response.result(200);
-        // else
-        // return Response.error(500, null);
+        order.setCreateTime(LocalDateTime.now());
+        if (ordersService.save(order))
+            return Response.result(200);
+        else
+            return Response.error(500, null);
     }
 }
 
