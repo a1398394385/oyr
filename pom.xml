@@ -19,6 +19,22 @@
 
 	<dependencies>
 
+		<!-- FastJSON -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.68</version>
+		</dependency>
+
+
+		<!-- 阿里云SDK -->
+		<dependency>
+			<groupId>com.aliyun</groupId>
+			<artifactId>aliyun-java-sdk-core</artifactId>
+			<version>4.5.1</version>
+		</dependency>
+
+
 		<!-- redis -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
