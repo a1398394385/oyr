@@ -44,12 +44,12 @@ public class Captcha
     /**
      * 图片宽度
      */
-    private static int width = 80;
+    private static int width = 110;
 
     /**
      * 图片高度
      */
-    private static int height = 34;
+    private static int height = 40;
 
     /**
      * 字符的数量
@@ -59,7 +59,7 @@ public class Captcha
     /**
      * 干扰线数量
      */
-    private static int lineSize = 40;
+    private static int lineSize = 35;
 
     private Captcha() {}
 
