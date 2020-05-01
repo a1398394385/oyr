@@ -1,6 +1,6 @@
 package oyw.gp.oyr.mapper;
 
-import oyw.gp.oyr.entity.Order;
+import oyw.gp.oyr.entity.Orders;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author OuYangWei
- * @since 2020-04-30
+ * @since 2020-05-01
  */
-public interface OrderMapper extends BaseMapper<Order> {
+public interface OrdersMapper extends BaseMapper<Orders> {
 
 }

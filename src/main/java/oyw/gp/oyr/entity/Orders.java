@@ -18,13 +18,13 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author OuYangWei
- * @since 2020-04-30
+ * @since 2020-05-01
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("order")
-public class Order extends Model<Order> {
+@TableName("orders")
+public class Orders extends Model<Orders> {
 
     private static final long serialVersionUID=1L;
 
@@ -35,16 +35,10 @@ public class Order extends Model<Order> {
     private Long id;
 
     /**
-     * 回收价格
+     * 姓名
      */
-    @TableField("price")
-    private BigDecimal price;
-
-    /**
-     * 用户id
-     */
-    @TableField("user_id")
-    private Long userId;
+    @TableField("name")
+    private String name;
 
     /**
      * 手机号
@@ -53,28 +47,46 @@ public class Order extends Model<Order> {
     private String telephone;
 
     /**
+     * 回收价格
+     */
+    @TableField("price")
+    private BigDecimal price;
+
+    /**
      * 地址
      */
     @TableField("address")
     private String address;
 
     /**
-     * 创建时间
-     */
-    @TableField("create_time")
-    private LocalDateTime createTime;
-
-    /**
      * 订单状态
+0：订单创立
+1：上门取货
+2：收到手机
+3：订单完成
+4：退货中
+5：退货完成
      */
     @TableField("state")
-    private Boolean state;
+    private String state;
+
+    /**
+     * 用户id
+     */
+    @TableField("user_id")
+    private Long userId;
 
     /**
      * 手机id
      */
     @TableField("phone_id")
     private Long phoneId;
+
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private LocalDateTime createTime;
 
 
     @Override

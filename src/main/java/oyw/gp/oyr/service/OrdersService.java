@@ -1,6 +1,6 @@
 package oyw.gp.oyr.service;
 
-import oyw.gp.oyr.entity.Order;
+import oyw.gp.oyr.entity.Orders;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author OuYangWei
- * @since 2020-04-30
+ * @since 2020-05-01
  */
-public interface OrderService extends IService<Order> {
+public interface OrdersService extends IService<Orders> {
 
 }
