@@ -12,7 +12,6 @@ import oyw.gp.oyr.entity.Auth;
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
@@ -43,11 +42,4 @@ public class AuthController
         if (httpSession != null) httpSession.invalidate();
         return Response.result(200, "登出成功");
     }
-
-    @GetMapping(value = "/session")
-    public Response<Object> getSession() {
-        return new Response<Object>();
-    }
-
-
 }
