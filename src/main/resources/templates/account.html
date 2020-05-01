@@ -115,9 +115,6 @@
                   <span data-v-7876d6a6="" class="item__hd">地址</span>
                   <span data-v-7876d6a6="" class="item__bd">{{ session.address }}</span>
                 </li>
-                <li data-v-7876d6a6="" class="item">
-                  <span data-v-7876d6a6="" class="item__hd">密码</span>
-                </li>
               </ul>
             </div>
           </div>
@@ -143,26 +140,29 @@
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">手机号码</span>
                   <input data-v-7876d6a6="" class="item__bd layui-input" style="width: 200px; border-radius: 5px;"
-                    placeholder="如需修改请输入" v-model="telephone" :style="telephoneStyle" />
+                    placeholder="如需修改请输入" v-model="user.telephone" :style="telephoneStyle" />
                 </li>
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">呢称</span>
                   <input data-v-7876d6a6="" class="item__bd layui-input" style="width: 200px; border-radius: 5px;"
-                    placeholder="如需修改请输入" v-model="username" :style="usernameStyle" />
+                    placeholder="如需修改请输入" v-model="user.username" :style="usernameStyle" />
                 </li>
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">地址</span>
                   <input data-v-7876d6a6="" class="item__bd layui-input" style="width: 200px; border-radius: 5px;"
-                    placeholder="如需修改请输入" v-model="address" :style="addressStyle" />
+                    placeholder="如需修改请输入" v-model="user.address" :style="addressStyle" />
                 </li>
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">密码</span>
                   <input data-v-7876d6a6="" class="item__bd layui-input" style="width: 200px; border-radius: 5px;"
-                    placeholder="如需修改请输入" v-model="password" :style="passwordStyle" />
+                    placeholder="如需修改请输入" v-model="user.password" :style="passwordStyle" />
                 </li>
               </ul>
-              <span data-v-7876d6a6="" class="item__ft" style="font-size: 20px;color:green;" @click="update"
-                :disabled="disabled" :style="disabledStyle">提交</span>
+              <button
+                style="width: 120px;height: 35px;float: right;cursor: pointer;border: 0;border-radius: 5px;color:red"
+                v-if="disabled" disabled>数据格式错误</button>
+              <button style="width: 65px;height: 35px;float: right;cursor: pointer;border: 0;border-radius: 5px;"
+                v-if="!disabled" @click="update">提交</button>
             </div>
           </div>
         </div>
