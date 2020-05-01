@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.extern.slf4j.Slf4j;
 import oyw.gp.oyr.entity.Orders;
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.service.OrdersService;
@@ -23,7 +22,6 @@ import oyw.gp.oyr.service.OrdersService;
  * @author OuYangWei
  * @since 2020-05-01
  */
-@Slf4j
 @RestController
 @RequestMapping("/orders")
 public class OrdersController
