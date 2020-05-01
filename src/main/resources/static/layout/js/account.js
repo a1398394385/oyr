@@ -17,7 +17,9 @@ let app = new Vue({
     },
     beforeMount: function () {
         let session = JSON.parse(localStorage.getItem("session"))
-        if (session != null) {
+        if (session == null) {
+            location.href = "/login"
+        } else {
             this.session = session
             this.user.id = this.session.id
             this.user.username = this.session.username

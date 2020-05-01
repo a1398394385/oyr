@@ -32,7 +32,8 @@ let app = new Vue({
     beforeMount: function () {
         let session = JSON.parse(localStorage.getItem("session"))
         let phone = JSON.parse(localStorage.getItem("phone"))
-        if (session != null) this.session = session
+        if (session == null) location.href = "/login"
+        else this.session = session
         if (phone == null)
             location.href = "/home"
         this.phone = phone
