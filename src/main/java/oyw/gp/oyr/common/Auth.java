@@ -1,4 +1,4 @@
-package oyw.gp.oyr.entity;
+package oyw.gp.oyr.common;
 
 import java.util.HashMap;
 
