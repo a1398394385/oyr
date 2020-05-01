@@ -4,11 +4,11 @@ import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
@@ -46,7 +46,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         if (userMapper.selectOne(queryWrapper) == null) {
             user.setCreateTime(LocalDateTime.now(Clock.system(ZoneId.of("Asia/Shanghai"))));
-
             try {
                 userMapper.insert(user);
                 return Response.result(200);
