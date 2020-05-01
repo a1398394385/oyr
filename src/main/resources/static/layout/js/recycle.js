@@ -49,7 +49,7 @@ let app = new Vue({
             alert("您的最终估价为 " + this.finalPrice + " 元")
             this.phone.price = this.finalPrice
             localStorage.setItem("phone", JSON.stringify(this.phone))
-            location.href = "/test/order"
+            location.href = "/order"
         },
         logout: function () {
             axios.post("/logout")

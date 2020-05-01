@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class PageController
@@ -23,6 +25,11 @@ public class PageController
     @GetMapping("/recycle/{id}")
     public String recycle(HashMap<String, Object> map, @PathVariable Long id) {
         return "/recycle";
+    }
+
+    @GetMapping(value = "/order")
+    public String order() {
+        return "/order";
     }
 
     @GetMapping("/account")
