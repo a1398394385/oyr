@@ -11,6 +11,7 @@ let app = new Vue({
         IDOption: null,
         featureOption: [],
         phone: {
+            id: null,
             model: null,
             colors: null,
             storages: null,
@@ -30,6 +31,7 @@ let app = new Vue({
         let phoneId = window.location.href.split("/").pop()
         axios.get("/phone/" + phoneId)
             .then(res => {
+                this.phone.id = res.data.data.id
                 this.phone.model = res.data.data.model
                 this.phone.colors = res.data.data.color.split("-")
                 this.phone.storages = res.data.data.storage.split("-")

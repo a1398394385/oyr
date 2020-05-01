@@ -7,17 +7,21 @@ let app = new Vue({
         address: "",
     },
     watch: {
-        password(newName, oldName) {
-            this.password = newName.trim() == "" ? null : newName.trim();
+        password(newValue, oldValue) {
+            if (newValue != null)
+                this.password = newValue.replace(/\s+/g, "");
         },
-        telephone(newName, oldName) {
-            this.telephone = newName.trim() == "" ? null : newName.trim();
+        telephone(newValue, oldValue) {
+            if (newValue != null)
+                this.telephone = newValue.replace(/\s+/g, "");
         },
-        username(newName, oldName) {
-            this.username = newName.trim() == "" ? null : newName.trim();
+        username(newValue, oldValue) {
+            if (newValue != null)
+                this.username = newValue.replace(/\s+/g, "");
         },
-        address(newName, oldName) {
-            this.address = newName.trim() == "" ? null : newName.trim();
+        address(newValue, oldValue) {
+            if (newValue != null)
+                this.address = newValue.replace(/\s+/g, "");
         },
     },
     computed: {

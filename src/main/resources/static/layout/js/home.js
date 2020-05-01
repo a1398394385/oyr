@@ -13,13 +13,11 @@ let app = new Vue({
         let session = JSON.parse(localStorage.getItem("session"))
         if (session != null) this.session = session;
 
-
         axios.get("/phone/brand/1")
             .then(res => {
                 if (res.data.status == "success") {
                     this.phones = res.data.data
-                }
-                else {
+                } else {
                     alert("数据错误，请稍后重试")
                     location.href = "/home";
                 }

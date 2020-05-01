@@ -2,10 +2,13 @@ let app = new Vue({
     el: '#app',
     data: {
         page: 0,
-        username: null,
-        telephone: null,
-        address: null,
-        password: null,
+        user: {
+            id: null,
+            username: null,
+            telephone: null,
+            address: null,
+            password: null,
+        },
         // 通用数据
         auth: false,
         session: {
@@ -16,24 +19,20 @@ let app = new Vue({
         let session = JSON.parse(localStorage.getItem("session"))
         if (session != null) {
             this.session = session
-            this.username = this.session.username
-            this.telephone = this.session.telephone
-            this.address = this.session.address
+            this.user.id = this.session.id
+            this.user.username = this.session.username
+            this.user.telephone = this.session.telephone
+            this.user.address = this.session.address
         }
-
     },
     methods: {
         update: function () {
-            axios.put("/user/" + this.session.id, {
-                telephone: this.telephone,
-                username: this.username,
-                address: this.address,
-                password: this.password,
-            }).then(res => {
-                console.log(res)
-            }).catch(err => {
-                console.error(err);
-            })
+            axios.put("/user/" + this.session.id, this.user)
+                .then(res => {
+                    console.log(res)
+                }).catch(err => {
+                    console.error(err);
+                })
         },
         logout: function () {
             axios.post("/logout")
@@ -50,37 +49,58 @@ let app = new Vue({
         }
     },
     watch: {
-        password(newName, oldName) {
-            this.password = newName.trim() == "" ? null : newName.trim()
+        'user.telephone': {
+            handler: function (newValue, oldValue) {
+                if (newValue != null)
+                    this.user.telephone = newValue.replace(/\s+/g, "") == "" ?
+                        null : newValue.replace(/\s+/g, "");
+            },
+            deep: true
         },
-        telephone(newName, oldName) {
-            this.telephone = newName.trim() == "" ? null : newName.trim()
+        'user.username': {
+            handler: function (newValue, oldValue) {
+                if (newValue != null)
+                    this.user.username = newValue.replace(/\s+/g, "") == "" ?
+                        null : newValue.replace(/\s+/g, "");
+            },
+            deep: true
         },
-        username(newName, oldName) {
-            this.username = newName.trim() == "" ? null : newName.trim()
+        'user.address': {
+            handler: function (newValue, oldValue) {
+                if (newValue != null)
+                    this.user.address = newValue.replace(/\s+/g, "") == "" ?
+                        null : newValue.replace(/\s+/g, "");
+            },
+            deep: true
         },
-        address(newName, oldName) {
-            this.address = newName.trim() == "" ? null : newName.trim()
+        'user.password': {
+            handler: function (newValue, oldValue) {
+                if (newValue != null)
+                    this.user.password = newValue.replace(/\s+/g, "") == "" ?
+                        null : newValue.replace(/\s+/g, "");
+            },
+            deep: true
         },
     },
     computed: {
         disabled: function () {
-            return !this.isCorrectName ||
-                !this.isCorrectTel ||
-                !this.isCorrectPass ||
-                !this.isCorrectAddress
+            return !this.isCorrectName
+                || !this.isCorrectTel
+                || !this.isCorrectPass
+                || !this.isCorrectAddress
         },
         isCorrectName: function () {
-            return this.username != ""
+            return this.user.username == null || this.user.username != ""
         },
         isCorrectTel: function () {
-            return /^1(3|4|5|6|7|8|9)\d{9}$/.test(this.telephone)
+            return this.user.telephone == null
+                || /^1(3|4|5|6|7|8|9)\d{9}$/.test(this.user.telephone)
         },
         isCorrectPass: function () {
-            return this.password == null || this.password.length >= 8
+            return this.user.password == null || this.user.password.length >= 8
         },
         isCorrectAddress: function () {
-            return this.address != ""
+            return this.user.address == null || this.user.address != ""
         },
         disabledStyle: function () {
             if (this.disabled)
@@ -91,11 +111,11 @@ let app = new Vue({
                 return 'border: 1px solid red; color: red;';
         },
         telephoneStyle: function () {
-            if (this.telephone != null && !this.isCorrectTel)
+            if (this.user.telephone != null && !this.isCorrectTel)
                 return 'border: 1px solid red; color: red;';
         },
         passwordStyle: function () {
-            if (this.password != null && !this.isCorrectPass)
+            if (this.user.password != null && !this.isCorrectPass)
                 return 'border: 1px solid red; color: red;';
         },
         addressStyle: function () {
