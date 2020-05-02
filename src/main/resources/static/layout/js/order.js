@@ -13,6 +13,12 @@ let app = new Vue({
             phone: "",
         },
         recStyle: 1,
+        hideCaptcha: true,
+        imageCaptchaSrc: null,
+        imageCaptchaValue: null,
+        requestAddress: null,
+        code: null,
+        isCorrectCode: false,
         read: false,
         // 省市县数据
         province: null,
@@ -46,7 +52,7 @@ let app = new Vue({
                     this.province = 0
                 } else {
                     alert("数据错误，请稍后重试")
-                    location.href = "/home";
+                    location.reload();
                 }
             })
             .catch(err => {
@@ -56,27 +62,97 @@ let app = new Vue({
             })
     },
     methods: {
-        submit: function () {
-            axios.post("/orders/", {
-                name: this.user.name,
-                telephone: this.user.phone,
-                price: this.phone.price,
-                address: this.userAddress,
-                userId: this.session.username == null ? null : this.session.id,
-                phoneId: this.phone.id
+        getImageCaptcha: function () {
+            this.hideCaptcha = false
+            axios.get("/captcha/image")
+                .then(res => {
+                    if (res.data.status == "success") {
+                        this.imageCaptchaSrc = "data:image/png;base64," + res.data.data
+                    } else {
+                        alert("数据错误，请稍后重试")
+                        this.hideCaptcha = true
+                    }
+                })
+                .catch(err => {
+                    alert("您的网络异常，请刷新后重试")
+                    location.href = "/order";
+                    console.error(err);
+                })
+        },
+        verifyImageCaptcha: function () {
+            axios.post("/captcha/image", {
+                captchaValue: this.imageCaptchaValue
             }).then(res => {
                 if (res.data.status == "success") {
-                    alert("提交成功")
-                    location.href = "/account";
+                    this.requestAddress = res.data.data
+                    this.getSMSCaptcha()
+                    this.hideCaptcha = true
                 } else {
-                    alert("数据错误，请稍后重试")
-                    location.href = "/home";
+                    alert(res.data.message)
+                    this.imageCaptchaValue = null
+                    this.getImageCaptcha()
                 }
             }).catch(err => {
                 alert("您的网络异常，请刷新后重试")
-                location.href = "/home";
+                location.href = "/order";
                 console.error(err);
             })
+        },
+        getSMSCaptcha: function () {
+            axios.get(`/captcha/sms/${this.requestAddress}/${this.user.phone}`)
+                .then(res => {
+                    if (res.data.status == "success") {
+                        this.hideCaptcha = true
+                    } else {
+                        alert("数据错误，请稍后重试")
+                        this.hideCaptcha = true
+                    }
+                }).catch(err => {
+                    alert("您的网络异常，请刷新后重试")
+                    location.href = "/home";
+                    console.error(err);
+                })
+        },
+        verifySMSCaptcha: function () {
+            axios.post("/captcha/sms", {
+                phoneNumber: this.user.phone,
+                code: this.code
+            }).then(res => {
+                if (res.data.status == "success")
+                    this.isCorrectCode = true
+                else
+                    this.isCorrectCode = false
+            }).catch(err => {
+                alert("您的网络异常，请刷新后重试")
+                location.href = "/order";
+                console.error(err);
+            })
+        },
+        submit: function () {
+            this.verifySMSCaptcha()
+            if (this.isCorrectCode)
+                axios.post("/orders/", {
+                    name: this.user.name,
+                    telephone: this.user.phone,
+                    price: this.phone.price,
+                    address: this.userAddress,
+                    userId: this.session.username == null ? null : this.session.id,
+                    phoneId: this.phone.id
+                }).then(res => {
+                    if (res.data.status == "success") {
+                        alert("提交成功")
+                        location.reload();
+                    } else {
+                        alert("数据错误，请稍后重试")
+                        location.href = "/home";
+                    }
+                }).catch(err => {
+                    alert("您的网络异常，请刷新后重试")
+                    location.href = "/home";
+                    console.error(err);
+                })
+            else
+                alert("手机验证码错误！")
         },
         logout: function () {
             axios.post("/logout")
@@ -178,6 +254,10 @@ let app = new Vue({
         addressStyle: function () {
             if (this.read && !this.isCorrectAddress)
                 return 'border: 1px solid red';
+        },
+        hiddenCaptcha: function () {
+            if (this.hideCaptcha)
+                return 'display: none';
         }
     }
 })

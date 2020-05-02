@@ -165,7 +165,7 @@
                         v-model="user.phone" :style="userPhoneStyle">
                     </div>
                     <button data-v-59460bfa="" class="right-button hsb-button--default hsb-button--normal hsb-button"
-                      type="button">
+                      type="button" @click="getImageCaptcha" v-if="isCorrectTel">
                       <label class="hsb-button-text">获取验证码</label>
                     </button>
                   </div>
@@ -176,8 +176,8 @@
                 <div data-v-59460bfa="" class="el-form-item">
                   <div class="el-form-item__content">
                     <div data-v-59460bfa="" class="el-input">
-                      <input autocomplete="off" placeholder="请输入短信验证码" type="text" rows="2" validateevent="true"
-                        pretabindex="0" class="el-input__inner">
+                      <input autocomplete="off" type="text" class="el-input__inner" placeholder="请输入短信验证码"
+                        v-model="code">
                     </div>
                   </div>
                 </div>
@@ -185,20 +185,22 @@
             </div>
           </div>
           <!-- 图形验证码弹出层 -->
-          <div data-v-a0be9a20="" data-v-59460bfa="" class="mask" style="display: none;">
+          <div data-v-a0be9a20="" data-v-59460bfa="" class="mask" :style="hiddenCaptcha">
+            <!-- 图形验证码弹出框 -->
             <div data-v-a0be9a20="" class="content">
               <div data-v-a0be9a20="" class="hd">
                 <span data-v-a0be9a20="">请输入验证码</span>
-                <img data-v-a0be9a20="" src="/image/order/close.png">
+                <img data-v-a0be9a20="" style="cursor: pointer;" src="/image/order/close.png"
+                  @click="hideCaptcha = true">
               </div>
               <div data-v-a0be9a20="" class="bd">
-                <input data-v-a0be9a20="" placeholder="输入验证码" class="input">
+                <input data-v-a0be9a20="" placeholder="输入验证码" class="input" v-model="imageCaptchaValue">
                 <!-- 图形验证码 -->
-                <img data-v-a0be9a20="" src="" class="code-img" style="display: none;">
+                <img style="width: 110px;height: 40px;" :src="imageCaptchaSrc" @click="getImageCaptcha">
               </div>
               <div data-v-a0be9a20="" class="ft">
-                <button data-v-a0be9a20="" class="button hsb-button--primary hsb-button--large hsb-button"
-                  type="button">
+                <button data-v-a0be9a20="" class="button hsb-button--primary hsb-button--large hsb-button" type="button"
+                  @click="verifyImageCaptcha">
                   <label class="hsb-button-text">提交</label>
                 </button>
               </div>
