@@ -12,9 +12,8 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.RandomUtils;
-
-import com.alibaba.druid.util.Base64;
 
 /**
  * 生成图形验证码
@@ -182,7 +181,7 @@ public class Captcha
             bs = new ByteArrayOutputStream();
             // 将绘制得图片输出到流
             ImageIO.write(image, "png", bs);
-            String imgSrc = Base64.byteArrayToBase64(bs.toByteArray());
+            String imgSrc = new String(Base64.encodeBase64(bs.toByteArray()));
             captcha.setBase64Str(imgSrc);
         } catch (Exception e) {
             e.printStackTrace();
