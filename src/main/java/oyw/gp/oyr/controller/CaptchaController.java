@@ -1,5 +1,7 @@
 package oyw.gp.oyr.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import com.alibaba.fastjson.JSONObject;
@@ -17,7 +19,6 @@ import oyw.gp.oyr.common.Captcha;
 import oyw.gp.oyr.common.Sms;
 import oyw.gp.oyr.entity.Response;
 
-
 @RestController
 @RequestMapping(value = "/captcha")
 public class CaptchaController
@@ -30,19 +31,19 @@ public class CaptchaController
     /**
      * 获取图形验证码 Base64 值
      */
-    @GetMapping(value = "/")
+    @GetMapping(value = "/image")
     public Response<Object> getImageCaptcha() {
-        session.setAttribute("captchaValue", Captcha.getValue());
-        return Response.result(200, Captcha.getBase64Str(true));
+        session.setAttribute("captchaValue", Captcha.getValue(true));
+        return Response.result(200, Captcha.getBase64Str());
     }
 
     /**
      * 验证用户输入的图形验证码值
      */
-    @PostMapping(value = "/")
-    public Response<Object> postMethodName(@RequestBody String captchaValue) {
+    @PostMapping(value = "/image")
+    public Response<Object> verifyImageCaptcha(@RequestBody Map request) {
         Sms sms = new Sms(redisTemplate);
-        if (captchaValue == session.getAttribute("captchaValue"))
+        if (request.get("captchaValue").equals(session.getAttribute("captchaValue")))
             return Response.result(200, sms.getRequestAddress());
         else
             return Response.error(403, "验证码错误");
@@ -71,10 +72,10 @@ public class CaptchaController
      * @param String code 验证码
      */
     @PostMapping(value = "/sms")
-    public Response<Object> postMethodName(@RequestBody String phoneNumber,
-            @RequestBody String code) {
+    public Response<Object> verifySMSCaptcha(@RequestBody Map request) {
         Sms sms = new Sms(redisTemplate);
-        if (sms.verifySMSCode(phoneNumber, code))
+        if (sms.verifySMSCode(request.get("phoneNumber").toString(),
+                request.get("code").toString()))
             return Response.result(200);
         return Response.error(403, "验证码错误");
     }
