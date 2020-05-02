@@ -198,6 +198,13 @@ public class Captcha
 
     /**
      * 获取验证码 Base64 值
+     */
+    public static String getBase64Str() {
+        return captcha.getBase64Str();
+    }
+
+    /**
+     * 获取验证码 Base64 值
      * 
      * @param Boolean refresh 是否刷新当前图形验证码
      */
@@ -211,6 +218,17 @@ public class Captcha
      * 获取验证码内容值
      */
     public static String getValue() {
+        return captcha.getValue();
+    }
+
+    /**
+     * 获取验证码内容值
+     * 
+     * * @param Boolean refresh 是否刷新当前图形验证码
+     */
+    public static String getValue(Boolean refresh) {
+        if (refresh)
+            generateCaptcha();
         return captcha.getValue();
     }
 
