@@ -18,9 +18,6 @@ import com.aliyuncs.profile.DefaultProfile;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class Sms
 {
     /**
@@ -112,7 +109,6 @@ public class Sms
      * @return
      */
     public Boolean verifyRequestAddress(String requestAddress) {
-        log.error(redis.get(requestAddress), "");
         return redis.get(requestAddress) != null;
     }
 
@@ -124,7 +120,7 @@ public class Sms
      */
     private String getSMSCode(String phoneNumber) {
         String code = Public.randomCode();
-        redis.set(phoneNumber, code, Duration.ofMinutes(TIMEOUT));
+        redis.set(phoneNumber, code, Duration.ofMinutes(TIMEOUT * 50));
         return code;
     }
 
@@ -136,6 +132,6 @@ public class Sms
      * @return
      */
     public Boolean verifySMSCode(String phoneNumber, String code) {
-        return redis.get(phoneNumber) == code;
+        return redis.get(phoneNumber).equals(code);
     }
 }
