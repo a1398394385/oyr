@@ -2,9 +2,11 @@ package oyw.gp.oyr.controller;
 
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import oyw.gp.oyr.entity.Orders;
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.service.OrdersService;
+
 
 /**
  * <p>
@@ -33,6 +36,16 @@ public class OrdersController
     public Response<Object> index() {
         return Response.result(200, ordersService.list());
     }
+
+    @GetMapping(value = "/user/{id}")
+    public Response<Object> getOrdersByUserId(@PathVariable Long id) {
+        List<Orders> orders = ordersService.getOrdersByUserId(id);
+        if (orders != null)
+            return Response.result(200, orders);
+        else
+            return Response.error(500, "用户id不存在");
+    }
+
 
     @PostMapping(value = "/")
     public Response<Object> create(@RequestBody Orders order) {
