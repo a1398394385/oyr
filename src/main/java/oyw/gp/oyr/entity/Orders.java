@@ -24,9 +24,10 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("orders")
-public class Orders extends Model<Orders> {
+public class Orders extends Model<Orders>
+{
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键
@@ -59,13 +60,7 @@ public class Orders extends Model<Orders> {
     private String address;
 
     /**
-     * 订单状态
-0：订单创立
-1：上门取货
-2：收到手机
-3：订单完成
-4：退货中
-5：退货完成
+     * 订单状态 0：订单创立 1：上门取货 2：收到手机 3：订单完成 4：退货中 5：退货完成
      */
     @TableField("state")
     private String state;
@@ -83,6 +78,12 @@ public class Orders extends Model<Orders> {
     private Long phoneId;
 
     /**
+     * 手机型号
+     */
+    @TableField(exist = false)
+    private String model;
+
+    /**
      * 创建时间
      */
     @TableField("create_time")
@@ -93,5 +94,4 @@ public class Orders extends Model<Orders> {
     protected Serializable pkVal() {
         return this.id;
     }
-
 }
