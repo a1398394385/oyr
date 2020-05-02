@@ -1,6 +1,7 @@
 let app = new Vue({
     el: '#app',
     data: {
+        // page => 0: 账户管理 / 1: 我的订单 / 2: 修改信息
         page: 0,
         user: {
             id: null,
@@ -9,6 +10,7 @@ let app = new Vue({
             address: null,
             password: null,
         },
+        orders: null,
         // 通用数据
         auth: false,
         session: {
@@ -23,16 +25,25 @@ let app = new Vue({
             this.session = session
             this.user.id = this.session.id
             this.user.username = this.session.username
-            this.user.telephone = this.session.telephone
+            // this.user.telephone = this.session.telephone
             this.user.address = this.session.address
         }
     },
     methods: {
         update: function () {
-            axios.put("/user/" + this.session.id, this.user)
+            axios.put("/user/" + this.user.id, this.user)
                 .then(res => {
-                    console.log(res)
-                }).catch(err => {
+                    if (res.data.status == "success") {
+                        alert("更新成功")
+                        this.page = 0
+                    } else {
+                        alert("数据错误，请稍后重试")
+                        location.reload();
+                    }
+                })
+                .catch(err => {
+                    alert("您的网络异常，请刷新后重试")
+                    location.href = "/home";
                     console.error(err);
                 })
         },
@@ -48,9 +59,32 @@ let app = new Vue({
                     location.href = "/home";
                     console.error(err);
                 })
-        }
+        },
     },
     watch: {
+        page: function (newValue, oldValue) {
+            if (newValue == 1)
+                axios.get("/orders/user/" + this.user.id)
+                    .then(res => {
+                        if (res.data.status == "success") {
+                            this.orders = res.data.data
+                        } else {
+                            alert("数据错误，请稍后重试")
+                            location.reload()
+                        }
+                    })
+                    .catch(err => {
+                        alert("您的网络异常，请刷新后重试")
+                        location.href = "/home";
+                        console.error(err);
+                    })
+        },
+        orders: function (newValue, oldValue) {
+            let status = ["订单创立", "快递上门取货", "回收方收到手机", "订单完成", "退货中", "退货完成"]
+            for (var i in newValue) {
+                newValue[i].state = status[newValue[i].state]
+            }
+        },
         'user.telephone': {
             handler: function (newValue, oldValue) {
                 if (newValue != null)
@@ -123,6 +157,11 @@ let app = new Vue({
         addressStyle: function () {
             if (false)
                 return 'border: 1px solid red; color: red;';
+        },
+        tel: function () {
+            return this.session.telephone.slice(0, 3)
+                + "*".repeat(4)
+                + this.session.telephone.slice(7);
         }
     }
 });

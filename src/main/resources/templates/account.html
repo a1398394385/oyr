@@ -10,6 +10,31 @@
     .isNone {
       display: none;
     }
+
+    /* orders */
+    .order-li {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 25px 0;
+      padding: 8px;
+      border: 1px solid #C0C9DC;
+      border-radius: 10px;
+      color: #555555;
+    }
+
+    .d-flex {
+      display: flex;
+      padding: 3px;
+    }
+
+    .p-2 {
+      padding: .5rem;
+    }
+
+    .flex-fill {
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+    }
   </style>
 </head>
 
@@ -77,10 +102,10 @@
           <div data-v-440a37e6="" class="panel">
             <h3 data-v-440a37e6="" class="panel-hd">我的账户</h3>
             <div data-v-440a37e6="" class="panel-bd">
-              <a data-v-440a37e6="" href="#" class="link" :class="{'is-active': page == '0' }">
+              <a data-v-440a37e6="" class="link" :class="{'is-active': page == '0' }">
                 <span data-v-440a37e6="" @click="page = '0'">账户管理</span>
               </a>
-              <a data-v-440a37e6="" href="#" class="link" :class="{'is-active': page == '1'}">
+              <a data-v-440a37e6="" class="link" :class="{'is-active': page == '1'}">
                 <span data-v-440a37e6="" @click="page = '1'">我的订单</span>
               </a>
             </div>
@@ -105,7 +130,7 @@
               <ul data-v-7876d6a6="" class="list">
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">手机号码</span>
-                  <span data-v-7876d6a6="" class="item__bd">{{ session.telephone }}</span>
+                  <span data-v-7876d6a6="" class="item__bd">{{ tel }}</span>
                 </li>
                 <li data-v-7876d6a6="" class="item">
                   <span data-v-7876d6a6="" class="item__hd">呢称</span>
@@ -125,8 +150,26 @@
           <div data-v-440a37e6="" class="main-inner">
             <h3 data-v-440a37e6="" class="title">我的订单</h3>
             <div data-v-6da94472="" data-v-440a37e6="" class="order-list-wrap">
-              <div data-v-6da94472="" class="no-order">您还未下过订单!</div>
-              <div data-v-6da94472="" class="backdrop" style="z-index: 999; display: none;"></div>
+              <div data-v-6da94472="" class="no-order" v-if="orders == null">您还未下过订单!</div>
+              <ul v-if="orders != null">
+                <li class="order-li" v-for="order in orders">
+                  <div class="d-flex" style="height: 35px;">
+                    <span class="p-2 flex-fill">姓名：{{ order.name }}</span>
+                    <span class="p-2 flex-fill">手机号：+86 {{ order.telephone }}</span>
+                    <span class="p-2 flex-fill">地址：{{ order.address }}</span>
+                  </div>
+                  <hr>
+                  <div class="d-flex" style="height: 35px;">
+                    <span class="p-2 flex-fill">手机型号：{{ order.model }}</span>
+                    <span class="p-2 flex-fill">回收价格：￥{{ order.price }}</span>
+                  </div>
+                  <hr>
+                  <div class="d-flex" style="height: 35px;">
+                    <span class="p-2 flex-fill">订单状态：{{ order.state }}</span>
+                    <span class="p-2 flex-fill">创建时间：{{ order.createTime }}</span>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
