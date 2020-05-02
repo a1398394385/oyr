@@ -120,7 +120,7 @@ public class Sms
      */
     private String getSMSCode(String phoneNumber) {
         String code = Public.randomCode();
-        redis.set(phoneNumber, code, Duration.ofMinutes(TIMEOUT * 50));
+        redis.set(phoneNumber, code, Duration.ofMinutes(TIMEOUT));
         return code;
     }
 
