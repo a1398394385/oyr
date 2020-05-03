@@ -20,20 +20,25 @@ import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
+/**
+ * Mybatis-Plus 代码自动生成器
+ */
 public class GenerateCode {
+
+    private static Scanner SCANNER = new Scanner(System.in);
+
     /**
      * 读取控制台内容
      */
-    public static String scanner(String tip) {
-        Scanner scanner = new Scanner(System.in);
+    private static String scanner(String tip) {
         StringBuilder help = new StringBuilder();
         help.append("请输入" + tip + "：");
         System.out.println(help.toString());
 
-        if (scanner.hasNext()) {
-            String ipt = scanner.next();
+        if (SCANNER.hasNext()) {
+            String ipt = SCANNER.next();
 
-            if (StringUtils.isNotEmpty(ipt)) {
+            if (StringUtils.isBlank(ipt)) {
                 return ipt;
             }
         }
