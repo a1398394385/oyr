@@ -21,8 +21,7 @@ import oyw.gp.oyr.entity.Response;
 
 @RestController
 @RequestMapping(value = "/captcha")
-public class CaptchaController
-{
+public class CaptchaController {
     @Autowired
     HttpSession session;
     @Autowired
@@ -41,7 +40,7 @@ public class CaptchaController
      * 验证用户输入的图形验证码值
      */
     @PostMapping(value = "/image")
-    public Response<Object> verifyImageCaptcha(@RequestBody Map request) {
+    public Response<Object> verifyImageCaptcha(@RequestBody Map<String, String> request) {
         Sms sms = new Sms(redisTemplate);
         if (request.get("captchaValue").equals(session.getAttribute("captchaValue")))
             return Response.result(200, sms.getRequestAddress());
@@ -56,8 +55,7 @@ public class CaptchaController
      * @param String phoneNumber 手机号
      */
     @GetMapping(value = "/sms/{requestAddress}/{phoneNumber}")
-    public Response<Object> sendSMSCaptcha(@PathVariable String requestAddress,
-            @PathVariable String phoneNumber) {
+    public Response<Object> sendSMSCaptcha(@PathVariable String requestAddress, @PathVariable String phoneNumber) {
         Sms sms = new Sms(redisTemplate);
         if (!sms.verifyRequestAddress(requestAddress))
             return Response.error(400, "请求地址错误");
@@ -72,10 +70,9 @@ public class CaptchaController
      * @param String code 验证码
      */
     @PostMapping(value = "/sms")
-    public Response<Object> verifySMSCaptcha(@RequestBody Map request) {
+    public Response<Object> verifySMSCaptcha(@RequestBody Map<String, String> request) {
         Sms sms = new Sms(redisTemplate);
-        if (sms.verifySMSCode(request.get("phoneNumber").toString(),
-                request.get("code").toString()))
+        if (sms.verifySMSCode(request.get("phoneNumber").toString(), request.get("code").toString()))
             return Response.result(200);
         return Response.error(403, "验证码错误");
     }
