@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
@@ -16,34 +17,52 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author OuYangWei
- * @since 2020-04-30
+ * @since 2020-05-05
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("area")
-public class Area extends Model<Area>
+@TableName("admin")
+public class Admin extends Model<Admin>
 {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键
+     * 管理员id
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
 
     /**
-     * 地区
+     * 管理员name
      */
-    @TableField("area")
-    private String area;
+    @TableField("name")
+    private String name;
 
     /**
-     * 上级id
+     * 管理员密码
      */
-    @TableField("pid")
-    private Integer pid;
+    @TableField("password")
+    private String password;
+
+    /**
+     * 管理员权限0为无，
+     */
+    @TableField("authority")
+    private Boolean authority;
+
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    @TableField("update_time")
+    private LocalDateTime updateTime;
 
 
     @Override
