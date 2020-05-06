@@ -3,6 +3,14 @@ spring:
     url: jdbc:mysql://106.14.96.160:3306/oyr
     username: root
     password: xihadajiang
+  resources:
+    cache:
+      period: 604800 
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
   thymeleaf:
     cache: false
   redis:

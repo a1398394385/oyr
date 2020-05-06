@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import oyw.gp.oyr.entity.Admin;
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.service.AdminService;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;

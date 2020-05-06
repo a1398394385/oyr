@@ -7,10 +7,10 @@
 	"settings": {
 		"editor.lineHeight": 38,
 		"editor.wordWrap": "bounded",
-		"editor.fontSize": 17,
+		"editor.fontSize": 15,
 		"editor.fontWeight": "500",
 		"editor.fontLigatures": true,
-		"editor.fontFamily": "Cascadia Code, Consolas, 'Courier New', monospace",
+		"editor.fontFamily": "JetBrains Mono, Cascadia Code, Consolas, 'Courier New', monospace",
 		"debug.console.closeOnEnd": true,
 		"files.exclude": {
 			"**/.classpath": true,

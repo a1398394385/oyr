@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
+
 @Controller
 public class PageController
 {
@@ -17,12 +18,12 @@ public class PageController
     HttpServletRequest httpServletRequest;
 
     @GetMapping(value = {"/", "/home"})
-    public String home(HashMap<String, Object> map) {
+    public String home() {
         return "/home";
     }
 
     @GetMapping("/recycle/{id}")
-    public String recycle(HashMap<String, Object> map, @PathVariable Long id) {
+    public String recycle(@PathVariable Long id) {
         return "/recycle";
     }
 
@@ -32,7 +33,7 @@ public class PageController
     }
 
     @GetMapping("/account")
-    public String account(HashMap<String, Object> map) {
+    public String account() {
         return "/account";
     }
 
@@ -44,5 +45,13 @@ public class PageController
     @GetMapping("/login")
     public String login() {
         return "/login";
+    }
+
+    /**
+     * Admin Pages
+     */
+    @GetMapping(value = "/manage/{page}")
+    public String adminPages(@PathVariable String page) {
+        return "/admin/" + page;
     }
 }

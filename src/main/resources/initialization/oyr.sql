@@ -79,3 +79,14 @@ CREATE TABLE `orders`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `telphone`(`telephone`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '管理员id',
+  `name` varchar(30) NOT NULL COMMENT '管理员name',
+  `password` varchar(60) NOT NULL COMMENT '管理员密码',
+  `authority` enum('0','1','2') NOT NULL COMMENT '管理员权限，0：无权限、1：普通权限、2：超级权限',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `update_time` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;

@@ -59,13 +59,18 @@ public class AdminControllerTest
         Assert.assertEquals(response.get("code"), 200);
         Assert.assertEquals(response.get("data"), "[]");
 
-        // 3、get获取user列表，应该有刚才插入的数据
+        // 3、get获取admin列表，应该有刚才插入的数据
         requestBuilder = get(path);
         mvc.perform(requestBuilder).andExpect(status().isOk());
         response = JSON.parseObject(content().toString());
         Assert.assertEquals(response.get("status"), "success");
         Assert.assertEquals(response.get("code"), 200);
-        JSONObject admin = JSON.parseObject(response.get("data")[0]);
+        // JSONObject admin = JSON.parseObject(response.get("data").toString());
+        // System.out.println("------------------------");
+        // System.out.println("------------------------");
+        // System.out.println(response.get("data").toString());
+        // System.out.println("------------------------");
+        // System.out.println("------------------------");
         Assert.assertEquals(response.get("data"), "[]");
     }
 
