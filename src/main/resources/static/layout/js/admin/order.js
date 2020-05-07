@@ -22,8 +22,8 @@ $(function () {
                         <td>${order.address}</td>
                         <td>${order.state}</td>
                         <td>${order.createTime}</td>
-                        <td><button>删除</button>
-                        <button>更新</button></td>
+                        <td><button onclick="deleteOrder${order.id}">删除</button>
+                        <button onclick="updateOrder${order.id}">更新</button></td>
                     </tr>`;
                     //console.log(item);
                     $("#orders").append(item);
