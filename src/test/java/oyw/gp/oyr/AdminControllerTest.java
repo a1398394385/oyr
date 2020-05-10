@@ -21,16 +21,18 @@ import com.alibaba.fastjson.JSONObject;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
-
 import oyw.gp.oyr.controller.AdminController;
+import oyw.gp.oyr.service.AdminService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class AdminControllerTest
-{
+public class AdminControllerTest {
     @Autowired
     private MockMvc mvc;
+
+    @Autowired
+    private AdminService adminservie;
 
     @Before
     public void setUp() {
@@ -73,7 +75,5 @@ public class AdminControllerTest
         // System.out.println("------------------------");
         Assert.assertEquals(response.get("data"), "[]");
     }
-
-
 
 }

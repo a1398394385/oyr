@@ -1,6 +1,5 @@
 package oyw.gp.oyr.controller;
 
-
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -20,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
-
 /**
  * <p>
  * 前端控制器
@@ -32,8 +29,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @RestController
 @RequestMapping("/admin")
-public class AdminController
-{
+public class AdminController {
     @Autowired
     AdminService adminService;
 
@@ -44,27 +40,35 @@ public class AdminController
     }
 
     @PutMapping(value = "/{id}")
-    public Response<Object> update(@PathVariable Long id,
-            @RequestBody Admin admin) {
+    public Response<Object> update(@PathVariable Long id, @RequestBody Admin admin) {
         admin.setId(id);
-        if (adminService.updateById(admin)) { return Response.result(200); }
+        if (adminService.updateById(admin)) {
+            return Response.result(200);
+        }
         return Response.error(400, "管理员不存在");
     }
 
     @PostMapping(value = "/")
     public Response<Object> create(@RequestBody Admin admin) {
         admin.setName(Long.toString(System.currentTimeMillis()));
-        if (adminService.save(admin)) { return Response.result(200, admin); }
+        if (adminService.save(admin)) {
+            return Response.result(200, admin);
+        }
         return Response.error(500, "管理员创建失败");
     }
 
     @DeleteMapping(value = "/{id}")
     public Response<Object> delete(@PathVariable Long id) {
-        if (adminService.removeById(id)) { return Response.result(200); }
+        if (adminService.removeById(id)) {
+            return Response.result(200);
+        }
         return Response.error(400, "管理员不存在");
     }
 
+    @PostMapping(value = "/{name}")
+    public Response<Object> login() {
 
+        return null;
+    }
 
 }
-
