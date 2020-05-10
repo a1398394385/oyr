@@ -15,7 +15,19 @@ let app = new Vue({
     },
     methods: {
         login: function () {
-
+            axios.post("/admin/login", {
+                name: this.name,
+                password: this.password
+            }).then(res => {
+                if (res.data.status == "success") {
+                    location.href = "/manage/index";
+                } else {
+                    console.log(res.data.status);
+                    alert("用户或密码错误");
+                }
+            }).catch(err => {
+                console.error(err);
+            })
         }
     }
 });

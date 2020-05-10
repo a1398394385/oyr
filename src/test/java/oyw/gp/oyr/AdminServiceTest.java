@@ -13,16 +13,16 @@ import oyw.gp.oyr.service.AdminService;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class AdminServiceTest {
+public class AdminServiceTest
+{
 
     @Autowired
-    private AdminService adminservie;
+    private AdminService adminService;
 
     @Test
     public void testLogin() {
         String n = "oyr";
         String p = "xiha123";
-        // Assert.assertEquals(true, adminservie.login(n, p));
-        System.out.println(adminservie.login(n, p));
+        Assert.assertEquals(true, adminService.login(n, p));
     }
 }

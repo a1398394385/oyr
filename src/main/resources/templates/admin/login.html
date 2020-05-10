@@ -12,8 +12,6 @@
     <link rel="shortcut icon" href="/admin/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/admin/css/font.css">
     <link rel="stylesheet" href="/admin/css/weadmin.css">
-    <script src="/public/layui/layui.js" charset="utf-8"></script>
-    <script src="/layout/public/js/vue.js"></script>
 </head>
 
 <body class="login-bg">
@@ -29,30 +27,23 @@
             <input name="password" lay-verify="required" placeholder="密码" type="password" class="layui-input"
                 v-model="password">
             <hr class="hr15">
-            <input class="loginin" value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
-            <hr class="hr20">
+            <input class="loginin" value="登录" lay-filter="login" style="width:100%;" type="submit"
+                @click.prevent="login">
+            <hr class=" hr20">
 
         </form>
     </div>
+    <script src="/public/layui/layui.js" charset="utf-8"></script>
+    <script src="/public/js/vue.js"></script>
+    <script src="/public/js/axios.js"></script>
+    <script th:src="${@mvcResourceUrlProvider.getForLookupPath('/layout/js/admin/login.js')}"></script>
     <script type="text/javascript">
         layui.extend({
-            admin: '{/}admin/js/admin'
-            //admin: '{/}./static/js/admin'
+            admin: '/admin/js/admin'
         });
         layui.use(['form', 'admin'], function () {
             var form = layui.form,
                 admin = layui.admin;
-            // layer.msg('玩命卖萌中', function(){
-            //   //关闭后的操作
-            //   });
-            //监听提交
-            form.on('submit(login)', function (data) {
-                // alert(888)
-                layer.msg(JSON.stringify(data.field), function () {
-                    location.href = './index'
-                });
-                return false;
-            });
         });
     </script>
 </body>

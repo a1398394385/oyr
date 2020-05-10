@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.hamcrest.Matchers.equalTo;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -22,17 +21,14 @@ import com.alibaba.fastjson.JSONObject;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 import oyw.gp.oyr.controller.AdminController;
-import oyw.gp.oyr.service.AdminService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class AdminControllerTest {
+public class AdminControllerTest
+{
     @Autowired
     private MockMvc mvc;
-
-    @Autowired
-    private AdminService adminservie;
 
     @Before
     public void setUp() {
