@@ -2,7 +2,6 @@ package oyw.gp.oyr;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -62,11 +61,5 @@ public class UserControllerTests
     }
 
     @Test
-    public void testUserControllerUpdate() throws Exception {
-        RequestBuilder requestBuilder;
-
-        requestBuilder = put("/user/10").contentType(MediaType.APPLICATION_JSON)
-                .content(
-                        "{\"username\":test,\"password\":\"test\",\"telephone\":test,\"address\":test}");
-    }
+    public void testUserControllerUpdate() throws Exception {}
 }
