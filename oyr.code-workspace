@@ -31,6 +31,7 @@
 		"java.dependency.syncWithFolderExplorer": true,
 		"java.dependency.packagePresentation": "hierarchical",
 		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.format.settings.profile": "XYS-Style",
 		"java.format.settings.url": ".\\eclipse-java-XYS-style.xml",
 		"java.debug.settings.showHex": true,
 		"java.debug.settings.showQualifiedNames": true,

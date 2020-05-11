@@ -2,6 +2,7 @@
     "$schema": "http://json.schemastore.org/vsls",
     "gitignore": "exclude",
     "excludeFiles": [
+        "**/admin",
         "**/image",
         "**/public",
         "eclipse-java-XYS-style.xml",
