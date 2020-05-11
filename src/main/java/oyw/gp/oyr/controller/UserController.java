@@ -20,8 +20,7 @@ import oyw.gp.oyr.service.UserService;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController
-{
+public class UserController {
     @Autowired
     UserService userService;
 

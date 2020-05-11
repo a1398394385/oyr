@@ -3,32 +3,27 @@ $(function () {
     //#.:
     $.ajax({
         type: "get",
-        url: "/orders/",
+        url: "/user/",
         //contentType: "application/json;charset=UTF-8",发送给后端数据的类型       
         // data: JSON.stringify($('form').serializeJSON()),发送给后端的数据
         dataType: "json",
         success: (response) => {
             if (response.status == "success") {
-                response.data.forEach(order => {
+                response.data.forEach(member => {
                     var item =
                         `<tr>
-                        <td>${order.id}</td>
-                        <td>${order.name}</td>
-                        <td>${order.telephone}</td>
-                        <td>${order.phoneId}</td>
-                        <td>${order.price}</td>
-                        <td>${order.userId}</td>
-                        <td>顺丰速运</td>
-                        <td>${order.address}</td>
-                        <td>${order.state}</td>
-                        <td>${order.createTime}</td>
-                        <td><button onclick="deleteOrder${order.id}">删除</button>
-                        <button onclick="updateOrder${order.id}">更新</button></td>
+                        <td>${member.id}</td>
+                        <td>${member.username}</td>
+                        <td>${member.telephone}</td>
+                        <td>${member.address}</td>
+                        <td>${member.createTime}</td>
+                        <td><button onclick="deleteOrder${member.id}">删除</button>
+                        <button onclick="updateOrder${member.id}">更新</button></td>
                     </tr>`;
                     //console.log(item);
-                    $("#orders").append(item);
+                    $("#users").append(item);
                 });
-                $("#orderList").DataTable({
+                $("#userList").DataTable({
                     oLanguage: {
                         sProcessing: "处理中...",
                         sLengthMenu: "_MENU_ 记录/页",
@@ -57,4 +52,6 @@ $(function () {
             }
         }
     });
+
+
 });

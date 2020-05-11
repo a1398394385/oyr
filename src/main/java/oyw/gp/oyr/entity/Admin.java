@@ -24,8 +24,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("admin")
-public class Admin extends Model<Admin>
-{
+public class Admin extends Model<Admin> {
 
     private static final long serialVersionUID = 1L;
 
@@ -65,12 +64,10 @@ public class Admin extends Model<Admin>
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
-
     @Override
     protected Serializable pkVal() {
         return this.id;
     }
-
 
     /**
      * @param name
@@ -83,6 +80,7 @@ public class Admin extends Model<Admin>
         this.authority = authority;
     }
 
-    public Admin() {}
+    public Admin() {
+    }
 
 }
