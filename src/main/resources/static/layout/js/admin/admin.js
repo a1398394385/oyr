@@ -1,5 +1,5 @@
 let app = new Vue({
-    el: '#adminList',
+    el: '#adminApp',
     data: {
         admins: null,
         admin: {
@@ -10,6 +10,7 @@ let app = new Vue({
             createTime: null,
             updateTime: null,
         },
+        updating: false,
     },
     beforeMount: function () {
         axios.get("/admin/")
@@ -28,7 +29,7 @@ let app = new Vue({
             })
     },
     updated: function () {
-        $("#adminList").DataTable({
+        $("table").DataTable({
             oLanguage: {
                 sProcessing: "处理中...",
                 sLengthMenu: "_MENU_ 记录/页",
@@ -72,17 +73,28 @@ let app = new Vue({
         },
         updateAdmin: function (admin) {
             let authorities = ["无权限", "普通管理员", "超级管理员"];
-            admin.authority = authorities.indexOf(admin.authority)
-            this.admin = admin
-            console.log(JSON.stringify(this.admin))
-            layer.open({
-                type: 1,
-                title: "更新管理员信息",
-                content: $('#updateForm'),
-                anim: 0,
-                area: ['500px', '400px'],
-            });
-        }
+            this.admin = JSON.parse(JSON.stringify(admin));
+            this.admin.authority = authorities.indexOf(this.admin.authority);
+            this.updating = true;
+        },
+        submitUpdate: function () {
+            axios.put("/admin/" + this.admin.id, {
+                name: this.admin.name,
+                password: this.admin.password,
+                authority: this.admin.authority
+            }).then(res => {
+                if (res.data.status == "success") {
+                    location.reload();
+                } else {
+                    alert("数据错误，请稍后重试")
+                    location.reload();
+                }
+            }).catch(err => {
+                alert("您的网络异常，请刷新后重试")
+                location.href = "/manage/index";
+                console.error(err);
+            })
+        },
     },
     watch: {
         // 将权限等级数字替换为中文
