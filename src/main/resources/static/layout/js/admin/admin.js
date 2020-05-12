@@ -12,6 +12,7 @@ let app = new Vue({
         },
         updating: false,
     },
+    //页面之前的数据获取
     beforeMount: function () {
         axios.get("/admin/")
             .then(res => {
@@ -55,6 +56,7 @@ let app = new Vue({
         });
     },
     methods: {
+        //删除按钮
         deleteAdmin: function (adminId) {
             axios.delete("/admin/" + adminId)
                 .then(res => {

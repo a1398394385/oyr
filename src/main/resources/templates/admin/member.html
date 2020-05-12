@@ -26,27 +26,16 @@
 			<i class="layui-icon" style="line-height:30px">ဂ</i>
 		</a>
 	</div>
-	<div class="weadmin-body">
+	<div class="weadmin-body" id="memberApp">
 		<div class="layui-row">
 			<form class="layui-form layui-col-md12 we-search">
-				<div class="layui-input-inline">
-					<select name="contrller">
-						<option value="">订单状态</option>
-						<option value="0">订单创立</option>
-						<option value="1">上门取货</option>
-						<option value="2">收到手机</option>
-						<option value="3">订单完成</option>
-						<option value="4">退货中</option>
-						<option value="5">退货完成</option>
-					</select>
-				</div>
 				<div class="layui-inline">
-					<input type="text" name="username" placeholder="请输入订单号" autocomplete="off" class="layui-input">
+					<input type="text" name="username" placeholder="请输入用户id" autocomplete="off" class="layui-input">
 				</div>
 				<button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
 			</form>
 		</div>
-		<table id="userList" class="layui-table">
+		<table class="layui-table">
 			<thead>
 				<tr>
 					<th>用户id</th>
@@ -57,20 +46,18 @@
 					<th>操作</th>
 				</tr>
 			</thead>
-			<tbody id="users">
-				<!-- <tr>
-					<td>1</td>
-					<td>OYW</td>
-					<td>18925139194</td>
-					<td>小米 10</td>
-					<td>3000</td>
-					<td>3</td>
-					<td>顺丰速运</td>
-					<td>江西省万安县鸡毛山</td>
-					<td>未完成</td>
-					<td>2017-08-17 18:22</td>
-				</tr> -->
-
+			<tbody>
+				<tr v-for="user in users">
+					<td>{{user.id}}</td>
+					<td>{{user.username}}</td>
+					<td>{{user.telephone}}</td>
+					<td>{{user.address}}</td>
+					<td>{{user.createTime}}</td>
+					<td>
+						<button @click="deleteUser(user.id)" class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
+						<button @click="updateUser(user)" class="layui-btn layui-btn-sm">修改信息</button>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -78,6 +65,8 @@
 	<script src="/admin/js/jquery.dataTables.min.js"></script>
 	<script src="/public/layui/layui.js" charset="utf-8"></script>
 	<!-- 直接从已有前端缓存中拿 -->
+	<script src="/public/js/vue.js"></script>
+	<script src="/public/js/axios.js"></script>
 	<script th:src="${@mvcResourceUrlProvider.getForLookupPath('/layout/js/admin/member.js')}"></script>
 	<script>
 		layui.extend({

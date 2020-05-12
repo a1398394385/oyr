@@ -55,8 +55,9 @@
 					<td>{{admin.createTime}}</td>
 					<td>{{admin.updateTime}}</td>
 					<td>
-						<button @click="deleteAdmin(admin.id)">删除</button>
-						<button @click="updateAdmin(admin)">修改信息</button>
+						<button @click="deleteAdmin(admin.id)"
+							class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
+						<button @click="updateAdmin(admin)" class="layui-btn layui-btn-sm">修改信息</button>
 					</td>
 				</tr>
 			</tbody>
@@ -92,7 +93,7 @@
 								<select class="layui-select" style="display: inline-block;" lay-verify="required"
 									v-model="admin.authority">
 									<option value="null" style="display: none;" selected="selected">请选择</option>
-									<option value=" 0">无权限</option>
+									<option value="0">无权限</option>
 									<option value="1">普通管理员</option>
 									<option value="2">超级管理员</option>
 								</select>

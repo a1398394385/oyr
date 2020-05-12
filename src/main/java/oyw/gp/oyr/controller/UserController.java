@@ -20,7 +20,8 @@ import oyw.gp.oyr.service.UserService;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController
+{
     @Autowired
     UserService userService;
 
@@ -29,7 +30,7 @@ public class UserController {
      *
      * @return
      */
-    @GetMapping("/")
+    @GetMapping(value = "/")
     public Response<Object> index() {
         return Response.result(200, userService.list());
     }
@@ -90,7 +91,7 @@ public class UserController {
 
         try {
             userService.removeById(id);
-            return Response.result(204);
+            return Response.result(200);
         } catch (Exception e) {
             return Response.error(404, "用户不存在");
         }

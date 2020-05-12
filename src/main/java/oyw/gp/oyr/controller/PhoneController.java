@@ -38,7 +38,6 @@ public class PhoneController
 
     @GetMapping("/{id}")
     public Response<Object> show(@PathVariable Long id) {
-
         try {
             Phone phone = phoneService.getById(id);
             return Response.result(200, phone);
