@@ -34,4 +34,15 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         }
         return null;
     }
+
+    @Override
+    public List<Orders> getOrdes() {
+        try {
+            return ordersMapper.getOrders();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

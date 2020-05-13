@@ -20,6 +20,7 @@ let app = new Vue({
                 password: this.password
             }).then(res => {
                 if (res.data.status == "success") {
+                    localStorage.setItem("adminName", this.name)
                     location.href = "/manage/index";
                 } else {
                     console.log(res.data.status);

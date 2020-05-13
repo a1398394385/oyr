@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-public class PageController {
+public class PageController
+{
     @Autowired
     HttpServletRequest httpServletRequest;
 
-    @GetMapping(value = { "/", "/home" })
+    @GetMapping(value = {"/", "/home"})
     public String home() {
         return "/home";
     }
@@ -47,7 +48,6 @@ public class PageController {
      */
     @GetMapping(value = "/manage/{page}")
     public String adminPages(@PathVariable String page) {
-        return "/admin/" + page;
-
+        return "/manage/" + page;
     }
 }

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>订单列表-oyr后台管理系统</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="/admin/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/admin/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="/admin/css/font.css">
+	<link rel="stylesheet" href="/admin/css/weadmin.css">
+</head>
+
+<body>
+	<div class="weadmin-nav">
+		<span class="layui-breadcrumb">
+			<!-- javascript:history.go(-1);回退上一界面 -->
+			<a href="">订单管理</a>
+			<a><cite>订单列表</cite></a>
+		</span>
+		<a class="layui-btn layui-btn-sm" style="line-height:1.6em;margin-top:3px;float:right"
+			href="javascript:location.replace(location.href);" title="刷新">
+			<i class="layui-icon" style="line-height:30px">ဂ</i>
+		</a>
+	</div>
+	<div class="weadmin-body" id="orderApp">
+		<div class="layui-row">
+			<form class="layui-form layui-col-md12 we-search">
+				<div class="layui-input-inline">
+					<select name="contrller">
+						<option value="">订单状态</option>
+						<option value="0">订单创立</option>
+						<option value="1">上门取货</option>
+						<option value="2">收到手机</option>
+						<option value="3">订单完成</option>
+						<option value="4">退货中</option>
+						<option value="5">退货完成</option>
+					</select>
+				</div>
+				<div class="layui-inline">
+					<input type="text" name="username" placeholder="请输入订单号" autocomplete="off" class="layui-input">
+				</div>
+				<button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+			</form>
+		</div>
+		<table class="layui-table">
+			<thead>
+				<tr>
+					<th style="width: 30px;">订单编号</th>
+					<th style="width: 50px;">姓名</th>
+					<th style="width: 75px;">手机号码</th>
+					<th style="width: 120px;">手机型号</th>
+					<th style="width: 40px;">回收价格</th>
+					<th style="width: 30px;">用户ID</th>
+					<th style="width: 60px;">配送方式</th>
+					<th style="width: 70px;">用户地址</th>
+					<th style="width: 55px;">订单状态</th>
+					<th style="width: 120px;">下单时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="order in orders">
+					<td>{{order.id}}</td>
+					<td>{{order.name}}</td>
+					<td>{{order.telephone}}</td>
+					<td>{{order.model}}</td>
+					<td>￥ {{order.price}}</td>
+					<td>{{order.userId}}</td>
+					<td>顺丰速运</td>
+					<td>{{order.address}}</td>
+					<td>{{order.state}}</td>
+					<td>{{order.createTime}}</td>
+					<td>
+						<button @click="deleteOrder(order.id)"
+							class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
+						<button @click="updateOrder(order)" class="layui-btn layui-btn-sm">修改信息</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 弹出表单 -->
+		<div v-if="updating">
+			<div class="layui-layer-shade" id="layui-layer-shade1" times="1"
+				style="z-index: 19891014; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
+			<div class="layui-layer layui-layer-page" type="page" times="8" showtime="0"
+				style="z-index: 19891022; width: 500px; height: 400px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+				<div class="layui-layer-title" style="cursor: move;">更新订单信息</div>
+				<div class="layui-layer-content" style="height: 358px;">
+					<form class="layui-form layui-layer-wrap" style="width: 400px; padding: 30px;">
+						<div class="layui-form-item" style="width: 400px;">
+							<label class=" layui-form-label" style="width: 100px;">姓名</label>
+							<div class="layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入姓名" autocomplete="off"
+									v-model="currentOrder.name" />
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class=" layui-form-label" style="width: 100px;">手机号码</label>
+							<div class="layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入手机号码" autocomplete="off"
+									v-model="currentOrder.telephone" />
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class="layui-form-label" style="width: 100px;">手机价格</label>
+							<div class=" layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入手机价格" autocomplete="off"
+									v-model="currentOrder.price" />
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class="layui-form-label" style="width: 100px;">回收地址</label>
+							<div class=" layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入回收地址" autocomplete="off"
+									v-model="currentOrder.address" />
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class="layui-form-label" style="width: 100px;">回收状态</label>
+							<div class="layui-input-block">
+								<select class="layui-select" style="display: inline-block;" lay-verify="required"
+									v-model="currentOrder.state">
+									<option value="null" style="display: none;" selected="selected">请选择</option>
+									<option value="0">订单创立</option>
+									<option value="1">上门取货</option>
+									<option value="2">收到手机</option>
+									<option value="3">订单完成</option>
+									<option value="4">退货中</option>
+									<option value="5">退货完成</option>
+									<!-- "订单创立", "上门取货", "收到手机", "订单完成", "退货中", "退货完成" -->
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-filter="formDemo" @click="submitUpdate">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<span class="layui-layer-setwin" @click="updating=false">
+					<a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a>
+				</span>
+			</div>
+		</div>
+		<!------->
+	</div>
+	<script src="/admin/js/jquery.min.js"></script>
+	<script src="/admin/js/jquery.dataTables.min.js"></script>
+	<script src="/public/layui/layui.js" charset="utf-8"></script>
+	<!-- 直接从已有前端缓存中拿 -->
+	<script src="/public/js/vue.js"></script>
+	<script src="/public/js/axios.js"></script>
+	<script th:src="${@mvcResourceUrlProvider.getForLookupPath('/layout/js/admin/order.js')}"></script>
+	<script>
+		layui.extend({
+			admin: '/admin/js/admin'
+		});
+		layui.use(['laydate', 'jquery', 'admin'], function () {
+			var laydate = layui.laydate,
+				$ = layui.jquery,
+				admin = layui.admin;
+			laydate.render({
+				elem: '#start' //指定元素
+			});
+			laydate.render({
+				elem: '#end' //指定元素
+			});
+		});
+
+	</script>
+</body>
+
+</html>

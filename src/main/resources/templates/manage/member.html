@@ -60,6 +60,35 @@
 				</tr>
 			</tbody>
 		</table>
+		<!-- 弹出表单 -->
+		<div v-if="updating">
+			<div class="layui-layer-shade" id="layui-layer-shade1" times="1"
+				style="z-index: 19891014; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
+			<div class="layui-layer layui-layer-page" type="page" times="8" showtime="0"
+				style="z-index: 19891022; width: 500px; height: 400px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+				<div class="layui-layer-title" style="cursor: move;">更新用户信息</div>
+				<div class="layui-layer-content" style="height: 358px;">
+					<form class="layui-form layui-layer-wrap" style="width: 400px; padding: 30px;">
+						<div class="layui-form-item" style="width: 400px;">
+							<label class=" layui-form-label" style="width: 100px;">用户呢称</label>
+							<div class="layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入呢称" autocomplete="off"
+									v-model="user.username" />
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-filter="formDemo" @click="submitUpdate">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<span class="layui-layer-setwin" @click="updating=false">
+					<a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a>
+				</span>
+			</div>
+		</div>
+		<!------->
 	</div>
 	<script src="/admin/js/jquery.min.js"></script>
 	<script src="/admin/js/jquery.dataTables.min.js"></script>

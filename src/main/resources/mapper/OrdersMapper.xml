@@ -28,6 +28,7 @@
         <result column="model" property="model" />
         <result column="price" property="price" />
         <result column="state" property="state" />
+        <result column="user_id" property="userId" />
         <result column="create_time" property="createTime" />
     </resultMap>
 
@@ -39,12 +40,26 @@
             phone.model as model,
             orders.price as price,
             orders.state as state,
-            orders.create_time as createTime
+            orders.create_time as create_time
         FROM orders
         LEFT JOIN phone
         ON orders.phone_id = phone.id 
         WHERE orders.user_id = #{id,jdbcType=BIGINT}
     </select>
 
-
+    <select id="getOrders" resultMap="UserOrderResultMap">
+        SELECT
+            orders.id as id,
+            orders.name as name,
+            orders.telephone as telephone,
+            orders.address as address,
+            orders.user_id as user_id,
+            orders.price as price,
+            orders.state as state,
+            phone.model as model,
+            orders.create_time as create_time
+        FROM orders
+        LEFT JOIN phone
+        ON orders.phone_id = phone.id 
+    </select>
 </mapper>

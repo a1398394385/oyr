@@ -1,5 +1,8 @@
 package oyw.gp.oyr;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,5 +16,7 @@ public class AuthTests
 {
 
     @Test
-    public void testAuth() {}
+    public void testAuth() {
+        System.out.println(LocalDateTime.now());
+    }
 }

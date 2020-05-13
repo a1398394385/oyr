@@ -12,7 +12,7 @@
 					"id": 2,
 					"name": "会员列表",
 					"icon": "",
-					"url": "/manage/user"
+					"url": "/manage/member"
 				}
 			]
 		},

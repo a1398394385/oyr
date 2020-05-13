@@ -9,7 +9,8 @@ let app = new Vue({
             telephone: null,
             address: null,
             createTime: null,
-        }
+        },
+        updating: false
     },
     //获取用户列表数据
     beforeMount: function () {
@@ -71,8 +72,24 @@ let app = new Vue({
                     console.error(err);
                 })
         },
-        updatedUser: function (admin) {
-
-        }
+        updateUser: function (user) {
+            this.updating = true;
+        },
+        submitUpdate: function () {
+            axios.put("/user/" + this.user.id, {
+                username: this.user.username,
+            }).then(res => {
+                if (res.data.status == "success") {
+                    location.reload();
+                } else {
+                    alert("数据错误，请稍后重试")
+                    location.reload();
+                }
+            }).catch(err => {
+                alert("您的网络异常，请刷新后重试")
+                location.href = "/manage/index";
+                console.error(err);
+            })
+        },
     }
 });
