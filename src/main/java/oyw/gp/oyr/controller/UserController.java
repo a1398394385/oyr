@@ -1,6 +1,7 @@
 package oyw.gp.oyr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import oyw.gp.oyr.service.UserService;
  * @author OuYangWei
  * @since 2020-04-19
  */
+@CrossOrigin(value = {"*"})
 @RestController
 @RequestMapping("/user")
 public class UserController

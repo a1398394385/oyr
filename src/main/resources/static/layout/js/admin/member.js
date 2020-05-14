@@ -5,10 +5,6 @@ let app = new Vue({
         user: {
             id: null,
             username: null,
-            password: null,
-            telephone: null,
-            address: null,
-            createTime: null,
         },
         updating: false
     },
@@ -73,6 +69,7 @@ let app = new Vue({
                 })
         },
         updateUser: function (user) {
+            this.user = JSON.parse(JSON.stringify(user));
             this.updating = true;
         },
         submitUpdate: function () {
