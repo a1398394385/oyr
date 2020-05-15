@@ -1,23 +1,24 @@
 let app = new Vue({
-    el: '#memberApp',
+    el: '#phoneApp',
     data: {
-        users: null,
-        user: {
+        phones: null,
+        phone: {
             id: null,
-            username: null,
-            password: null,
-            telephone: null,
-            address: null,
-            createTime: null,
+            brand: null,
+            model: null,
+            color: null,
+            storage: null,
+            price: null,
+            image: null,
         },
-        updating: false
+        updating: false,
     },
     //获取用户列表数据
     beforeMount: function () {
-        axios.get("/user/")
+        axios.get("/phone/")
             .then(res => {
                 if (res.data.status == "success") {
-                    this.users = res.data.data
+                    this.phones = res.data.data
                 } else {
                     alert("数据错误，稍后重试");
                     location.reload();
@@ -56,8 +57,8 @@ let app = new Vue({
         });
     },
     methods: {
-        deleteUser: function (userId) {
-            axios.delete("/user/" + userId)
+        deletePhone: function (phoneId) {
+            axios.delete("/phone/" + phoneId)
                 .then(res => {
                     if (res.data.status == "success") {
                         location.reload();
@@ -72,13 +73,18 @@ let app = new Vue({
                     console.error(err);
                 })
         },
-        updateUser: function (user) {
-            this.user = JSON.parse(JSON.stringify(user));
+        updatePhone: function (phone) {
+            let brands = ["华为", "荣耀", "苹果", "小米", "OPPO", "三星", "VIVO", "魅族", "酷派", "金立", "锤子", "一加"];
+            this.phone = JSON.parse(JSON.stringify(phone));
+            this.phone.brand = brands.indexOf(this.phone.brand) + 1;
             this.updating = true;
         },
         submitUpdate: function () {
-            axios.put("/user/" + this.user.id, {
-                username: this.user.username,
+            axios.put("/phone/" + this.phone.id, {
+                color: this.phone.color,
+                storage: this.phone.storage,
+                price: this.phone.price,
+                image: this.phone.image,
             }).then(res => {
                 if (res.data.status == "success") {
                     location.reload();
@@ -91,6 +97,16 @@ let app = new Vue({
                 location.href = "/manage/index";
                 console.error(err);
             })
+        },
+    },
+    watch: {
+        // 将权限等级数字替换为中文
+        // authorities为权限数组，
+        phones: function (newValue, oldValue) {
+            let brands = ["华为", "荣耀", "苹果", "小米", "OPPO", "三星", "VIVO", "魅族", "酷派", "金立", "锤子", "一加"];
+            for (var i in newValue) {
+                newValue[i].brand = brands[newValue[i].brand - 1];
+            }
         },
     }
 });

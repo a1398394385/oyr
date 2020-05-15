@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"editor.lineHeight": 38,
+		"editor.lineHeight": 32,
 		"editor.wordWrap": "bounded",
 		"editor.fontSize": 15,
 		"editor.fontWeight": "500",

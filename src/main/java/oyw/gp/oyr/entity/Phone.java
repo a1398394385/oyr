@@ -38,7 +38,7 @@ public class Phone extends Model<Phone>
      * 品牌
      */
     @TableField("brand")
-    private int brand;
+    private String brand;
 
     /**
      * 型号

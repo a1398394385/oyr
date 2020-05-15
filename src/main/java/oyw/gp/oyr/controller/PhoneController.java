@@ -3,6 +3,7 @@ package oyw.gp.oyr.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import oyw.gp.oyr.entity.Phone;
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.service.PhoneService;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 /**
@@ -45,4 +49,25 @@ public class PhoneController
             return Response.error(404, "手机型号不存在");
         }
     }
+
+    @GetMapping(value = "/")
+    public Response<Object> getAllPhone() {
+        return Response.result(200, phoneService.list());
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public Response<Object> delete(@PathVariable Long id) {
+        if (phoneService.removeById(id)) { return Response.result(200); }
+        return Response.error(400, "手机不存在");
+    }
+
+    @PutMapping(value = "/{id}")
+    public Response<Object> putMethodName(@PathVariable Long id,
+            @RequestBody Phone phone) {
+        phone.setId(id);
+        if (phoneService.updateById(phone)) { return Response.result(200); }
+        return Response.error(400, "手机不存在");
+
+    }
+
 }
