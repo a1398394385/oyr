@@ -3,11 +3,7 @@ package oyw.gp.oyr.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.DeleteMapping;
-=======
-import org.springframework.web.bind.annotation.CrossOrigin;
->>>>>>> 1dce8e1decff2b4dd8d604b761de02126c310601
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author OuYangWei
  * @since 2020-04-21
  */
-@CrossOrigin(value = {"*"})
 @RestController
 @RequestMapping("/phone")
 public class PhoneController
