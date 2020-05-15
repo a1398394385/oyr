@@ -56,9 +56,9 @@ public class Sms
     /**
      * send messages
      * 
-     * @param String phoneNumber 手机号
-     * @param String signName 签名名称
-     * @param String templateCode 模版CODE
+     * @param phoneNumber 手机号
+     * @param signName 签名名称
+     * @param templateCode 模版CODE
      * @return JSONObject
      */
     public JSONObject send(String phoneNumber, String signName, String templateCode) {
@@ -92,7 +92,6 @@ public class Sms
         return result;
     }
 
-
     /**
      * 获取发送手机验证码的随机请求地址
      */
@@ -105,8 +104,8 @@ public class Sms
     /**
      * 验证请求地址随机值段
      * 
-     * @param String requestAddress 请求地址随机值段
-     * @return
+     * @param requestAddress 请求地址随机值段
+     * @return 当请求地址有效时返回 true
      */
     public Boolean verifyRequestAddress(String requestAddress) {
         return redis.get(requestAddress) != null;
@@ -116,7 +115,7 @@ public class Sms
      * 获取手机验证码
      * 
      * @param phoneNumber
-     * @param code
+     * @return code
      */
     private String getSMSCode(String phoneNumber) {
         String code = Public.randomCode();
@@ -129,9 +128,9 @@ public class Sms
      * 
      * @param phoneNumber
      * @param code
-     * @return
+     * @return 当验证码正确时返回 true
      */
     public Boolean verifySMSCode(String phoneNumber, String code) {
-        return redis.get(phoneNumber).equals(code);
+        return code != null && code.equals(redis.get(phoneNumber));
     }
 }

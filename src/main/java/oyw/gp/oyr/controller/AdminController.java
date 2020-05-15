@@ -59,6 +59,6 @@ public class AdminController
         if (adminService.login(admin.getName(), admin.getPassword())) {
             return Response.result(200);
         }
-        return Response.error(400, "用户或密码错误");
+        return Response.error(400, "用户名或密码错误");
     }
 }
