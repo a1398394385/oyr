@@ -53,7 +53,7 @@ public class Captcha
     /**
      * 字符的数量
      */
-    private static int StringNum = 6;
+    private static int StringNum = 4;
 
     /**
      * 干扰线数量
