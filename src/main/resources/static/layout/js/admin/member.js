@@ -5,10 +5,6 @@ let app = new Vue({
         user: {
             id: null,
             username: null,
-            password: null,
-            telephone: null,
-            address: null,
-            createTime: null,
         },
         updating: false
     },
