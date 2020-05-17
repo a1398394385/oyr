@@ -80,31 +80,23 @@ let app = new Vue({
             this.updating = true;
         },
         submitUpdate: function () {
-            axios.put("/phone/" + this.phone.id, {
-                color: this.phone.color,
-                storage: this.phone.storage,
-                price: this.phone.price,
-                image: this.phone.image,
-            }).then(res => {
-                if (res.data.status == "success") {
+            axios.put("/phone/" + this.phone.id, this.phone)
+                .then(res => {
+                    if (res.data.status == "filed")
+                        alert("数据错误，请稍后重试")
                     location.reload();
-                } else {
-                    alert("数据错误，请稍后重试")
-                    location.reload();
-                }
-            }).catch(err => {
-                alert("您的网络异常，请刷新后重试")
-                location.href = "/manage/index";
-                console.error(err);
-            })
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("您的网络异常，请刷新后重试")
+                    location.href = "/manage/index";
+                })
         },
     },
     watch: {
-        // 将权限等级数字替换为中文
-        // authorities为权限数组，
         phones: function (newValue, oldValue) {
             let brands = ["华为", "荣耀", "苹果", "小米", "OPPO", "三星", "VIVO", "魅族", "酷派", "金立", "锤子", "一加"];
-            for (var i in newValue) {
+            for (let i in newValue) {
                 newValue[i].brand = brands[newValue[i].brand - 1];
             }
         },
