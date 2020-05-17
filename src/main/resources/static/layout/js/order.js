@@ -232,6 +232,7 @@ let app = new Vue({
             return !this.isCorrectName ||
                 !this.isCorrectTel ||
                 !this.isCorrectAddress ||
+                !this.isCorrectCode ||
                 !this.read
         },
         isCorrectName: function () {
@@ -242,6 +243,9 @@ let app = new Vue({
         },
         isCorrectAddress: function () {
             return this.address != null
+        },
+        isCorrectCode: function () {
+            return this.code != null && this.code.length == 6
         },
         userNameStyle: function () {
             if (this.read && !this.isCorrectTel)

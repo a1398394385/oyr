@@ -21,7 +21,8 @@ import oyw.gp.oyr.entity.Response;
 
 @RestController
 @RequestMapping(value = "/captcha")
-public class CaptchaController {
+public class CaptchaController
+{
     @Autowired
     HttpSession session;
     @Autowired
@@ -55,7 +56,8 @@ public class CaptchaController {
      * @param String phoneNumber 手机号
      */
     @GetMapping(value = "/sms/{requestAddress}/{phoneNumber}")
-    public Response<Object> sendSMSCaptcha(@PathVariable String requestAddress, @PathVariable String phoneNumber) {
+    public Response<Object> sendSMSCaptcha(@PathVariable String requestAddress,
+            @PathVariable String phoneNumber) {
         Sms sms = new Sms(redisTemplate);
         if (!sms.verifyRequestAddress(requestAddress))
             return Response.error(400, "请求地址错误");
@@ -72,8 +74,8 @@ public class CaptchaController {
     @PostMapping(value = "/sms")
     public Response<Object> verifySMSCaptcha(@RequestBody Map<String, String> request) {
         Sms sms = new Sms(redisTemplate);
-        if (sms.verifySMSCode(request.get("phoneNumber").toString(), request.get("code").toString()))
+        if (sms.verifySMSCode(request.get("phoneNumber"), request.get("code")))
             return Response.result(200);
-        return Response.error(403, "验证码错误");
+        return Response.error(403, "手机验证码错误");
     }
 }

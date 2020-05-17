@@ -21,31 +21,19 @@
         <div id="darkbannerwrap"></div>
 
         <form class="layui-form">
-            <input name="name" placeholder="用户名" type="text" lay-verify="required" class="layui-input"
-                autocomplete="off" v-model="name">
+            <input type="text" class="layui-input" lay-verify="required" placeholder="用户名" v-model="name">
             <hr class="hr15">
-            <input name="password" lay-verify="required" placeholder="密码" type="password" class="layui-input"
-                v-model="password">
+            <input type="password" class="layui-input" lay-verify="required" placeholder="密码" v-model="password">
             <hr class="hr15">
-            <input class="loginin" value="登录" lay-filter="login" style="width:100%;" type="submit"
-                @click.prevent="login">
+            <input type="submit" style="width:100%;" value="登录" lay-filter="login" @click.prevent="login">
             <hr class=" hr20">
-
         </form>
     </div>
+
     <script src="/public/layui/layui.js" charset="utf-8"></script>
     <script src="/public/js/vue.js"></script>
     <script src="/public/js/axios.js"></script>
     <script th:src="${@mvcResourceUrlProvider.getForLookupPath('/layout/js/admin/login.js')}"></script>
-    <script type="text/javascript">
-        layui.extend({
-            admin: '/admin/js/admin'
-        });
-        layui.use(['form', 'admin'], function () {
-            var form = layui.form,
-                admin = layui.admin;
-        });
-    </script>
 </body>
 
 </html>

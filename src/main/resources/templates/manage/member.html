@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<link rel="stylesheet" href="/admin/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="/admin/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="/admin/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="/admin/css/font.css">
 	<link rel="stylesheet" href="/admin/css/weadmin.css">
@@ -27,14 +27,6 @@
 		</a>
 	</div>
 	<div class="weadmin-body" id="memberApp">
-		<div class="layui-row">
-			<form class="layui-form layui-col-md12 we-search">
-				<div class="layui-inline">
-					<input type="text" name="username" placeholder="请输入用户id" autocomplete="off" class="layui-input">
-				</div>
-				<button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-			</form>
-		</div>
 		<table class="layui-table">
 			<thead>
 				<tr>
@@ -54,8 +46,8 @@
 					<td>{{user.address}}</td>
 					<td>{{user.createTime}}</td>
 					<td>
-						<button @click="deleteUser(user.id)" class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
-						<button @click="updateUser(user)" class="layui-btn layui-btn-sm">修改信息</button>
+						<button class="layui-btn layui-btn-danger" @click="deleteUser(user.id)">删除</button>
+						<button class="layui-btn" @click="updateUser(user)">修改信息</button>
 					</td>
 				</tr>
 			</tbody>
@@ -64,7 +56,7 @@
 		<div v-if="updating">
 			<div class="layui-layer-shade" id="layui-layer-shade1" times="1"
 				style="z-index: 19891014; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
-			<div class="layui-layer layui-layer-page" type="page" times="8" showtime="0"
+			<div class="layui-layer layui-layer-page" type="page"
 				style="z-index: 19891022; width: 500px; height: 400px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 				<div class="layui-layer-title" style="cursor: move;">更新用户信息</div>
 				<div class="layui-layer-content" style="height: 358px;">
@@ -98,20 +90,8 @@
 	<script src="/public/js/axios.js"></script>
 	<script th:src="${@mvcResourceUrlProvider.getForLookupPath('/layout/js/admin/member.js')}"></script>
 	<script>
-		layui.extend({
-			admin: '/admin/js/admin'
-		});
-		layui.use(['laydate', 'jquery', 'admin'], function () {
-			var laydate = layui.laydate,
-				$ = layui.jquery,
-				admin = layui.admin;
-			laydate.render({
-				elem: '#start' //指定元素
-			});
-			laydate.render({
-				elem: '#end' //指定元素
-			});
-		});
+		layui.extend({ admin: '/admin/js/admin' });
+		layui.use('admin');
 	</script>
 </body>
 
