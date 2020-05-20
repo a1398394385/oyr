@@ -18,7 +18,6 @@ let app = new Vue({
         imageCaptchaValue: null,
         requestAddress: null,
         code: null,
-        isCorrectCode: false,
         read: false,
         // 省市县数据
         province: null,
@@ -117,11 +116,11 @@ let app = new Vue({
             axios.post("/captcha/sms", {
                 phoneNumber: this.user.phone,
                 code: this.code
-            }).then(res => {
-                if (res.data.status == "success")
-                    this.isCorrectCode = true
+            }).then((res) => {
+                if (res.status == "success")
+                    this.submit()
                 else
-                    this.isCorrectCode = false
+                    alert(res.message)
             }).catch(err => {
                 alert("您的网络异常，请刷新后重试")
                 location.href = "/order";
@@ -129,8 +128,6 @@ let app = new Vue({
             })
         },
         submit: function () {
-            this.verifySMSCaptcha()
-            if (this.isCorrectCode)
                 axios.post("/orders/", {
                     name: this.user.name,
                     telephone: this.user.phone,
@@ -151,8 +148,6 @@ let app = new Vue({
                     location.href = "/home";
                     console.error(err);
                 })
-            else
-                alert("手机验证码错误！")
         },
         logout: function () {
             axios.post("/logout")
@@ -239,20 +234,20 @@ let app = new Vue({
             return this.user.name != null
         },
         isCorrectTel: function () {
-            return /^1(3|4|5|6|7|8|9)\d{9}$/.test(this.user.phone)
+            return /^1([3456789])\d{9}$/.test(this.user.phone)
         },
         isCorrectAddress: function () {
             return this.address != null
         },
         isCorrectCode: function () {
-            return this.code != null && this.code.length == 6
+            return this.code != null && this.code.length === 6
         },
         userNameStyle: function () {
             if (this.read && !this.isCorrectTel)
                 return 'border: 1px solid red';
         },
         userPhoneStyle: function () {
-            if ((this.user.phone.length != 0 || this.read) && !this.isCorrectTel)
+            if ((this.user.phone.length !== 0 || this.read) && !this.isCorrectTel)
                 return 'border: 1px solid red';
         },
         addressStyle: function () {
