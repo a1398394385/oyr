@@ -3,6 +3,9 @@ spring:
     url: jdbc:mysql://106.14.96.160:14498/oyr
     username: oyr
     password: J2bHLPkclzUFPfrs
+    # url: jdbc:mysql://localhost:3306/oyr
+    # username: root
+    # password: root
   resources:
     cache:
       period: 604800 
