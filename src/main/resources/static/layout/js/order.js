@@ -46,7 +46,7 @@ let app = new Vue({
     mounted: function () {
         axios.get("/area/1")
             .then(res => {
-                if (res.data.status == "success") {
+                if (res.data.status === "success") {
                     this.provinces = res.data.data
                     this.province = 0
                 } else {
@@ -65,7 +65,7 @@ let app = new Vue({
             this.hideCaptcha = false
             axios.get("/captcha/image")
                 .then(res => {
-                    if (res.data.status == "success") {
+                    if (res.data.status === "success") {
                         this.imageCaptchaSrc = "data:image/png;base64," + res.data.data
                     } else {
                         alert("数据错误，请稍后重试")
@@ -82,7 +82,7 @@ let app = new Vue({
             axios.post("/captcha/image", {
                 captchaValue: this.imageCaptchaValue
             }).then(res => {
-                if (res.data.status == "success") {
+                if (res.data.status === "success") {
                     this.requestAddress = res.data.data
                     this.getSMSCaptcha()
                     this.hideCaptcha = true
@@ -100,7 +100,7 @@ let app = new Vue({
         getSMSCaptcha: function () {
             axios.get(`/captcha/sms/${this.requestAddress}/${this.user.phone}`)
                 .then(res => {
-                    if (res.data.status == "success") {
+                    if (res.data.status === "success") {
                         this.hideCaptcha = true
                     } else {
                         alert("数据错误，请稍后重试")
@@ -117,10 +117,10 @@ let app = new Vue({
                 phoneNumber: this.user.phone,
                 code: this.code
             }).then((res) => {
-                if (res.status == "success")
+                if (res.data.status === "success")
                     this.submit()
                 else
-                    alert(res.message)
+                    alert(res.data.message)
             }).catch(err => {
                 alert("您的网络异常，请刷新后重试")
                 location.href = "/order";
@@ -136,7 +136,7 @@ let app = new Vue({
                     userId: this.session.username == null ? null : this.session.id,
                     phoneId: this.phone.id
                 }).then(res => {
-                    if (res.data.status == "success") {
+                    if (res.data.status === "success") {
                         alert("提交成功")
                         location.reload();
                     } else {
@@ -183,7 +183,7 @@ let app = new Vue({
             this.cities = null
             axios.get("/area/" + this.provinces[newValue].id)
                 .then(res => {
-                    if (res.data.status == "success") {
+                    if (res.data.status === "success") {
                         this.cities = res.data.data
                         this.city = 0
                     } else {
@@ -201,7 +201,7 @@ let app = new Vue({
             this.counties = null
             axios.get("/area/" + this.cities[newValue].id)
                 .then(res => {
-                    if (res.data.status == "success") {
+                    if (res.data.status === "success") {
                         this.counties = res.data.data
                         this.county = 0
                     } else {
