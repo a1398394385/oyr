@@ -12,6 +12,7 @@ let app = new Vue({
             image: null,
         },
         updating: false,
+        addPage:false,
     },
     //获取用户列表数据
     beforeMount: function () {
@@ -79,6 +80,10 @@ let app = new Vue({
             this.phone.brand = brands.indexOf(this.phone.brand) + 1;
             this.updating = true;
         },
+        addPhone:function(phone){
+            this.phone = JSON.parse(JSON.stringify(phone));
+            this.addPage=true;
+        },
         submitUpdate: function () {
             axios.put("/phone/" + this.phone.id, this.phone)
                 .then(res => {
@@ -92,6 +97,24 @@ let app = new Vue({
                     location.href = "/manage/index";
                 })
         },
+        submitAdd:function(){
+            // let brands = ["华为", "荣耀", "苹果", "小米", "OPPO", "三星", "VIVO", "魅族", "酷派", "金立", "锤子", "一加"];
+            // this.phone.brand = brands.indexOf(this.phone.brand);
+            console.log(this.phone);
+            
+            axios.post("/phone/",this.phone)
+            .then(res => {
+                alert("添加成功");
+                location.reload();
+                
+            })
+            .catch(err => {
+                console.error(err); 
+                alert("添加失败");
+                location.reload();
+            })
+        }
+       
     },
     watch: {
         phones: function (newValue, oldValue) {

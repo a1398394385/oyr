@@ -29,12 +29,16 @@
 	</div>
 	<div class="weadmin-body" id="phoneApp">
 		<div class="layui-row">
-			<form class="layui-form layui-col-md12 we-search">
+			<!-- <form class="layui-form layui-col-md12 we-search">
 				<div class="layui-inline">
 					<input type="text" name="username" placeholder="手机id" autocomplete="off" class="layui-input">
 				</div>
 				<button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-			</form>
+			</form> -->
+			<div>
+				<button class="layui-btn" style="width: 60px; height: 50px;" @click="addPhone(phone)"><i class="layui-icon">&#xe624;</i></button>
+				<label for="layui-btn-lable">添加管理员</label>
+			</div>
 		</div>
 		<table class="layui-table">
 			<thead>
@@ -67,7 +71,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<!-- 弹出表单 -->
+		<!-- 弹出修改表单 -->
 		<div v-if="updating">
 			<div class="layui-layer-shade" id="layui-layer-shade1" times="1"
 				style="z-index: 19891014; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
@@ -112,6 +116,84 @@
 					</form>
 				</div>
 				<span class="layui-layer-setwin" @click="updating=false">
+					<a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a>
+				</span>
+			</div>
+		</div>
+		<!------->
+		<!-- 弹出增加表单 -->
+		<div v-if="addPage">
+			<div class="layui-layer-shade" id="layui-layer-shade1" times="1"
+				style="z-index: 19891014; background-color: rgb(0, 0, 0); opacity: 0.3;"></div>
+			<div class="layui-layer layui-layer-page" type="page" times="8" showtime="0"
+				style="z-index: 19891022; width: 500px; height: 400px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+				<div class="layui-layer-title" style="cursor: move;">增加手机</div>
+				<div class="layui-layer-content" style="height: 358px;">
+					<form class="layui-form layui-layer-wrap" style="width: 400px; padding: 30px;">
+						<div class="layui-form-item" style="width: 400px;">
+							<label class="layui-form-label" style="width: 100px;">手机品牌</label>
+							<div class="layui-input-block">
+								<select class="layui-select" style="display: inline-block;" lay-verify="required"
+									v-model="phone.brand">
+									<option value="null" style="display: none;" selected="selected">请选择</option>
+									<option value="1">华为</option>
+									<option value="2">荣耀</option>
+									<option value="3">苹果</option>
+									<option value="4">小米</option>
+									<option value="5">OPPO</option>
+									<option value="6">三星</option>
+									<option value="7">VIVO</option>
+									<option value="8">魅族</option>
+									<option value="9">酷派</option>
+									<option value="10">金立</option>
+									<option value="11">锤子</option>
+									<option value="12">一加</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class=" layui-form-label" style="width: 100px;">手机型号</label>
+							<div class="layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入手机型号" autocomplete="off"
+									v-model="phone.model" />
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class=" layui-form-label" style="width: 100px;">手机颜色</label>
+							<div class="layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入手机颜色" autocomplete="off"
+									v-model="phone.color" />
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class="layui-form-label" style="width: 100px;">手机存储</label>
+							<div class=" layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入存储容量" autocomplete="off"
+									v-model="phone.storage" />
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class="layui-form-label" style="width: 100px;">手机价格</label>
+							<div class=" layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入手机参考价格" autocomplete="off"
+									v-model="phone.price" />
+							</div>
+						</div>
+						<div class="layui-form-item" style="width: 400px;">
+							<label class="layui-form-label" style="width: 100px;">手机图片</label>
+							<div class=" layui-input-block">
+								<input type="text" class="layui-input" placeholder="请输入手机图片地址" autocomplete="off"
+									v-model="phone.image" />
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-filter="formDemo" @click="submitAdd">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<span class="layui-layer-setwin" @click="addPage=false">
 					<a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a>
 				</span>
 			</div>

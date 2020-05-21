@@ -7,6 +7,9 @@ import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.service.PhoneService;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 /**
@@ -61,4 +64,13 @@ public class PhoneController
         return Response.error(400, "手机不存在");
     }
 
+    @PostMapping(value="/")
+    public Response<Object> postMethodName(@RequestBody Phone phone) {
+        try {
+            phoneService.save(phone);
+            return Response.result(200);
+        } catch (Exception e) {
+            return Response.error(400, e.getMessage());
+        }
+    }
 }
