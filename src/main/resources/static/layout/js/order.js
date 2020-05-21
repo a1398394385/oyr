@@ -138,7 +138,7 @@ let app = new Vue({
                 }).then(res => {
                     if (res.data.status === "success") {
                         alert("提交成功")
-                        location.reload();
+                        location.href="/account";
                     } else {
                         alert("数据错误，请稍后重试")
                         location.href = "/home";
