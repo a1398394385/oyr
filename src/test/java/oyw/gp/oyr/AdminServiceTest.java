@@ -13,8 +13,7 @@ import oyw.gp.oyr.service.AdminService;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class AdminServiceTest
-{
+public class AdminServiceTest {
 
     @Autowired
     private AdminService adminService;

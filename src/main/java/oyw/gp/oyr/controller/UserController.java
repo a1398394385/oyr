@@ -19,11 +19,10 @@ import oyw.gp.oyr.service.UserService;
  * @author OuYangWei
  * @since 2020-04-19
  */
-@CrossOrigin(value = {"*"})
+@CrossOrigin(value = { "*" })
 @RestController
 @RequestMapping("/user")
-public class UserController
-{
+public class UserController {
     @Autowired
     UserService userService;
 

@@ -2,8 +2,7 @@ package oyw.gp.oyr.common;
 
 import java.util.Random;
 
-public class Public
-{
+public class Public {
     public static String randomCode() {
         StringBuilder str = new StringBuilder();
         Random random = new Random();

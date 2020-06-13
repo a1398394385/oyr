@@ -21,8 +21,7 @@ import org.apache.commons.lang3.RandomUtils;
  * @author OuYangWei
  * @since 2020-5-1
  */
-public class Captcha
-{
+public class Captcha {
     /**
      * 单例模式实例
      * 
@@ -60,12 +59,13 @@ public class Captcha
      */
     private static int lineSize = 35;
 
-    private Captcha() {}
+    private Captcha() {
+    }
 
     /**
      * 获取随机字符,并返回字符的String格式
      * 
-     * @param int index 指定位置
+     * @param index 指定位置
      * @return
      */
     private static String getRandomChar(int index) {
@@ -76,8 +76,8 @@ public class Captcha
     /**
      * 获取随机指定区间的随机数
      * 
-     * @param int min 最小值
-     * @param int max 最大值
+     * @param min 最小值
+     * @param max 最大值
      * @return
      */
     private static int getRandomNum(int min, int max) {
@@ -96,8 +96,8 @@ public class Captcha
     /**
      * 获得颜色
      * 
-     * @param int frontColor
-     * @param int backColor
+     * @param frontColor
+     * @param backColor
      * @return Color
      */
     private static Color getRandColor(int frontColor, int backColor) {
@@ -151,8 +151,6 @@ public class Captcha
 
     /**
      * 生成图片验证码
-     * 
-     * @return void
      */
     private static void generateCaptcha() {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
@@ -206,7 +204,7 @@ public class Captcha
     /**
      * 获取验证码 Base64 值
      * 
-     * @param Boolean refresh 是否刷新当前图形验证码
+     * @param refresh 是否刷新当前图形验证码
      */
     public static String getBase64Str(Boolean refresh) {
         if (refresh)
@@ -224,7 +222,7 @@ public class Captcha
     /**
      * 获取验证码内容值
      * 
-     * * @param Boolean refresh 是否刷新当前图形验证码
+     * * @param refresh 是否刷新当前图形验证码
      */
     public static String getValue(Boolean refresh) {
         if (refresh)
@@ -235,8 +233,7 @@ public class Captcha
     /**
      * 用于序列化验证码图片 包含Base64值以及验证码内容值
      */
-    public static class SerializeData implements Serializable
-    {
+    public static class SerializeData implements Serializable {
         private static final long serialVersionUID = 1L;
 
         /**

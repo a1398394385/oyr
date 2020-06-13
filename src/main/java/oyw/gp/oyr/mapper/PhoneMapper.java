@@ -14,7 +14,6 @@ import oyw.gp.oyr.entity.Phone;
  * @author OuYangWei
  * @since 2020-04-21
  */
-public interface PhoneMapper extends BaseMapper<Phone>
-{
+public interface PhoneMapper extends BaseMapper<Phone> {
     List<Phone> getPhonesByBrand(int brand);
 }

@@ -11,8 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class AuthTests
-{
+public class AuthTests {
 
     @Test
     public void testAuth() {

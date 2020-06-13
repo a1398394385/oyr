@@ -13,8 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/captcha")
-public class CaptchaController
-{
+public class CaptchaController {
     @Autowired
     HttpSession session;
     @Autowired
@@ -48,8 +47,7 @@ public class CaptchaController
      * @param phoneNumber    手机号
      */
     @GetMapping(value = "/sms/{requestAddress}/{phoneNumber}")
-    public Response<Object> sendSMSCaptcha(@PathVariable String requestAddress,
-            @PathVariable String phoneNumber) {
+    public Response<Object> sendSMSCaptcha(@PathVariable String requestAddress, @PathVariable String phoneNumber) {
         Sms sms = new Sms(redisTemplate);
         if (!sms.verifyRequestAddress(requestAddress))
             return Response.error(400, "请求地址错误");
@@ -61,7 +59,7 @@ public class CaptchaController
      * 验证短信验证码
      *
      * @param phoneNumber 手机号
-     * @param code 验证码
+     * @param code        验证码
      */
     @PostMapping(value = "/sms")
     public Response<Object> verifySMSCaptcha(@RequestBody Map<String, String> request) {

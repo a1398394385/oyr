@@ -12,7 +12,6 @@ import oyw.gp.oyr.entity.Admin;
  * @author OuYangWei
  * @since 2020-05-05
  */
-public interface AdminService extends IService<Admin>
-{
+public interface AdminService extends IService<Admin> {
     Boolean login(String name, String password);
 }

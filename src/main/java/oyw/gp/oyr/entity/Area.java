@@ -22,8 +22,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("area")
-public class Area extends Model<Area>
-{
+public class Area extends Model<Area> {
 
     private static final long serialVersionUID = 1L;
 
@@ -44,7 +43,6 @@ public class Area extends Model<Area>
      */
     @TableField("pid")
     private Integer pid;
-
 
     @Override
     protected Serializable pkVal() {

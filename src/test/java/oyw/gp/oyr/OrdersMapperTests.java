@@ -18,8 +18,7 @@ import oyw.gp.oyr.mapper.OrdersMapper;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class OrdersMapperTests
-{
+public class OrdersMapperTests {
     @Autowired
     OrdersMapper ordersMapper;
 
@@ -30,6 +29,5 @@ public class OrdersMapperTests
         log.error(orders.get(0).toString(), "");
         Assert.assertEquals(orders.size(), 4);
     }
-
 
 }

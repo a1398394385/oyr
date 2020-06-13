@@ -31,8 +31,7 @@
 		"java.dependency.syncWithFolderExplorer": true,
 		"java.dependency.packagePresentation": "hierarchical",
 		"java.configuration.updateBuildConfiguration": "automatic",
-		"java.format.settings.profile": "XYS-Style",
-		"java.format.settings.url": ".\\eclipse-java-XYS-style.xml",
+		"java.referencesCodeLens.enabled": false,
 		"java.debug.settings.showHex": true,
 		"java.debug.settings.showQualifiedNames": true,
 		"java.debug.settings.showStaticVariables": true,
@@ -42,6 +41,6 @@
 		"java.test.report.position": "currentView",
 		"maven.pomfile.autoUpdateEffectivePOM": true,
 		"xml.format.joinCommentLines": true,
-		"xml.format.preserveEmptyContent": true
+		"xml.format.preserveEmptyContent": true,
 	}
 }

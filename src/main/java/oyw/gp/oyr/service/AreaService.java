@@ -18,8 +18,7 @@ import oyw.gp.oyr.entity.Area;
  * @since 2020-04-30
  */
 @CacheConfig(cacheNames = "area")
-public interface AreaService extends IService<Area>
-{
+public interface AreaService extends IService<Area> {
     @Cacheable(key = "#pid")
     public List<Area> getAreaByPid(int pid);
 }

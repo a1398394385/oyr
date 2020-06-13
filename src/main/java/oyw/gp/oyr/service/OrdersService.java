@@ -14,9 +14,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author OuYangWei
  * @since 2020-05-01
  */
-public interface OrdersService extends IService<Orders>
-{
+public interface OrdersService extends IService<Orders> {
     public List<Orders> getOrdersByUserId(Long id);
 
-    public List<Orders> getOrdes();
+    public List<Orders> getOrders();
 }

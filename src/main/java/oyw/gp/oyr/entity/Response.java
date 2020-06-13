@@ -3,8 +3,7 @@ package oyw.gp.oyr.entity;
 import lombok.Data;
 
 @Data
-public class Response<T>
-{
+public class Response<T> {
     /**
      * success / filed
      */
@@ -30,10 +29,10 @@ public class Response<T>
      * 
      * @param code
      * @param data
-     * @return Response<Object>
+     * @return Response<T>
      */
-    public static Response<Object> result(int code) {
-        Response<Object> response = new Response<>();
+    public static <T> Response<T> result(int code) {
+        Response<T> response = new Response<>();
         response.setStatus("success");
         response.setCode(code);
         return response;
@@ -44,10 +43,10 @@ public class Response<T>
      * 
      * @param code
      * @param data
-     * @return Response<Object>
+     * @return Response<T>
      */
-    public static Response<Object> result(int code, Object data) {
-        Response<Object> response = new Response<>();
+    public static <T> Response<T> result(int code, T data) {
+        Response<T> response = new Response<>();
         response.setStatus("success");
         response.setCode(code);
         response.setData(data);
@@ -59,10 +58,10 @@ public class Response<T>
      * 
      * @param code
      * @param message
-     * @return Response<Object>
+     * @return Response<T>
      */
-    public static Response<Object> error(int code, String message) {
-        Response<Object> response = new Response<>();
+    public static <T> Response<T> error(int code, String message) {
+        Response<T> response = new Response<>();
         response.setStatus("filed");
         response.setCode(code);
         response.setMessage(message);

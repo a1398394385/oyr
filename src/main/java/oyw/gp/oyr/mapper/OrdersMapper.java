@@ -14,8 +14,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author OuYangWei
  * @since 2020-05-01
  */
-public interface OrdersMapper extends BaseMapper<Orders>
-{
+public interface OrdersMapper extends BaseMapper<Orders> {
     public List<Orders> getOrdersByUserId(Long id);
 
     public List<Orders> getOrders();

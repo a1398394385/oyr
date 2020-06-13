@@ -18,8 +18,7 @@ import oyw.gp.oyr.entity.Phone;
  * @since 2020-04-21
  */
 @CacheConfig(cacheNames = "phones")
-public interface PhoneService extends IService<Phone>
-{
+public interface PhoneService extends IService<Phone> {
     @Cacheable(key = "#brand")
     public List<Phone> getPhonesByBrand(int brand);
 }

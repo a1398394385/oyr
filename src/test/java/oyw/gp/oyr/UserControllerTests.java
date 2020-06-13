@@ -26,8 +26,8 @@ import oyw.gp.oyr.service.UserService;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class UserControllerTests
-{
+public class UserControllerTests {
+
     @Autowired
     private UserService userService;
     private MockMvc mvc;
@@ -36,9 +36,7 @@ public class UserControllerTests
     public void setUp() {
         mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
         QueryWrapper<User> queryWrapper = new QueryWrapper<User>();
-        queryWrapper.eq("username", "test").eq("password", "test")
-                .eq("telephone", "test")
-                .eq("address", "test");
+        queryWrapper.eq("username", "test").eq("password", "test").eq("telephone", "test").eq("address", "test");
         userService.remove(queryWrapper);
     }
 
@@ -47,10 +45,8 @@ public class UserControllerTests
         RequestBuilder requestBuilder;
 
         requestBuilder = post("/user/").contentType(MediaType.APPLICATION_JSON)
-                .content(
-                        "{\"username\":test,\"password\":\"test\",\"telephone\":test,\"address\":test}");
-        mvc.perform(requestBuilder)
-                .andExpect(content().string(equalTo("true")));
+                .content("{\"username\":test,\"password\":\"test\",\"telephone\":test,\"address\":test}");
+        mvc.perform(requestBuilder).andExpect(content().string(equalTo("true")));
     }
 
     @Test
@@ -61,5 +57,6 @@ public class UserControllerTests
     }
 
     @Test
-    public void testUserControllerUpdate() throws Exception {}
+    public void testUserControllerUpdate() throws Exception {
+    }
 }

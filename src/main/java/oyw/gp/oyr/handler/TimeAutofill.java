@@ -11,8 +11,7 @@ import org.springframework.stereotype.Component;
  * UserAutofill
  */
 @Component
-public class TimeAutofill implements MetaObjectHandler
-{
+public class TimeAutofill implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         this.strictInsertFill(metaObject, "createTime", LocalDateTime.class, LocalDateTime.now());

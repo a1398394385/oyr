@@ -22,8 +22,7 @@ import oyw.gp.oyr.service.PhoneService;
  */
 @Slf4j
 @Service
-public class PhoneServiceImpl extends ServiceImpl<PhoneMapper, Phone> implements PhoneService
-{
+public class PhoneServiceImpl extends ServiceImpl<PhoneMapper, Phone> implements PhoneService {
     @Autowired
     PhoneMapper phoneMapper;
 

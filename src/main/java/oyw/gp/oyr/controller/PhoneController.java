@@ -10,8 +10,6 @@ import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
 /**
  * <p>
  * 前端控制器
@@ -22,8 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 @RestController
 @RequestMapping("/phone")
-public class PhoneController
-{
+public class PhoneController {
     @Autowired
     PhoneService phoneService;
 
@@ -52,19 +49,22 @@ public class PhoneController
 
     @DeleteMapping(value = "/{id}")
     public Response<Object> delete(@PathVariable Long id) {
-        if (phoneService.removeById(id)) { return Response.result(200); }
+        if (phoneService.removeById(id)) {
+            return Response.result(200);
+        }
         return Response.error(400, "手机不存在");
     }
 
     @PutMapping(value = "/{id}")
-    public Response<Object> putMethodName(@PathVariable Long id,
-            @RequestBody Phone phone) {
+    public Response<Object> putMethodName(@PathVariable Long id, @RequestBody Phone phone) {
         phone.setId(id);
-        if (phoneService.updateById(phone)) { return Response.result(200); }
+        if (phoneService.updateById(phone)) {
+            return Response.result(200);
+        }
         return Response.error(400, "手机不存在");
     }
 
-    @PostMapping(value="/")
+    @PostMapping(value = "/")
     public Response<Object> postMethodName(@RequestBody Phone phone) {
         try {
             phoneService.save(phone);

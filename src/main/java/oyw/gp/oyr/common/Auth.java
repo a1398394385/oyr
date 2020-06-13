@@ -5,8 +5,7 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class Auth
-{
+public class Auth {
     HttpServletRequest httpServletRequest;
 
     public Auth(HttpServletRequest httpServletRequest) {

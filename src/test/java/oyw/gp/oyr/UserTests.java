@@ -18,8 +18,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserTests
-{
+public class UserTests {
+
     private MockMvc mvc;
 
     @Before
@@ -33,41 +33,33 @@ public class UserTests
         String path = new String("/controller/user/");
         // 1、get查一下user列表，应该为空
         requestBuilder = get(path);
-        mvc.perform(requestBuilder).andExpect(status().isOk())
-                .andExpect(content().string(equalTo("[]")));
+        mvc.perform(requestBuilder).andExpect(status().isOk()).andExpect(content().string(equalTo("[]")));
 
         // 2、post提交一个user
         requestBuilder = post(path).contentType(MediaType.APPLICATION_JSON)
                 .content("{\"id\":1,\"name\":\"测试大师\",\"age\":20}");
-        mvc.perform(requestBuilder)
-                .andExpect(content().string(equalTo("success")));
+        mvc.perform(requestBuilder).andExpect(content().string(equalTo("success")));
 
         // 3、get获取user列表，应该有刚才插入的数据
         requestBuilder = get(path);
-        mvc.perform(requestBuilder).andExpect(status().isOk()).andExpect(content()
-                .string(equalTo("[{\"id\":1,\"name\":\"测试大师\",\"age\":20}]")));
+        mvc.perform(requestBuilder).andExpect(status().isOk())
+                .andExpect(content().string(equalTo("[{\"id\":1,\"name\":\"测试大师\",\"age\":20}]")));
 
         // 4、put修改id为1的user
         requestBuilder = put(path + "1").contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\":\"测试终极大师\",\"age\":30}");
-        mvc.perform(requestBuilder)
-                .andExpect(content().string(equalTo("success")));
+        mvc.perform(requestBuilder).andExpect(content().string(equalTo("success")));
 
         // 5、get一个id为1的user
         requestBuilder = get(path + "1");
-        mvc.perform(requestBuilder).andExpect(content().string(
-                equalTo("{\"id\":1,\"name\":\"测试终极大师\",\"age\":30}")));
+        mvc.perform(requestBuilder).andExpect(content().string(equalTo("{\"id\":1,\"name\":\"测试终极大师\",\"age\":30}")));
 
         // 6、del删除id为1的user
         requestBuilder = delete(path + "1");
-        mvc.perform(requestBuilder)
-                .andExpect(content().string(equalTo("success")));
+        mvc.perform(requestBuilder).andExpect(content().string(equalTo("success")));
 
         // 7、get查一下user列表，应该为空
         requestBuilder = get(path);
-        mvc.perform(requestBuilder).andExpect(status().isOk())
-                .andExpect(content().string(equalTo("[]")));
-
+        mvc.perform(requestBuilder).andExpect(status().isOk()).andExpect(content().string(equalTo("[]")));
     }
 }
-

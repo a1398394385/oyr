@@ -1,6 +1,5 @@
 package oyw.gp.oyr;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +16,8 @@ import oyw.gp.oyr.mapper.AdminMapper;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class TimeAutoTest
-{
+public class TimeAutoTest {
+
     @Autowired
     AdminMapper adminMapper;
 

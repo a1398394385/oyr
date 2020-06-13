@@ -1,6 +1,5 @@
 package oyw.gp.oyr.controller;
 
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -19,8 +18,6 @@ import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.service.OrdersService;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
 /**
  * <p>
  * 前端控制器
@@ -31,8 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @RestController
 @RequestMapping("/orders")
-public class OrdersController
-{
+public class OrdersController {
     @Autowired
     OrdersService ordersService;
 
@@ -52,7 +48,9 @@ public class OrdersController
 
     @DeleteMapping(value = "/{id}")
     public Response<Object> delete(@PathVariable Long id) {
-        if (ordersService.removeById(id)) { return Response.result(200); }
+        if (ordersService.removeById(id)) {
+            return Response.result(200);
+        }
         return Response.error(400, "管理员不存在");
     }
 
@@ -64,10 +62,8 @@ public class OrdersController
      */
     @GetMapping(value = "/all")
     public Response<Object> getOr() {
-        return Response.result(200, ordersService.getOrdes());
+        return Response.result(200, ordersService.getOrders());
     }
-
-
 
     @PostMapping(value = "/")
     public Response<Object> create(@RequestBody Orders order) {
@@ -81,8 +77,9 @@ public class OrdersController
     @PutMapping(value = "/{id}")
     public Response<Object> update(@PathVariable Long id, @RequestBody Orders order) {
         order.setId(id);
-        if (ordersService.updateById(order)) { return Response.result(200); }
+        if (ordersService.updateById(order)) {
+            return Response.result(200);
+        }
         return Response.error(400, "管理员不存在");
     }
 }
-

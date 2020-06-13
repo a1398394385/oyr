@@ -24,8 +24,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("phone")
-public class Phone extends Model<Phone>
-{
+public class Phone extends Model<Phone> {
 
     private static final long serialVersionUID = 1L;
 

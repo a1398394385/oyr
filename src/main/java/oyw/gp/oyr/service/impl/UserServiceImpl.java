@@ -20,8 +20,7 @@ import oyw.gp.oyr.service.UserService;
  * @since 2020-04-19
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService
-{
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Autowired
     UserMapper userMapper;
 

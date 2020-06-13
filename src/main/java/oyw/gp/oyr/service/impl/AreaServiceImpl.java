@@ -21,8 +21,7 @@ import oyw.gp.oyr.service.AreaService;
  * @since 2020-04-30
  */
 @Service
-public class AreaServiceImpl extends ServiceImpl<AreaMapper, Area> implements AreaService
-{
+public class AreaServiceImpl extends ServiceImpl<AreaMapper, Area> implements AreaService {
 
     @Autowired
     AreaMapper areaMapper;

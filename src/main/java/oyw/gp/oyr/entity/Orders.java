@@ -25,8 +25,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("orders")
-public class Orders extends Model<Orders>
-{
+public class Orders extends Model<Orders> {
 
     private static final long serialVersionUID = 1L;
 
@@ -89,7 +88,6 @@ public class Orders extends Model<Orders>
      */
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
-
 
     @Override
     protected Serializable pkVal() {

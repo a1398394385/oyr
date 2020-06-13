@@ -1,6 +1,5 @@
 package oyw.gp.oyr.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +22,7 @@ import oyw.gp.oyr.service.AreaService;
  */
 @RestController
 @RequestMapping("/area")
-public class AreaController
-{
+public class AreaController {
     @Autowired
     AreaService areaService;
 
@@ -37,4 +35,3 @@ public class AreaController
             return Response.error(400, "地区编号不存在");
     }
 }
-

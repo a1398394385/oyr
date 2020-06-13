@@ -25,8 +25,8 @@ import oyw.gp.oyr.controller.AdminController;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class AdminControllerTest
-{
+public class AdminControllerTest {
+
     @Autowired
     private MockMvc mvc;
 

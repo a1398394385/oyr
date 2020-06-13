@@ -20,8 +20,7 @@ import org.springframework.stereotype.Service;
  * @since 2020-05-01
  */
 @Service
-public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> implements OrdersService
-{
+public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> implements OrdersService {
     @Autowired
     OrdersMapper ordersMapper;
 
@@ -36,7 +35,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     }
 
     @Override
-    public List<Orders> getOrdes() {
+    public List<Orders> getOrders() {
         try {
             return ordersMapper.getOrders();
         } catch (Exception e) {

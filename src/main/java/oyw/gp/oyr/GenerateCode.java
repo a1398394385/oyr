@@ -23,8 +23,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 /**
  * Mybatis-Plus 代码自动生成器
  */
-public class GenerateCode
-{
+public class GenerateCode {
     private final static Scanner SCANNER = new Scanner(System.in);
 
     /**
@@ -38,7 +37,9 @@ public class GenerateCode
         if (SCANNER.hasNext()) {
             String ipt = SCANNER.next();
 
-            if (StringUtils.isNotBlank(ipt)) { return ipt; }
+            if (StringUtils.isNotBlank(ipt)) {
+                return ipt;
+            }
         }
         throw new MybatisPlusException("请输入正确的" + tip + "！");
     }
@@ -58,8 +59,7 @@ public class GenerateCode
                 .setFileOverride(true)// 是否文件覆盖
                 .setBaseResultMap(true) // XML是否需要BaseResultMap
                 .setBaseColumnList(true) // XML是否显示baseColumnList
-                .setControllerName("%sController").setServiceName("%sService")
-                .setServiceImplName("%sServiceImpl")
+                .setControllerName("%sController").setServiceName("%sService").setServiceImplName("%sServiceImpl")
                 .setMapperName("%sMapper").setXmlName("%sMapper").setIdType(IdType.AUTO); // 主键策略
         ag.setGlobalConfig(config);
 
@@ -70,18 +70,15 @@ public class GenerateCode
 
         /* 数据源配置 */
         DataSourceConfig dsConfig = new DataSourceConfig();
-        dsConfig.setDbType(DbType.MYSQL)
-                .setUrl("jdbc:mysql://106.14.96.160:3306/oyr?serverTimezone=UTC")
-                .setDriverName("com.mysql.cj.jdbc.Driver").setUsername("root")
-                .setPassword("xihadajiang");
+        dsConfig.setDbType(DbType.MYSQL).setUrl("jdbc:mysql://106.14.96.160:3306/oyr?serverTimezone=UTC")
+                .setDriverName("com.mysql.cj.jdbc.Driver").setUsername("oyr").setPassword("J2bHLPkclzUFPfrs");
         ag.setDataSource(dsConfig);
 
         /* 策略配置 */
         StrategyConfig stConfig = new StrategyConfig();
         stConfig.setTablePrefix("").setEntityLombokModel(true).setRestControllerStyle(true)
                 .setNaming(NamingStrategy.underline_to_camel) // 数据库表映射到实体的命名策略
-                .setEntityTableFieldAnnotationEnable(true)
-                .setInclude(scanner("表名，多个英文逗号分割").split(",")); // 需要包含的表名
+                .setEntityTableFieldAnnotationEnable(true).setInclude(scanner("表名，多个英文逗号分割").split(",")); // 需要包含的表名
         ag.setStrategy(stConfig);
 
         /* 模板设置 */
@@ -92,11 +89,11 @@ public class GenerateCode
         /* 自定义配置 */
         InjectionConfig userConfig = new InjectionConfig() {
             @Override
-            public void initMap() {}
+            public void initMap() {
+            }
         };
 
-        // String templatePath = "/templates/mapper.xml.ftl"; // 如果模板引擎是
-        // freemarker
+        // String templatePath = "/templates/mapper.xml.ftl"; // 如果模板引擎是 freemarker
         String templatePath = "/templates/mapper.xml.vm"; // 如果模板引擎是 velocity
 
         // 自定义 Xml 输出配置
@@ -104,8 +101,7 @@ public class GenerateCode
         focList.add(new FileOutConfig(templatePath) {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName()
-                        + "Mapper"
+                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper"
                         + StringPool.DOT_XML;
             }
         });

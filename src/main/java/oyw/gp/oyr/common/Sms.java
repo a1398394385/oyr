@@ -18,8 +18,7 @@ import com.aliyuncs.profile.DefaultProfile;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
-public class Sms
-{
+public class Sms {
     /**
      * AccessKey
      */
@@ -45,7 +44,6 @@ public class Sms
      */
     private ValueOperations<String, String> redis;
 
-
     /**
      * @param redisTemplate
      */
@@ -56,15 +54,14 @@ public class Sms
     /**
      * send messages
      * 
-     * @param phoneNumber 手机号
-     * @param signName 签名名称
+     * @param phoneNumber  手机号
+     * @param signName     签名名称
      * @param templateCode 模版CODE
      * @return JSONObject
      */
     public JSONObject send(String phoneNumber, String signName, String templateCode) {
         JSONObject result = new JSONObject();
-        DefaultProfile profile = DefaultProfile.getProfile(REGION_ID, ACCESS_KEY_ID,
-                ACCESS_KEY_SECRET);
+        DefaultProfile profile = DefaultProfile.getProfile(REGION_ID, ACCESS_KEY_ID, ACCESS_KEY_SECRET);
         IAcsClient client = new DefaultAcsClient(profile);
 
         Map<String, Object> templateParam = new HashMap<>();

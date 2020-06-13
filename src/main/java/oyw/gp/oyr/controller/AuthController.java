@@ -13,10 +13,8 @@ import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
 
-
 @RestController
-public class AuthController
-{
+public class AuthController {
     @Autowired
     private UserService userService;
 
@@ -39,7 +37,8 @@ public class AuthController
     @PostMapping(value = "/logout")
     public Response<Object> logout() {
         HttpSession httpSession = httpServletRequest.getSession(false);
-        if (httpSession != null) httpSession.invalidate();
+        if (httpSession != null)
+            httpSession.invalidate();
         return Response.result(200, "登出成功");
     }
 }
