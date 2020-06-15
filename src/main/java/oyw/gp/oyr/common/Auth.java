@@ -1,16 +1,17 @@
 package oyw.gp.oyr.common;
 
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 
 public class Auth {
     HttpServletRequest httpServletRequest;
 
     public Auth(HttpServletRequest httpServletRequest) {
         this.httpServletRequest = httpServletRequest;
-    };
+    }
+
+    ;
 
     public HashMap<String, Object> getSession() {
         HttpSession httpSession = httpServletRequest.getSession(false);

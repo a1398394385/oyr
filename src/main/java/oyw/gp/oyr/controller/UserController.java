@@ -1,16 +1,7 @@
 package oyw.gp.oyr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.service.UserService;
@@ -19,7 +10,7 @@ import oyw.gp.oyr.service.UserService;
  * @author OuYangWei
  * @since 2020-04-19
  */
-@CrossOrigin(value = { "*" })
+@CrossOrigin(value = {"*"})
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -38,7 +29,7 @@ public class UserController {
 
     /**
      * 处理"/user/"的POST请求，用来创建User
-     * 
+     *
      * @param user
      * @return
      */
@@ -49,7 +40,7 @@ public class UserController {
 
     /**
      * 处理"/user/{id}"的GET请求，用来获取url中id值的User信息
-     * 
+     *
      * @param id
      * @return
      */
@@ -65,7 +56,7 @@ public class UserController {
 
     /**
      * 处理"/user/{id}"的PUT请求，用来更新url中id值的User信息
-     * 
+     *
      * @param id
      * @param user
      * @return
@@ -83,7 +74,7 @@ public class UserController {
 
     /**
      * 处理"/user/{id}"的DELETE请求，用来删除url中id值的User信息
-     * 
+     *
      * @param id
      * @return
      */

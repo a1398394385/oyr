@@ -2,10 +2,8 @@ package oyw.gp.oyr.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.entity.User;
 import oyw.gp.oyr.mapper.UserMapper;
@@ -29,8 +27,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("telephone", user.getTelephone()).eq("password", user.getPassword());
         User loginUser = userMapper.selectOne(queryWrapper);
-        if (loginUser == null)
+        if (loginUser == null) {
             return null;
+        }
         return loginUser;
     }
 

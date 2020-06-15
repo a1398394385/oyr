@@ -1,7 +1,7 @@
 package oyw.gp.oyr.mapper;
 
-import oyw.gp.oyr.entity.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import oyw.gp.oyr.entity.Admin;
 
 /**
  * <p>

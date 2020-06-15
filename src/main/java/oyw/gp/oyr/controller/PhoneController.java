@@ -7,8 +7,6 @@ import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.service.PhoneService;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * <p>
@@ -27,8 +25,9 @@ public class PhoneController {
     @GetMapping("/brand/{brand}")
     public Response<Object> getPhonesByBrand(@PathVariable int brand) {
         List<Phone> phones = phoneService.getPhonesByBrand(brand);
-        if (phones == null)
+        if (phones == null) {
             return Response.error(400, "手机品牌不存在");
+        }
         return Response.result(200, phones);
     }
 

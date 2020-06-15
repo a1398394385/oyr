@@ -1,30 +1,26 @@
 package oyw.gp.oyr.common;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang3.RandomUtils;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Random;
 
-import javax.imageio.ImageIO;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.lang3.RandomUtils;
-
 /**
  * 生成图形验证码
- * 
+ *
  * @author OuYangWei
  * @since 2020-5-1
  */
 public class Captcha {
     /**
      * 单例模式实例
-     * 
+     *
      * @see SerializeData
      */
     private static SerializeData captcha = new SerializeData();
@@ -64,7 +60,7 @@ public class Captcha {
 
     /**
      * 获取随机字符,并返回字符的String格式
-     * 
+     *
      * @param index 指定位置
      * @return
      */
@@ -75,7 +71,7 @@ public class Captcha {
 
     /**
      * 获取随机指定区间的随机数
-     * 
+     *
      * @param min 最小值
      * @param max 最大值
      * @return
@@ -86,7 +82,7 @@ public class Captcha {
 
     /**
      * 获得字体
-     * 
+     *
      * @return
      */
     private static Font getFont() {
@@ -95,16 +91,18 @@ public class Captcha {
 
     /**
      * 获得颜色
-     * 
+     *
      * @param frontColor
      * @param backColor
      * @return Color
      */
     private static Color getRandColor(int frontColor, int backColor) {
-        if (frontColor > 255)
+        if (frontColor > 255) {
             frontColor = 255;
-        if (backColor > 255)
+        }
+        if (backColor > 255) {
             backColor = 255;
+        }
 
         int red = frontColor + random.nextInt(backColor - frontColor - 16);
         int green = frontColor + random.nextInt(backColor - frontColor - 14);
@@ -114,7 +112,7 @@ public class Captcha {
 
     /**
      * 绘制字符串,返回绘制的字符串
-     * 
+     *
      * @param g
      * @param randomString
      * @param i
@@ -136,7 +134,7 @@ public class Captcha {
 
     /**
      * 绘制干扰线
-     * 
+     *
      * @param g
      */
     private static void drawLine(Graphics g) {
@@ -203,12 +201,13 @@ public class Captcha {
 
     /**
      * 获取验证码 Base64 值
-     * 
+     *
      * @param refresh 是否刷新当前图形验证码
      */
     public static String getBase64Str(Boolean refresh) {
-        if (refresh)
+        if (refresh) {
             generateCaptcha();
+        }
         return captcha.getBase64Str();
     }
 
@@ -221,12 +220,13 @@ public class Captcha {
 
     /**
      * 获取验证码内容值
-     * 
+     * <p>
      * * @param refresh 是否刷新当前图形验证码
      */
     public static String getValue(Boolean refresh) {
-        if (refresh)
+        if (refresh) {
             generateCaptcha();
+        }
         return captcha.getValue();
     }
 

@@ -1,16 +1,14 @@
 package oyw.gp.oyr.service.impl;
 
-import java.util.List;
-
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import lombok.extern.slf4j.Slf4j;
 import oyw.gp.oyr.entity.Phone;
 import oyw.gp.oyr.mapper.PhoneMapper;
 import oyw.gp.oyr.service.PhoneService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -26,6 +24,7 @@ public class PhoneServiceImpl extends ServiceImpl<PhoneMapper, Phone> implements
     @Autowired
     PhoneMapper phoneMapper;
 
+    @Override
     public List<Phone> getPhonesByBrand(int brand) {
 
         try {

@@ -1,22 +1,13 @@
 package oyw.gp.oyr.controller;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import oyw.gp.oyr.entity.Orders;
 import oyw.gp.oyr.entity.Response;
 import oyw.gp.oyr.service.OrdersService;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -40,10 +31,11 @@ public class OrdersController {
     @GetMapping(value = "/user/{id}")
     public Response<Object> getOrdersByUserId(@PathVariable Long id) {
         List<Orders> orders = ordersService.getOrdersByUserId(id);
-        if (orders != null)
+        if (orders != null) {
             return Response.result(200, orders);
-        else
+        } else {
             return Response.error(500, "用户id不存在");
+        }
     }
 
     @DeleteMapping(value = "/{id}")
@@ -56,8 +48,7 @@ public class OrdersController {
 
     /**
      * 带有model的级联查询
-     * 
-     * @param param
+     *
      * @return
      */
     @GetMapping(value = "/all")
@@ -68,10 +59,11 @@ public class OrdersController {
     @PostMapping(value = "/")
     public Response<Object> create(@RequestBody Orders order) {
         order.setCreateTime(LocalDateTime.now());
-        if (ordersService.save(order))
+        if (ordersService.save(order)) {
             return Response.result(200);
-        else
+        } else {
             return Response.error(500, null);
+        }
     }
 
     @PutMapping(value = "/{id}")

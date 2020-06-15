@@ -1,9 +1,5 @@
 package oyw.gp.oyr.common;
 
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.CommonRequest;
@@ -14,9 +10,12 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
-
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Sms {
     /**
@@ -53,7 +52,7 @@ public class Sms {
 
     /**
      * send messages
-     * 
+     *
      * @param phoneNumber  手机号
      * @param signName     签名名称
      * @param templateCode 模版CODE
@@ -100,7 +99,7 @@ public class Sms {
 
     /**
      * 验证请求地址随机值段
-     * 
+     *
      * @param requestAddress 请求地址随机值段
      * @return 当请求地址有效时返回 true
      */
@@ -110,7 +109,7 @@ public class Sms {
 
     /**
      * 获取手机验证码
-     * 
+     *
      * @param phoneNumber
      * @return code
      */
@@ -122,7 +121,7 @@ public class Sms {
 
     /**
      * 验证手机验证码
-     * 
+     *
      * @param phoneNumber
      * @param code
      * @return 当验证码正确时返回 true
