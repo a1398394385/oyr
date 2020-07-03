@@ -21,12 +21,12 @@ public class Sms {
     /**
      * AccessKey
      */
-    private final static String ACCESS_KEY_ID = "LTAI4G87JhHdG5g2a9FPMTJh";
+    private final static String ACCESS_KEY_ID = "";
 
     /**
      * AccessKeySecret
      */
-    private final static String ACCESS_KEY_SECRET = "AcQiU4Dar2cLOrKLPurFDw5Zo7RmXn";
+    private final static String ACCESS_KEY_SECRET = "";
 
     /**
      * RegionId
