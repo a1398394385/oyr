@@ -196,7 +196,7 @@ public class Captcha {
      * 获取验证码 Base64 值
      */
     public static String getBase64Str() {
-        return captcha.getBase64Str();
+        return getBase64Str(false);
     }
 
     /**
@@ -215,7 +215,7 @@ public class Captcha {
      * 获取验证码内容值
      */
     public static String getValue() {
-        return captcha.getValue();
+        return getValue(false);
     }
 
     /**
@@ -233,7 +233,7 @@ public class Captcha {
     /**
      * 用于序列化验证码图片 包含Base64值以及验证码内容值
      */
-    public static class SerializeData implements Serializable {
+    private static class SerializeData implements Serializable {
         private static final long serialVersionUID = 1L;
 
         /**
